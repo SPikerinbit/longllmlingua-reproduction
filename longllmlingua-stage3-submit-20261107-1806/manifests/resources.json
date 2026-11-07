@@ -1,0 +1,108 @@
+{
+  "lost_in_the_middle_commit": "29b8a6d042ce29abccee3db1a73171a107d7e6af",
+  "llmlingua_commit": "5a4c78ae18ab17a98cf997e8259354e546081d64",
+  "files": {
+    "data/raw/nq-open-20_total_documents_gold_at_0.jsonl.gz": {
+      "url": "https://raw.githubusercontent.com/nelson-liu/lost-in-the-middle/29b8a6d042ce29abccee3db1a73171a107d7e6af/qa_data/20_total_documents/nq-open-20_total_documents_gold_at_0.jsonl.gz",
+      "bytes": 15151873,
+      "sha256": "69a8dd87a45f07fb3ed9b804917a89db975cd6e488682fc838edca029cc3881f",
+      "git_blob_sha1": "19d062a7c970798aa44f47b708d449ee736c046a"
+    },
+    "data/raw/nq-open-20_total_documents_gold_at_4.jsonl.gz": {
+      "url": "https://raw.githubusercontent.com/nelson-liu/lost-in-the-middle/29b8a6d042ce29abccee3db1a73171a107d7e6af/qa_data/20_total_documents/nq-open-20_total_documents_gold_at_4.jsonl.gz",
+      "bytes": 15163003,
+      "sha256": "c5e44700c4db24536f139f7383e3dd002413515ee889aeadc72767dd7f289682",
+      "git_blob_sha1": "dfc3390cf412688c89cbdf3fe94d9ea91a2a6531"
+    },
+    "data/raw/nq-open-20_total_documents_gold_at_9.jsonl.gz": {
+      "url": "https://raw.githubusercontent.com/nelson-liu/lost-in-the-middle/29b8a6d042ce29abccee3db1a73171a107d7e6af/qa_data/20_total_documents/nq-open-20_total_documents_gold_at_9.jsonl.gz",
+      "bytes": 15155756,
+      "sha256": "cbada411f70235afc47d9b5407e9358ad72eb021742402ff032c8b65076ffb2f",
+      "git_blob_sha1": "3da78e8cd44e269eb6c30a1d72d8ed00ac88df45"
+    },
+    "data/raw/nq-open-20_total_documents_gold_at_14.jsonl.gz": {
+      "url": "https://raw.githubusercontent.com/nelson-liu/lost-in-the-middle/29b8a6d042ce29abccee3db1a73171a107d7e6af/qa_data/20_total_documents/nq-open-20_total_documents_gold_at_14.jsonl.gz",
+      "bytes": 15152418,
+      "sha256": "86c1a25093615baefdd1ee4db7a993548b3bef24ca02eb9bd8db43fbedf517f2",
+      "git_blob_sha1": "a44fb5b01239d9efe844db2ccd2b00266ec4df51"
+    },
+    "data/raw/nq-open-20_total_documents_gold_at_19.jsonl.gz": {
+      "url": "https://raw.githubusercontent.com/nelson-liu/lost-in-the-middle/29b8a6d042ce29abccee3db1a73171a107d7e6af/qa_data/20_total_documents/nq-open-20_total_documents_gold_at_19.jsonl.gz",
+      "bytes": 15114700,
+      "sha256": "d79b715e1b8c8301335e93cb01659f68c24f0253a808c3190b06d21896506c6c",
+      "git_blob_sha1": "d5dbd5d6ef8a2e1718d11577bbbce836eb3e883b"
+    },
+    "vendor/lost_in_the_middle/LICENSE": {
+      "url": "https://raw.githubusercontent.com/nelson-liu/lost-in-the-middle/29b8a6d042ce29abccee3db1a73171a107d7e6af/LICENSE",
+      "bytes": 1067,
+      "sha256": "972d3ea8cab53ed57cf52c1ff0f93c2d0616590a75d69eda5fbd65b836c9b896",
+      "git_blob_sha1": "759b79bd8c82acb24f368f0d3a776f62aa569fe6"
+    },
+    "vendor/lost_in_the_middle/metrics.py": {
+      "url": "https://raw.githubusercontent.com/nelson-liu/lost-in-the-middle/29b8a6d042ce29abccee3db1a73171a107d7e6af/src/lost_in_the_middle/metrics.py",
+      "bytes": 1040,
+      "sha256": "b2ac7e1c2fac7e1d09aabbeee782bebe4fb74b650b42cb9111b88692e5a2f35e",
+      "git_blob_sha1": "2eb80bd3074731fcc208d11bc08fa4276f2ef97c"
+    },
+    "vendor/lost_in_the_middle/qa.prompt": {
+      "url": "https://raw.githubusercontent.com/nelson-liu/lost-in-the-middle/29b8a6d042ce29abccee3db1a73171a107d7e6af/src/lost_in_the_middle/prompts/qa.prompt",
+      "bytes": 174,
+      "sha256": "368a84fe24373cc0a3a789ce5e62e6854994ece138747c93c76f25aafea25411",
+      "git_blob_sha1": "9a2dae3460719cacb9f94b05374c8efaf41c2295"
+    },
+    "vendor/lost_in_the_middle/prompting.py.reference": {
+      "url": "https://raw.githubusercontent.com/nelson-liu/lost-in-the-middle/29b8a6d042ce29abccee3db1a73171a107d7e6af/src/lost_in_the_middle/prompting.py",
+      "bytes": 3873,
+      "sha256": "c8de5f26e22261ed540e7578ff4ca79b7548aa5b9ddbc33b769afdae494acb26",
+      "git_blob_sha1": "590982496c7ddf983e33d42663e25e01aab04b0a"
+    },
+    "vendor/lost_in_the_middle/evaluate_qa_responses.py.reference": {
+      "url": "https://raw.githubusercontent.com/nelson-liu/lost-in-the-middle/29b8a6d042ce29abccee3db1a73171a107d7e6af/scripts/evaluate_qa_responses.py",
+      "bytes": 2768,
+      "sha256": "fd35118106f02e781143f720c21b71ceeb8e4592e5b440f54f035a8562dd5b63",
+      "git_blob_sha1": "b6e9cdfbf6925a53e2862338690a3c17ce7c719b"
+    },
+    "vendor/llmlingua_reference/LICENSE": {
+      "url": "https://raw.githubusercontent.com/microsoft/LLMLingua/5a4c78ae18ab17a98cf997e8259354e546081d64/LICENSE",
+      "bytes": 1141,
+      "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+      "git_blob_sha1": "9e841e7a26e4eb057b24511e7b92d42b257a80e5"
+    },
+    "vendor/llmlingua_reference/README.md": {
+      "url": "https://raw.githubusercontent.com/microsoft/LLMLingua/5a4c78ae18ab17a98cf997e8259354e546081d64/README.md",
+      "bytes": 19363,
+      "sha256": "c402d1b259523cb0b18c45d807e57a0dc039dc67b8ea342fb549d524e11cea69",
+      "git_blob_sha1": "1ca17bc04f61ed8cad86d566a924d7e8f36e030a"
+    },
+    "vendor/llmlingua_reference/DOCUMENT.md": {
+      "url": "https://raw.githubusercontent.com/microsoft/LLMLingua/5a4c78ae18ab17a98cf997e8259354e546081d64/DOCUMENT.md",
+      "bytes": 27283,
+      "sha256": "cbc018863eb654a2c5477eb5edd75327b7492ca7d51817f640670a5bed034c2b",
+      "git_blob_sha1": "1ff0b7b75267d17722c2068a85a712b29b171aba"
+    },
+    "vendor/llmlingua_reference/setup.py.reference": {
+      "url": "https://raw.githubusercontent.com/microsoft/LLMLingua/5a4c78ae18ab17a98cf997e8259354e546081d64/setup.py",
+      "bytes": 2128,
+      "sha256": "dc1db5a6940ac538482036e7e9c016eacaf0fd31855c806c850b2a1f2bc74872",
+      "git_blob_sha1": "ae0f4fbb18856ecfc20049a1d6e70c19ce0cd52f"
+    },
+    "vendor/llmlingua_reference/llmlingua/prompt_compressor.py.reference": {
+      "url": "https://raw.githubusercontent.com/microsoft/LLMLingua/5a4c78ae18ab17a98cf997e8259354e546081d64/llmlingua/prompt_compressor.py",
+      "bytes": 110078,
+      "sha256": "814e02e8dfaf33c2cd91d3990c0ecd9c42c1cb11ca57b665730bcf8fb2e4a2a4",
+      "git_blob_sha1": "84e390e557b031b553c372e661af63f9d5aedfc3"
+    },
+    "data/tokenizer/tokenizer.json": {
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/resolve/314113f8a7dadb388215396ba5fbee2c610a04d6/tokenizer.json",
+      "bytes": 6367257,
+      "sha256": "c90dfa01249db1be4245780a052ede752e1361c612ac6d08e2bdada7d599476b",
+      "git_blob_sha1": "6a15814dd25c934028034531da744c689f87ff21"
+    },
+    "vendor/deepseek_tokenizer/LICENSE": {
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/resolve/314113f8a7dadb388215396ba5fbee2c610a04d6/LICENSE",
+      "bytes": 1064,
+      "sha256": "1c8f573e830ca9b3ebfeb7ace1823146e22b66f99ee223840e7637c9e745e1c7",
+      "git_blob_sha1": "d42fae903e9fa07f3e8edb0db00a8d905ba49560"
+    }
+  }
+}

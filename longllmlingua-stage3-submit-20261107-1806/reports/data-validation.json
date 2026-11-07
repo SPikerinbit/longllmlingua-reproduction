@@ -1,0 +1,17 @@
+{
+  "questions_per_position": 2655,
+  "positions": [
+    1,
+    5,
+    10,
+    15,
+    20
+  ],
+  "documents_per_question": 20,
+  "all_question_sets_match": true,
+  "all_document_sets_match": true,
+  "gold_positions_verified": true,
+  "duplicate_ids": 0,
+  "seed": 42,
+  "source_commit": "29b8a6d042ce29abccee3db1a73171a107d7e6af"
+}
