@@ -1,150 +1,100 @@
-# LongLLMLingua 小组复现
+# LongLLMLingua 长上下文提示压缩复现
 
-四人接力完成 NaturalQuestions 多文档问答上的 LongLLMLingua 方法复现。**第一阶段已通过本机技术验收，300 个真实结果全部完成，等待队友复核和 GitHub 交接。**
+本项目复现论文 [LongLLMLingua: Accelerating and Enhancing LLMs in Long Context Scenarios via Prompt Compression](https://arxiv.org/abs/2310.06839v2) 中的问题感知提示压缩方法，在 NaturalQuestions 20 文档问答上比较回答质量、答案位置敏感性与压缩开销。
 
-## 从这里开始
+四个阶段的数据与基线、压缩适配、主比较、消融与效率实验现已整合为一套工程。**固定 100 题主比较与消融、独立效率矩阵均已完成并通过离线核验；阶段四待 PR 复核。** 本项目使用 DeepSeek 问答 API 替代论文的历史 GPT 模型，属于方法级复现，不声称复现论文绝对数值。
 
-1. 阅读 [AGENTS.md](AGENTS.md)：四人分工、实验口径、接口、验收和 GitHub 规则。
-2. 第一阶段负责人按 [阶段一清单](docs/stage1-checklist.md) 推进环境、数据、原始提示与 BM25 基线。
-3. 每次交接复制并填写 [交接模板](docs/handoff-template.md)，提交本阶段代码、结果和材料供下一位成员复核。
+## 实验设计与完成情况
 
-| 阶段 | 主责 | 核心产物 |
-| --- | --- | --- |
-| 一：数据与基线 | 项目发起人 | 数据清单、实验底座、原始提示/BM25 真实结果 |
-| 二：压缩方法 | 成员二 | LLMLingua/LongLLMLingua、机制开关、过程案例 |
-| 三：主实验 | 成员三 | 批量运行、正式主表、位置曲线与统计分析 |
-| 四：消融与效率 | 成员四 | 消融、效率、错误分析与最终汇编 |
+- 数据：每题 20 篇文档，答案文档位于第 1、5、10、15、20 位；五位置按稳定问题 ID 对齐。
+- 比较方法：原始提示、BM25、LLMLingua、LongLLMLingua；压缩方法分别采用 2x/4x 完整提示预算，主比较关闭文档重排序。
+- 压缩模型：LLaMA-2-7B-Chat；问答配置为 `deepseek-flash`、非思考、temperature=0、最大输出 512 token。
+- 指标：固定上游的首行 `best_subspan_em`；实际压缩比为原始完整提示 token 数除以压缩后完整提示 token 数。
+- 抽样：seed=42，20/100/500 题清单嵌套且固定。考虑课程预算，主比较与消融采用已经固定的 **pilot 100 题**；保留 `split=pilot` 标签，500 题清单仅用于扩展。
 
-## 当前状态
+| 阶段 | 负责内容 | 已有证据 | 结果入口 |
+| --- | --- | --- | --- |
+| 成员一 | 数据、模板、API 缓存、评分、原始提示与 BM25 | smoke 20 题五位置，300/300 槽成功 | [阶段一验收](reports/stage1-acceptance/REPORT.md) |
+| 成员二 | LLMLingua/LongLLMLingua 适配、机制开关与恢复 | smoke 20 题五位置，400/400 槽成功，保留 4 条预算超标 | [阶段二验收](reports/stage2-smoke/REPORT.md)、[参数映射](docs/stage2-parameter-map.md) |
+| 成员三 | 批量调度、断点续跑、主比较与配对统计 | pilot 100 题五位置七组合，3500/3500 槽成功 | [主比较结果](reports/stage3-main/summary.json)、[覆盖率](reports/stage3-main/coverage.json) |
+| 成员四 | 910B 执行、单机制消融、重排序、恢复及效率分析 | 消融 3500/3500、独立效率 1200/1200 槽成功 | [消融结果](reports/stage4-ablation-efficiency/RESULTS.md)、[效率表](reports/stage4-ablation-efficiency/efficiency.csv) |
 
-已建立独立 `.venv`，下载五份 NQ 数据和官方 DeepSeek 分词器，完成原始提示、BM25、API 适配、缓存与评分。已验证 2,655 题 × 五位置全部对齐，通过 22 项离线测试与依赖检查，完成 300 个真实结果的提示、缓存、预算和重评分复核。未下载大模型权重。
+这里的槽位是“问题 × 位置 × 方法”记录数，不等于独立问题数或新增 API 调用数。恢复消融复用同一原始回答，不重复调用 API。
 
-结果入口：[验收报告](reports/stage1-acceptance/REPORT.md)、[五位置结果表](reports/stage1-acceptance/summary.md)、[机器可读验收记录](reports/stage1-acceptance/acceptance.json)。原始提示、BM25 2x、BM25 4x 平均 EM 分别为 92%、87%、64%；这是 20 题的流程验收，不能替代正式 500 题实验。
+## 主比较结果
 
-成员姓名与小组服务器配置待登记。第一阶段已通过本机验收；上传后由队友复核 PR，复核通过后再合并并标记 `stage1-ready`。
+以下是成员三在 CUDA 环境得到的固定 100 题结果，每种组合各 500 个问题位置样本。
 
-远程仓库：[SPikerinbit/longllmlingua-reproduction](https://github.com/SPikerinbit/longllmlingua-reproduction)（私有）。完整第一阶段交付在 `stage1-foundation` 分支，按 Pull Request 复核后合并至 `main`；队友复核前不创建 `stage1-ready` 标签。
+| 方法 | 平均 EM（%） | 平均实际压缩比 |
+| --- | ---: | ---: |
+| 原始提示 | 84.6 | 1.00x |
+| BM25 2x | 72.4 | 2.00x |
+| BM25 4x | 55.8 | 4.01x |
+| LLMLingua 2x | 46.8 | 2.04x |
+| LLMLingua 4x | 35.6 | 4.17x |
+| LongLLMLingua 2x | 83.2 | 2.08x |
+| LongLLMLingua 4x | 79.0 | 4.09x |
 
-首次克隆请指定阶段一分支：
+LongLLMLingua 在本组设置下优于相同比值的两种压缩基线，准确率仍低于原始提示。2x 相对原始提示的差值为 -1.4 个百分点，问题级配对 bootstrap 95% 区间为 [-6.2, 3.0]。LongLLMLingua 4x 有 18/500 条未达到硬预算，原记录与实际比值均保留，不能将其视为严格等预算比较。完整配对统计见 [stats.json](reports/stage3-main/stats.json)。
 
-```powershell
-git clone --branch stage1-foundation https://github.com/SPikerinbit/longllmlingua-reproduction.git
-cd longllmlingua-reproduction
-```
+![五位置主比较](reports/stage3-main/positions.png)
 
-## 第二阶段：压缩方法与机制验证
+## 消融与效率
 
-第二阶段在 `stage2-compression` 分支进行，承接第一阶段的数据、模板、分词器、API 缓存与评分流程：
+成员四在 Ascend 910B4 上对相同 100 题运行完整 LongLLMLingua 2x 同机参照与五个变体，并离线移除恢复。完整方法 EM 为 **82.6%**；移除粗粒度问题感知后为 **45.0%**，移除动态预算后为 **78.0%**。细粒度、restrict、重排序的差值区间均跨 0；移除恢复为 83.2%，保留恢复产生的负面案例。
 
-- 固定官方提交的 `PromptCompressor` 通过适配层接入（`reproduction/compression.py`），LLMLingua 与
-  LongLLMLingua 共用同一 LLaMA-2-7B-Chat 压缩模型；
-- 2x/4x 主表使用硬预算（按固定 DeepSeek 分词器实测完整提示），同时保留库自然压缩结果用于差异说明；
-- `restrict`、问题感知粗粒度、问题感知细粒度、动态预算、重排序与子序列恢复都是独立开关，逐项对照见
-  [参数映射与差异表](docs/stage2-parameter-map.md)；
-- 子序列恢复在问答之后执行，恢复前后回答都保存并都评分；逐槽位输出文档分数、保留文档、预算、
-  文本变化追踪与压缩耗时。
+![同机消融](reports/stage4-ablation-efficiency/figures/ablation.png)
 
-在 Linux GPU 或 NPU 机器上运行（本机 CPU 只跑离线测试与 `plan`）：
+效率采用同机独立 smoke 20 题五位置、12 组合，1200 条均为成功且未命中本地问答/压缩缓存的测量。模型加载和两次压缩预热在逐槽计时之前；另统一剔除每方法首个样本，最终每方法使用相同的 **99 个问题位置样本**，报告 p50/p95 与峰值 HBM。
+
+完整 LongLLMLingua 2x 的端到端 p50/p95 约为 **6.45/7.49 秒**，原始提示为 **1.12/1.54 秒**，完整方法的 allocated HBM 峰值约为 16.43 GB。压缩减少输入 token，但在本次服务与负载下未带来端到端延迟优势。API 网络与服务端缓存会影响测量，阶段中位数之和也不等于端到端中位数。
+
+![效率阶段耗时](reports/stage4-ablation-efficiency/figures/efficiency.png)
+
+CUDA 主比较与 NPU 消融分开保留来源，不拼接不同硬件的耗时；旧 HTTP 402 中断效率运行未进入最终表。运行来源、环境、验证口径和限制见 [实验说明](docs/experiments.md)。
+
+## 本地重建结果
+
+只重建已保存的统计和图不需要模型权重、API 密钥或云服务器。使用 Python 3.12，在仓库根目录执行：
 
 ```bash
-PYTHONPATH=. python -m reproduction.stage2 plan
-PYTHONPATH=. python -m reproduction.stage2 run --limit 3
-PYTHONPATH=. python -m reproduction.stage2 run
-PYTHONPATH=. python -m reproduction.stage2 summarize outputs/stage2/<运行ID>
-PYTHONPATH=. python -m reproduction.stage2 casebook outputs/stage2/<运行ID>
-```
-
-接口、产物与已知差异见 [第二阶段实现说明](docs/stage2-implementation.md)；服务器依赖见
-[requirements-stage2.txt](requirements-stage2.txt)。模型权重不入库，路径由
-[configs/stage2.json](configs/stage2.json) 的 `compressor.model_path` 指定。
-
-本阶段 smoke 的完整逐槽记录（`results.jsonl`，约 8.6MB）、压缩/问答缓存与运行日志不进入 Git：
-仓库只保留 `reports/stage2-smoke/` 下的轻量汇总与样例。完整文件保存在成员二本地的
-`data/scratch/modelarts/`（已被 `.gitignore` 忽略）。后续组员做作业、准备报告、复核或答辩如果
-需要逐槽文件、缓存或日志，可向成员二索取。
-
-## 填入密钥并开始运行
-
-打开根目录 **`.env`**，在 `DEEPSEEK_API_KEY=` 后填入自己的密钥。该文件已被 Git 忽略，不要把密钥写进公共配置或报告。环境变量优先于 `.env`；如存在同名旧环境变量，应先更新。
-
-[configs/stage1.json](configs/stage1.json) 已预填：供应商 DeepSeek、官方地址 `https://api.deepseek.com`、模型 `deepseek-flash`、非思考模式、temperature=0、最大输出 512 token。当前对应模型版本记录为 `DeepSeek-V4.1-Flash-1017`；这是调研记录，不是服务商保证的固定快照。运行另存 API 返回的 model、fingerprint（如提供）及时间。
-
-在项目根目录的 PowerShell 执行：
-
-```powershell
-# 仅检查配置和密钥是否存在，不发送请求
-.\.venv\Scripts\python.exe -m reproduction check
-# 先做 3 个新逻辑请求，产生真实费用
-.\.venv\Scripts\python.exe -m reproduction run --limit 3
-# 续跑整个 smoke，复用已成功结果
-.\.venv\Scripts\python.exe -m reproduction run
-```
-
-未完成整个矩阵时退出码为 2，限量试运行返回 2 属正常情况。默认 smoke 为 20 题 × 五位置 × 三种基线，共 300 个结果槽位。同一运行不要同时开两个进程。
-
-离线操作：
-
-```powershell
-# 下载/验证固定版本的数据、参考源码和分词器，不下载权重
-.\.venv\Scripts\python.exe -m reproduction prepare
-# 对整个 smoke 做 token 预算统计，不调用 API
-.\.venv\Scripts\python.exe -m reproduction plan
-# 离线测试，模拟响应只写临时目录，不作为实验结果
-.\.venv\Scripts\python.exe -m pytest
-```
-
-真实运行后按输出的运行目录重新评分，不再调用 API：
-
-```powershell
-# 将 <运行ID> 替换为 run 命令实际打印的目录名
-.\.venv\Scripts\python.exe -m reproduction summarize outputs/stage1/<运行ID>
-```
-
-完整本机技术验收也可离线复查，不调用 API：
-
-```powershell
-.\.venv\Scripts\python.exe scripts\accept_stage1.py outputs/stage1/d54b3118c61ea4930624
-```
-
-## 在另一台电脑重建环境
-
-本机 Python 3.12.7；先在项目根目录执行：
-
-```powershell
 python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements-lock.txt
-# 仅首次配置时复制；不要覆盖已有密钥文件
-Copy-Item .env.example .env
-.\.venv\Scripts\python.exe -m reproduction prepare
 ```
 
-`requirements-lock.txt` 固定本机完整依赖；跨系统可先用 `requirements.txt` 的直接依赖并保存新解析结果。Linux 使用 `python3 -m venv .venv`，随后用 `.venv/bin/python` 替换 Windows Python 路径；小组服务器尚未实测。第一阶段 CPU 足够，不安装 PyTorch/CUDA。
+激活环境：Windows PowerShell 使用 `.\.venv\Scripts\Activate.ps1`；Linux 使用 `source .venv/bin/activate`。然后执行：
 
-## 数据和输出
+```bash
+python -m pip install -r requirements.txt
+python scripts/analyze_stage4.py
+python -m pip install matplotlib==3.10.0
+python scripts/plot_results.py
+python -m pytest tests/test_stage4_results.py tests/test_cloud910b.py tests/test_stage3.py tests/test_stage4_recovery_analysis.py tests/test_final_delivery.py
+```
 
-- `manifests/`：可入库的来源、校验值及 smoke/pilot/main 嵌套 ID 清单，seed=42。
-- `data/raw/`：五份完整 NQ 数据，不入库。`data/tokenizer/`：固定官方分词器，不含权重。
-- `vendor/`：固定上游模板、评分函数、参考源码和许可证；评分直接调用上游函数。
-- `reports/data-validation.json`：全部五位置数据校验。`reports/smoke-plan.json`：离线预算，不是真实问答结果。
-- `cache/api/`：成功响应缓存，不入库，不含 API 密钥。
-- `outputs/stage1/<运行ID>/`：配置、逐样本 `results.jsonl`、可重新生成的 `summary.json` / `summary.md`，不自动发布。
+这 31 项检查覆盖调度、恢复分析、相同负载匹配和最终结果重建。完整 `python -m pytest` 还包含需要真实 NQ 文件及固定 tokenizer 的前阶段测试，应先执行 `python -m reproduction prepare` 获取公开数据；该命令不下载大模型、不调用问答 API。
 
-当前 smoke 本地预算为 **524,775 输入文本 token**、最多 **153,600 输出 token**，不包括重试；实际通常远低于输出上限。最初 128 上限导致部分回答截断，验收已统一改为 512，旧试运行记录保留但不混入最终矩阵。本地只计提示文本，不计服务端聊天封装；公开分词器与在线服务可能有版本差异，费用以 API usage 为准。
+`reports/stage4-ablation-efficiency/inputs/metrics.jsonl` 是用于重建统计的轻量逐槽指标，不包含完整提示、回答或请求缓存。完整数据、预测和原始返回包留在组内存储；取得原始包后可按 [实验说明](docs/experiments.md) 独立重评分。
 
-每次 run 最多 300 个新逻辑调用，每个调用最多 3 次网络尝试，最坏 900 次尝试；`--limit` 限制本次逻辑调用数。网络超时时服务端可能已计费，重试可能重复计费。401/402/403 会停止本轮；空回答和输出截断不计成功、不缓存。
+## 工程结构与运行入口
 
-成功响应先落缓存再写结果；重跑跳过成功槽位并补跑失败。修改配置/实现产生新运行目录，相同提示和生成配置可复用原缓存，并记录其来源。完整预测和提示留在忽略目录；GitHub 仅提交经检查的轻量汇总与必要案例。
+```text
+reproduction/     数据、基线、压缩适配、API、评分、恢复和批量调度
+configs/          各阶段配置与云端实际运行配置
+manifests/        固定来源、校验信息及嵌套样本 ID 清单
+scripts/          验收、离线核验、云端执行、统计和绘图
+tests/            数据隔离、预算、缓存、调度和统计检查
+reports/          阶段一至四的轻量结果、图表、环境和核验记录
+docs/             实现接口、论文参数映射与实验说明
+vendor/           固定上游参考、模板、评分函数和许可证
+```
 
-普通退出自动清理 `.running` 标记。强制结束若留标记，确认旧进程已停止后再手动删除该输出目录的标记并续跑。
+阶段一基线入口为 `python -m reproduction`，压缩验证入口为 `python -m reproduction.stage2`，批量实验入口为 `python -m reproduction.stage3`，910B 包装入口为 `python scripts/cloud910b.py`。接口分别见 [基础实现](docs/stage1-implementation.md)、[压缩实现](docs/stage2-implementation.md) 和 [实验说明](docs/experiments.md)。
 
-接口、预算策略与差异见 [实现说明](docs/stage1-implementation.md)；当前待验收项见 [阶段一交接](docs/handoff-stage1.md)，本阶段讲解提纲见 [答辩笔记](docs/stage1-defense-notes.md)。
+云端真实推理须使用已有匹配的 torch/torch_npu 环境，补充依赖采用 `requirements-cloud.txt`，其中 tokenizers=0.21.4 与 transformers=4.53.1 兼容；不要叠加安装基础环境中 tokenizers=0.22.1 的固定版本。配置中的模型路径由实际权重位置确定，密钥通过环境变量或 `.env` 提供，变量名见 `.env.example`。查看和重建现有结果无需重新运行真实实验。
 
-## 资源
+## 来源与复现边界
 
-- [论文](https://arxiv.org/abs/2310.06839v2)，本机可选源码位于 `arXiv-2310.06839v2/`，不随仓库分发，可从 arXiv 获取。
-- [微软官方实现](https://github.com/microsoft/LLMLingua)，固定版本和复用边界见 AGENTS.md。
-- [NQ 多文档数据及评估](https://github.com/nelson-liu/lost-in-the-middle)。
-- [官方 DeepSeek 分词器](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/tree/314113f8a7dadb388215396ba5fbee2c610a04d6)，许可保存在 vendor/deepseek_tokenizer/LICENSE。
-- [DeepSeek 官方模型与价格](https://api-docs.deepseek.com/zh-cn/quick_start/pricing/)、[思考模式](https://api-docs.deepseek.com/zh-cn/guides/thinking_mode/)。
-
-范围为 NQ 20 文档、五种答案位置、2x/4x 压缩、四种方法及关键消融。使用现有 API 的结果属于方法级复现，需明确与论文历史问答模型的差异。
+- 核心压缩算法复用 [微软 LLMLingua](https://github.com/microsoft/LLMLingua) 的固定提交 `5a4c78ae18ab17a98cf997e8259354e546081d64`。本组贡献为工程适配、机制配置、实验执行、评估与分析，不声称原创压缩算法；不混用 LLMLingua、LongLLMLingua 与 LLMLingua-2。
+- 数据构造、模板与 `best_subspan_em` 来源于 [Lost in the Middle](https://github.com/nelson-liu/lost-in-the-middle)，固定版本及校验信息见 `manifests/resources.json`。
+- 历史 k=2 近似映射在当前 LongLLMLingua 路径中无效；论文的指令/问题预压缩未实现，恢复使用固定 DeepSeek tokenizer。具体差异见参数映射表。
+- 模型权重、完整原始/处理数据、完整预测缓存、凭证、虚拟环境及大型日志不提交。上游版权和许可证保留在 `vendor/`。

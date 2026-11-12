@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "runs": {
+    "ablation": {
+      "run_id": "a9d2295195adde90484d",
+      "expected": 3500,
+      "rows": 3500,
+      "success": 3500,
+      "failed": 0,
+      "missing": 0,
+      "recovery_replayed": 3000,
+      "baseline_prompts_rebuilt": 500,
+      "evidence_reused": "Original run.json/results.jsonl byte-identical in final returned archive"
+    },
+    "efficiency": {
+      "run_id": "2a7f4accf6127178a76b",
+      "expected": 1200,
+      "rows": 1200,
+      "unique_slots": 1200,
+      "superseded_attempts": 0,
+      "success": 1200,
+      "failed": 0,
+      "missing": 0,
+      "recovery_replayed": 700,
+      "baseline_prompts_rebuilt": 300
+    }
+  },
+  "scope": "Raw answers rescored, budgets counted and recovery replayed; no compression or API rerun",
+  "final_efficiency_complete": true,
+  "cache_checks": {
+    "api_slots_checked": 3500,
+    "compression_slots_checked": 3000
+  },
+  "cloud_script_and_core_bytes_match_received": true
+}

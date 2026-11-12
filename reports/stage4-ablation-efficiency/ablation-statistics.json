@@ -1,0 +1,79 @@
+[
+  {
+    "method": "original",
+    "baseline": "longllmlingua_2x",
+    "n_questions": 100,
+    "coverage": 1.0,
+    "baseline_mean": 0.826,
+    "method_mean": 0.846,
+    "mean": 0.02,
+    "ci_low": -0.022000000000000002,
+    "ci_high": 0.06999999999999999
+  },
+  {
+    "method": "longllmlingua_2x_no_coarse",
+    "baseline": "longllmlingua_2x",
+    "n_questions": 100,
+    "coverage": 1.0,
+    "baseline_mean": 0.826,
+    "method_mean": 0.45,
+    "mean": -0.376,
+    "ci_low": -0.47199999999999986,
+    "ci_high": -0.28400000000000003
+  },
+  {
+    "method": "longllmlingua_2x_no_fine",
+    "baseline": "longllmlingua_2x",
+    "n_questions": 100,
+    "coverage": 1.0,
+    "baseline_mean": 0.826,
+    "method_mean": 0.812,
+    "mean": -0.014,
+    "ci_low": -0.042,
+    "ci_high": 0.012
+  },
+  {
+    "method": "longllmlingua_2x_no_dynamic",
+    "baseline": "longllmlingua_2x",
+    "n_questions": 100,
+    "coverage": 1.0,
+    "baseline_mean": 0.826,
+    "method_mean": 0.78,
+    "mean": -0.046,
+    "ci_low": -0.08600000000000002,
+    "ci_high": -0.007999999999999997
+  },
+  {
+    "method": "longllmlingua_2x_no_restrict",
+    "baseline": "longllmlingua_2x",
+    "n_questions": 100,
+    "coverage": 1.0,
+    "baseline_mean": 0.826,
+    "method_mean": 0.832,
+    "mean": 0.006,
+    "ci_low": -0.022,
+    "ci_high": 0.03600000000000001
+  },
+  {
+    "method": "longllmlingua_2x_reorder",
+    "baseline": "longllmlingua_2x",
+    "n_questions": 100,
+    "coverage": 1.0,
+    "baseline_mean": 0.826,
+    "method_mean": 0.796,
+    "mean": -0.03,
+    "ci_low": -0.07200000000000001,
+    "ci_high": 0.008
+  },
+  {
+    "method": "longllmlingua_2x_no_recovery",
+    "baseline": "longllmlingua_2x",
+    "n_questions": 100,
+    "coverage": 1.0,
+    "baseline_mean": 0.826,
+    "method_mean": 0.832,
+    "mean": 0.006,
+    "ci_low": 0.0,
+    "ci_high": 0.016
+  }
+]

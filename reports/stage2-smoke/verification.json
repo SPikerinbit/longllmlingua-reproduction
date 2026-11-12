@@ -1,0 +1,88 @@
+{
+  "passed": true,
+  "scope": "Offline artifact consistency and recovery replay; no compression rerun",
+  "run_id": "a1bd26fe3d82dea3f65d",
+  "split": "smoke",
+  "rows": 400,
+  "unique_slots": 400,
+  "expected_slots": 400,
+  "full_population_alignment": {
+    "1": 2655,
+    "5": 2655,
+    "10": 2655,
+    "15": 2655,
+    "20": 2655
+  },
+  "recovery_replayed_slots": 200,
+  "portable_implementation_hash": "b9de0421e01d14393f48ef6ba25f8fe0a1bf6acecb7bac5b527276b759525aa6",
+  "hash_note": "Stored Linux hash reproduced by POSIX path separators with unchanged file bytes",
+  "unique_api_requests": 386,
+  "budget_satisfied": 396,
+  "budget_misses": [
+    {
+      "slot_id": "23707ea627731d1e8786f6a2d21e325e8c4d0d6c8c741752da1b2d91d0e8048e:1:longllmlingua_4x",
+      "tokens": 749,
+      "target": 742
+    },
+    {
+      "slot_id": "23707ea627731d1e8786f6a2d21e325e8c4d0d6c8c741752da1b2d91d0e8048e:5:longllmlingua_4x",
+      "tokens": 751,
+      "target": 742
+    },
+    {
+      "slot_id": "23707ea627731d1e8786f6a2d21e325e8c4d0d6c8c741752da1b2d91d0e8048e:10:longllmlingua_4x",
+      "tokens": 754,
+      "target": 742
+    },
+    {
+      "slot_id": "23707ea627731d1e8786f6a2d21e325e8c4d0d6c8c741752da1b2d91d0e8048e:15:longllmlingua_4x",
+      "tokens": 753,
+      "target": 742
+    }
+  ],
+  "unique_saved_response_usage": {
+    "prompt_tokens": 426249,
+    "completion_tokens": 29173
+  },
+  "logical_slot_usage_including_reused_responses": {
+    "prompt_tokens": 437149,
+    "completion_tokens": 30655
+  },
+  "local_api_cache_hit_slots": 14,
+  "methods": [
+    {
+      "method": "llmlingua_2x",
+      "slots": 100,
+      "em_before": 0.62,
+      "em_after": 0.62,
+      "changed_answers": 0,
+      "mean_actual_ratio": 2.0479792525106246
+    },
+    {
+      "method": "llmlingua_4x",
+      "slots": 100,
+      "em_before": 0.46,
+      "em_after": 0.46,
+      "changed_answers": 0,
+      "mean_actual_ratio": 4.170572957534149
+    },
+    {
+      "method": "longllmlingua_2x",
+      "slots": 100,
+      "em_before": 0.94,
+      "em_after": 0.94,
+      "changed_answers": 9,
+      "mean_actual_ratio": 2.085778851052105
+    },
+    {
+      "method": "longllmlingua_4x",
+      "slots": 100,
+      "em_before": 0.88,
+      "em_after": 0.88,
+      "changed_answers": 12,
+      "mean_actual_ratio": 4.104072396720705
+    }
+  ],
+  "new_api_requests": 0,
+  "new_compression_calls": 0
+}

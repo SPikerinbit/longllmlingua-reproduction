@@ -1,0 +1,77 @@
+{
+  "split": "pilot",
+  "bootstrap": {
+    "bootstrap_samples": 2000,
+    "seed": 42,
+    "confidence": 0.95
+  },
+  "unit": "question (all positions kept together)",
+  "comparisons": [
+    {
+      "method": "bm25_2x",
+      "baseline": "original",
+      "n_questions": 100,
+      "coverage": 1.0,
+      "baseline_mean": 0.846,
+      "method_mean": 0.724,
+      "mean": -0.122,
+      "ci_low": -0.192,
+      "ci_high": -0.057999999999999996
+    },
+    {
+      "method": "bm25_4x",
+      "baseline": "original",
+      "n_questions": 100,
+      "coverage": 1.0,
+      "baseline_mean": 0.846,
+      "method_mean": 0.558,
+      "mean": -0.288,
+      "ci_low": -0.3760000000000002,
+      "ci_high": -0.19400000000000003
+    },
+    {
+      "method": "llmlingua_2x",
+      "baseline": "original",
+      "n_questions": 100,
+      "coverage": 1.0,
+      "baseline_mean": 0.846,
+      "method_mean": 0.468,
+      "mean": -0.378,
+      "ci_low": -0.4680000000000002,
+      "ci_high": -0.292
+    },
+    {
+      "method": "llmlingua_4x",
+      "baseline": "original",
+      "n_questions": 100,
+      "coverage": 1.0,
+      "baseline_mean": 0.846,
+      "method_mean": 0.356,
+      "mean": -0.49,
+      "ci_low": -0.5760000000000001,
+      "ci_high": -0.3999999999999999
+    },
+    {
+      "method": "longllmlingua_2x",
+      "baseline": "original",
+      "n_questions": 100,
+      "coverage": 1.0,
+      "baseline_mean": 0.846,
+      "method_mean": 0.832,
+      "mean": -0.013999999999999999,
+      "ci_low": -0.06199999999999999,
+      "ci_high": 0.029999999999999992
+    },
+    {
+      "method": "longllmlingua_4x",
+      "baseline": "original",
+      "n_questions": 100,
+      "coverage": 1.0,
+      "baseline_mean": 0.846,
+      "method_mean": 0.79,
+      "mean": -0.056,
+      "ci_low": -0.11600000000000002,
+      "ci_high": -0.003999999999999993
+    }
+  ]
+}

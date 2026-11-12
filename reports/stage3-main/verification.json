@@ -1,0 +1,283 @@
+{
+  "passed": true,
+  "scope": "Independent pilot rescore and stored output verification; no compression/API rerun",
+  "run_id": "e8f151b9c286648caf98",
+  "split": "pilot",
+  "questions": 100,
+  "slots": 3500,
+  "success": 3500,
+  "failed": 0,
+  "missing": 0,
+  "changed_or_new_source_files": [
+    "stage3.py"
+  ],
+  "implementation_hash": "ba889fbc1117884257dfc0545547ae46365a5dfa174b0d964c84b27b62a5c468",
+  "baseline_prompts_rebuilt": 1500,
+  "recovery_replayed": 1000,
+  "summary_reproduced": true,
+  "coverage_reproduced": true,
+  "paired_statistics_reproduced": true,
+  "comparisons_vs_original": [
+    {
+      "method": "bm25_2x",
+      "baseline": "original",
+      "n_questions": 100,
+      "coverage": 1.0,
+      "baseline_mean": 0.846,
+      "method_mean": 0.724,
+      "mean": -0.122,
+      "ci_low": -0.192,
+      "ci_high": -0.057999999999999996
+    },
+    {
+      "method": "bm25_4x",
+      "baseline": "original",
+      "n_questions": 100,
+      "coverage": 1.0,
+      "baseline_mean": 0.846,
+      "method_mean": 0.558,
+      "mean": -0.288,
+      "ci_low": -0.3760000000000002,
+      "ci_high": -0.19400000000000003
+    },
+    {
+      "method": "llmlingua_2x",
+      "baseline": "original",
+      "n_questions": 100,
+      "coverage": 1.0,
+      "baseline_mean": 0.846,
+      "method_mean": 0.468,
+      "mean": -0.378,
+      "ci_low": -0.4680000000000002,
+      "ci_high": -0.292
+    },
+    {
+      "method": "llmlingua_4x",
+      "baseline": "original",
+      "n_questions": 100,
+      "coverage": 1.0,
+      "baseline_mean": 0.846,
+      "method_mean": 0.356,
+      "mean": -0.49,
+      "ci_low": -0.5760000000000001,
+      "ci_high": -0.3999999999999999
+    },
+    {
+      "method": "longllmlingua_2x",
+      "baseline": "original",
+      "n_questions": 100,
+      "coverage": 1.0,
+      "baseline_mean": 0.846,
+      "method_mean": 0.832,
+      "mean": -0.013999999999999999,
+      "ci_low": -0.06199999999999999,
+      "ci_high": 0.029999999999999992
+    },
+    {
+      "method": "longllmlingua_4x",
+      "baseline": "original",
+      "n_questions": 100,
+      "coverage": 1.0,
+      "baseline_mean": 0.846,
+      "method_mean": 0.79,
+      "mean": -0.056,
+      "ci_low": -0.11600000000000002,
+      "ci_high": -0.003999999999999993
+    }
+  ],
+  "methods": [
+    {
+      "method": "original",
+      "slots": 500,
+      "em_before": 0.846,
+      "em_after": 0.846,
+      "actual_ratio": 1.0,
+      "budget_misses": 0,
+      "recovery_changed": 0,
+      "recovery_helped": 0,
+      "recovery_harmed": 0
+    },
+    {
+      "method": "bm25_2x",
+      "slots": 500,
+      "em_before": 0.724,
+      "em_after": 0.724,
+      "actual_ratio": 2.001659249299372,
+      "budget_misses": 0,
+      "recovery_changed": 0,
+      "recovery_helped": 0,
+      "recovery_harmed": 0
+    },
+    {
+      "method": "bm25_4x",
+      "slots": 500,
+      "em_before": 0.558,
+      "em_after": 0.558,
+      "actual_ratio": 4.0060147319355845,
+      "budget_misses": 0,
+      "recovery_changed": 0,
+      "recovery_helped": 0,
+      "recovery_harmed": 0
+    },
+    {
+      "method": "llmlingua_2x",
+      "slots": 500,
+      "em_before": 0.468,
+      "em_after": 0.468,
+      "actual_ratio": 2.043583184994991,
+      "budget_misses": 0,
+      "recovery_changed": 0,
+      "recovery_helped": 0,
+      "recovery_harmed": 0
+    },
+    {
+      "method": "llmlingua_4x",
+      "slots": 500,
+      "em_before": 0.356,
+      "em_after": 0.356,
+      "actual_ratio": 4.172981157130076,
+      "budget_misses": 0,
+      "recovery_changed": 0,
+      "recovery_helped": 0,
+      "recovery_harmed": 0
+    },
+    {
+      "method": "longllmlingua_2x",
+      "slots": 500,
+      "em_before": 0.838,
+      "em_after": 0.832,
+      "actual_ratio": 2.0799542177673715,
+      "budget_misses": 0,
+      "recovery_changed": 42,
+      "recovery_helped": 0,
+      "recovery_harmed": 3
+    },
+    {
+      "method": "longllmlingua_4x",
+      "slots": 500,
+      "em_before": 0.788,
+      "em_after": 0.79,
+      "actual_ratio": 4.089871205331283,
+      "budget_misses": 18,
+      "recovery_changed": 72,
+      "recovery_helped": 1,
+      "recovery_harmed": 0
+    }
+  ],
+  "budget_misses": [
+    {
+      "slot_id": "23707ea627731d1e8786f6a2d21e325e8c4d0d6c8c741752da1b2d91d0e8048e:1:longllmlingua_4x",
+      "tokens": 754,
+      "target": 742
+    },
+    {
+      "slot_id": "a1bc042605bbfadedc64e1ddb4d9ba81f26af53c062b4d860005b97a93bd9773:1:longllmlingua_4x",
+      "tokens": 707,
+      "target": 695
+    },
+    {
+      "slot_id": "8e0f05e33f34c3da161efc59ea9c6410e83b659c9a40537dbb850adfbcc840e9:1:longllmlingua_4x",
+      "tokens": 728,
+      "target": 725
+    },
+    {
+      "slot_id": "23707ea627731d1e8786f6a2d21e325e8c4d0d6c8c741752da1b2d91d0e8048e:5:longllmlingua_4x",
+      "tokens": 750,
+      "target": 742
+    },
+    {
+      "slot_id": "79aa2aa4ce6787c405ef96800d0e6ecada32843f81e48b75c0b6a8e975217705:5:longllmlingua_4x",
+      "tokens": 724,
+      "target": 722
+    },
+    {
+      "slot_id": "42f2c88370bc031db5c5a7a46ffc85abd6fe6d17392ddfd36f75b151f41a9e63:5:longllmlingua_4x",
+      "tokens": 679,
+      "target": 671
+    },
+    {
+      "slot_id": "a1bc042605bbfadedc64e1ddb4d9ba81f26af53c062b4d860005b97a93bd9773:5:longllmlingua_4x",
+      "tokens": 705,
+      "target": 695
+    },
+    {
+      "slot_id": "8e0f05e33f34c3da161efc59ea9c6410e83b659c9a40537dbb850adfbcc840e9:5:longllmlingua_4x",
+      "tokens": 726,
+      "target": 725
+    },
+    {
+      "slot_id": "23707ea627731d1e8786f6a2d21e325e8c4d0d6c8c741752da1b2d91d0e8048e:10:longllmlingua_4x",
+      "tokens": 752,
+      "target": 742
+    },
+    {
+      "slot_id": "79aa2aa4ce6787c405ef96800d0e6ecada32843f81e48b75c0b6a8e975217705:10:longllmlingua_4x",
+      "tokens": 727,
+      "target": 722
+    },
+    {
+      "slot_id": "a1bc042605bbfadedc64e1ddb4d9ba81f26af53c062b4d860005b97a93bd9773:10:longllmlingua_4x",
+      "tokens": 702,
+      "target": 695
+    },
+    {
+      "slot_id": "8e0f05e33f34c3da161efc59ea9c6410e83b659c9a40537dbb850adfbcc840e9:10:longllmlingua_4x",
+      "tokens": 729,
+      "target": 725
+    },
+    {
+      "slot_id": "a93790d025b8a4184f1c8d8c6675d1d2a9b2aa102462aec8b1495375d44c1c0a:10:longllmlingua_4x",
+      "tokens": 694,
+      "target": 693
+    },
+    {
+      "slot_id": "23707ea627731d1e8786f6a2d21e325e8c4d0d6c8c741752da1b2d91d0e8048e:15:longllmlingua_4x",
+      "tokens": 752,
+      "target": 742
+    },
+    {
+      "slot_id": "79aa2aa4ce6787c405ef96800d0e6ecada32843f81e48b75c0b6a8e975217705:15:longllmlingua_4x",
+      "tokens": 726,
+      "target": 722
+    },
+    {
+      "slot_id": "a1bc042605bbfadedc64e1ddb4d9ba81f26af53c062b4d860005b97a93bd9773:15:longllmlingua_4x",
+      "tokens": 708,
+      "target": 695
+    },
+    {
+      "slot_id": "23707ea627731d1e8786f6a2d21e325e8c4d0d6c8c741752da1b2d91d0e8048e:20:longllmlingua_4x",
+      "tokens": 744,
+      "target": 742
+    },
+    {
+      "slot_id": "79aa2aa4ce6787c405ef96800d0e6ecada32843f81e48b75c0b6a8e975217705:20:longllmlingua_4x",
+      "tokens": 723,
+      "target": 722
+    }
+  ],
+  "unique_request_keys": 3037,
+  "local_api_cache_hit_slots": 609,
+  "slot_usage": {
+    "prompt_tokens": 4723696,
+    "completion_tokens": 254294
+  },
+  "unique_response_usage": {
+    "prompt_tokens": 4294243,
+    "completion_tokens": 222569
+  },
+  "response_models": {
+    "deepseek-flash": 3500
+  },
+  "system_fingerprints": {
+    "bc19ba97cbe016479903222bb1578db6": 3500
+  },
+  "main_present": false,
+  "new_api_requests": 0,
+  "new_compression_calls": 0,
+  "limitations": [
+    "Source API/compression caches not included in this package",
+    "No exact GPU model or cloud session manifest supplied",
+    "Main 500-question matrix absent; pilot is not formal main acceptance"
+  ]
+}

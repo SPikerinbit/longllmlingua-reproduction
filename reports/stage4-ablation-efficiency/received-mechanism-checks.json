@@ -1,0 +1,37 @@
+{
+  "longllmlingua_2x_no_coarse": {
+    "paired_slots": 500,
+    "prompt_changed": 500,
+    "documents_changed": 500,
+    "document_scores_changed": 500,
+    "dynamic_offsets_changed": 500
+  },
+  "longllmlingua_2x_no_fine": {
+    "paired_slots": 500,
+    "prompt_changed": 500,
+    "documents_changed": 98,
+    "document_scores_changed": 98,
+    "dynamic_offsets_changed": 98
+  },
+  "longllmlingua_2x_no_dynamic": {
+    "paired_slots": 500,
+    "prompt_changed": 500,
+    "documents_changed": 50,
+    "document_scores_changed": 50,
+    "dynamic_offsets_changed": 500
+  },
+  "longllmlingua_2x_no_restrict": {
+    "paired_slots": 500,
+    "prompt_changed": 500,
+    "documents_changed": 415,
+    "document_scores_changed": 500,
+    "dynamic_offsets_changed": 499
+  },
+  "longllmlingua_2x_reorder": {
+    "paired_slots": 500,
+    "prompt_changed": 500,
+    "documents_changed": 500,
+    "document_scores_changed": 54,
+    "dynamic_offsets_changed": 500
+  }
+}

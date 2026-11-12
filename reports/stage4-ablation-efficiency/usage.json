@@ -1,0 +1,20 @@
+{
+  "ablation": {
+    "successful_slots": 3500,
+    "local_cache_hits": 1184,
+    "unique_saved_responses": 3491,
+    "unique_saved_response_usage": {
+      "prompt_tokens": 5762538,
+      "completion_tokens": 259603
+    }
+  },
+  "efficiency": {
+    "successful_slots": 1200,
+    "local_cache_hits": 0,
+    "unique_saved_responses": 1200,
+    "unique_saved_response_usage": {
+      "prompt_tokens": 1694940,
+      "completion_tokens": 85588
+    }
+  }
+}

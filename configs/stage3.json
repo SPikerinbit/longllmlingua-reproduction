@@ -1,0 +1,115 @@
+{
+  "stage": 3,
+  "provider": "deepseek",
+  "base_url": "https://api.deepseek.com",
+  "model": "deepseek-flash",
+  "expected_model_version": "DeepSeek-V4.1-Flash-1017",
+  "api_key_env": "DEEPSEEK_API_KEY",
+  "thinking": {"type": "disabled"},
+  "temperature": 0,
+  "max_tokens": 512,
+  "timeout_seconds": 90,
+  "max_attempts": 3,
+  "retry_delay_seconds": 2,
+  "request_interval_seconds": 0.2,
+  "max_requests_per_run": 20000,
+  "max_context_tokens": 16000,
+  "split": "main",
+  "positions": [1, 5, 10, 15, 20],
+  "seed": 42,
+  "baseline": "original",
+  "statistics": {
+    "bootstrap_samples": 2000,
+    "seed": 42,
+    "confidence": 0.95
+  },
+  "tokenizer": {
+    "repo": "deepseek-ai/DeepSeek-V4.1-Flash",
+    "revision": "314113f8a7dadb388215396ba5fbee2c610a04d6",
+    "file": "tokenizer.json",
+    "counting": "prompt-text-only; excludes API chat framing; API usage is billing truth"
+  },
+  "upstream": {
+    "lost_in_the_middle": "29b8a6d042ce29abccee3db1a73171a107d7e6af",
+    "llmlingua": "5a4c78ae18ab17a98cf997e8259354e546081d64"
+  },
+  "bm25": {"k1": 1.5, "b": 0.75, "tokenization": "unicode-word-lower-v1"},
+  "compressor": {
+    "model_path": "/cache/models/llama-2-7b-chat",
+    "model_name": "NousResearch/Llama-2-7b-chat-hf",
+    "device": "cuda:0",
+    "torch_dtype": "float16",
+    "attn_implementation": "eager",
+    "iterative_size": 200,
+    "context_budget": "+100",
+    "budget_mode": "hard",
+    "max_budget_passes": 3,
+    "seed": 42
+  },
+  "recovery": {
+    "tokenizer": "deepseek-answer-model",
+    "scope": "response-only"
+  },
+  "methods": {
+    "original": {
+      "kind": "original",
+      "ratio": 1.0
+    },
+    "bm25_2x": {
+      "kind": "bm25",
+      "ratio": 2.0
+    },
+    "bm25_4x": {
+      "kind": "bm25",
+      "ratio": 4.0
+    },
+    "llmlingua_2x": {
+      "kind": "llmlingua",
+      "ratio": 2.0,
+      "rank_method": "llmlingua",
+      "condition_in_question": "none",
+      "condition_compare": false,
+      "dynamic_context_compression_ratio": 0.0,
+      "reorder_context": "original",
+      "use_context_level_filter": true,
+      "restrict": false,
+      "recovery": false
+    },
+    "llmlingua_4x": {
+      "kind": "llmlingua",
+      "ratio": 4.0,
+      "rank_method": "llmlingua",
+      "condition_in_question": "none",
+      "condition_compare": false,
+      "dynamic_context_compression_ratio": 0.0,
+      "reorder_context": "original",
+      "use_context_level_filter": true,
+      "restrict": false,
+      "recovery": false
+    },
+    "longllmlingua_2x": {
+      "kind": "longllmlingua",
+      "ratio": 2.0,
+      "rank_method": "longllmlingua",
+      "condition_in_question": "after",
+      "condition_compare": true,
+      "dynamic_context_compression_ratio": 0.3,
+      "reorder_context": "original",
+      "use_context_level_filter": true,
+      "restrict": true,
+      "recovery": true
+    },
+    "longllmlingua_4x": {
+      "kind": "longllmlingua",
+      "ratio": 4.0,
+      "rank_method": "longllmlingua",
+      "condition_in_question": "after",
+      "condition_compare": true,
+      "dynamic_context_compression_ratio": 0.3,
+      "reorder_context": "original",
+      "use_context_level_filter": true,
+      "restrict": true,
+      "recovery": true
+    }
+  }
+}

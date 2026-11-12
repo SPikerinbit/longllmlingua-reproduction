@@ -1,0 +1,29 @@
+[
+  {
+    "question_id": "5c55f7345b73cc7418b887cd745e43341ebae3d6693637d0b68a288d92be8dbe",
+    "position": 5,
+    "question": "what was the purpose of the bantu education act",
+    "before_score": 1.0,
+    "after_score": 0.0,
+    "before_first_line": "The purpose of the Bantu Education Act was to consolidate Bantu education, i.e., that of black people, so that discriminatory educational practices could be uniformly implemented across South Africa [2][3]. Its major provision was enforcing racially separated educational facilities [5]. According to",
+    "after_first_line": "The purpose of the Bantu Education Act was to consolidate Bantu education, i.e., that of black people, so that discriminatory educational practices could be uniformly implemented across South Africa"
+  },
+  {
+    "question_id": "a1bc042605bbfadedc64e1ddb4d9ba81f26af53c062b4d860005b97a93bd9773",
+    "position": 5,
+    "question": "how many cracker barrels in the united states",
+    "before_score": 1.0,
+    "after_score": 0.0,
+    "before_first_line": "Based on the search results, Cracker Barrel operates 645 stores in 4 states (Document 2), or 639 stores in 43 states as of September 18, 2012 (Document 5).",
+    "after_first_line": "Based on the search results, Cracker Barrel operates 645 stores in 44 states. Cracker Barrel's menu is based on traditional Southern cuisine, with"
+  },
+  {
+    "question_id": "a1bc042605bbfadedc64e1ddb4d9ba81f26af53c062b4d860005b97a93bd9773",
+    "position": 20,
+    "question": "how many cracker barrels in the united states",
+    "before_score": 1.0,
+    "after_score": 0.0,
+    "before_first_line": "Based on the search results, the number of Cracker Barrel locations in the United States varies depending on the date of the source. According to Document [2], the chain operates 645 stores in 4 states (the state count appears to be a typo in the source). Document [20] states that as of September 18",
+    "after_first_line": "Based on the search results, the number of Cracker Barrel locations in the United States varies depending on the date of the source. According to Document [2], the chain operates 645 stores in 44 states. Cracker Barrel's menu is based on traditional Southern cuisine, with"
+  }
+]
