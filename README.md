@@ -2,7 +2,17 @@
 
 本项目复现论文 [LongLLMLingua: Accelerating and Enhancing LLMs in Long Context Scenarios via Prompt Compression](https://arxiv.org/abs/2310.06839v2) 中的问题感知提示压缩方法，在 NaturalQuestions 20 文档问答上比较回答质量、答案位置敏感性与压缩开销。
 
-四个阶段的数据与基线、压缩适配、主比较、消融与效率实验现已整合为一套工程。**固定 100 题主比较与消融、独立效率矩阵均已完成并通过离线核验；阶段四待 PR 复核。** 本项目使用 DeepSeek 问答 API 替代论文的历史 GPT 模型，属于方法级复现，不声称复现论文绝对数值。
+四个阶段的数据与基线、压缩适配、主比较、消融与效率实验现已整合为一套工程。**固定 100 题主比较与消融、独立效率矩阵均已完成并通过离线核验；阶段四产物已通过 PR 合并至 main。** 本项目使用 DeepSeek 问答 API 替代论文的历史 GPT 模型，属于方法级复现，不声称复现论文绝对数值。
+
+## 中期报告与阅读指引
+
+**[查看 G14 小组中期报告 PDF](reports/midterm/G14-LongLLMLingua中期报告.pdf)**
+
+报告对应课程“自然语言处理项目实践”，包含论文原理与本组设置差异、四位成员的工作、主比较、消融与效率结果、代表性真实输出及失败案例，以及局限与未来工作。点击上方链接可在 GitHub 预览，也可在文件页面下载 PDF。
+
+- **了解项目整体**：先阅读中期报告，再查看下方的实验设计与结果概览。
+- **核对结果与来源**：参阅[实验说明](docs/experiments.md)、[主比较结果](reports/stage3-main/summary.json)、[消融结果](reports/stage4-ablation-efficiency/RESULTS.md)和[效率表](reports/stage4-ablation-efficiency/efficiency.csv)。主比较与消融采用固定 100 题、五位置，CUDA 与 NPU 的来源分别登记。
+- **重建统计和图表**：按下方“本地重建结果”执行，无需模型权重或新增 API 调用。
 
 ## 实验设计与完成情况
 
