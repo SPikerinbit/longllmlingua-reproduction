@@ -1,3 +1,3 @@
-deliverables-v4/G14-LongLLMLingua-slides-v4.pptx: 2 font(s), 0 missing that change visible text
-  Noto Sans CJK SC (theme): 116 text run(s), 154 other [installed]
+deliverables-v5/G14-LongLLMLingua-slides-v5.pptx: 2 font(s), 0 missing that change visible text
+  Noto Sans CJK SC (theme): 204 text run(s), 96 other [installed]
   Inconsolata: 16 text run(s), 43 other [installed]

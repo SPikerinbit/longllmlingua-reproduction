@@ -1,8 +1,8 @@
-# v4补正（当前有效）
+# v5补正（当前有效）
 
-B1命令纠正为`python -m json.tool reports/stage3-main/run.json`，用于查看已保存pilot运行快照；不是新实验、不是计划生成或推理复现。依据用户本轮仓库侧交叉核验及既有run.json源链，未进行新的远端研究。v3已被替代；以下历史核验中“页面文字完全不变”仅指上一轮v3，v4仅改B1命令、阅读标签及对应资料。B2离线分析命令保持临时out，未执行。
+B1命令纠正为`python -m json.tool reports/stage3-main/run.json`，用于查看已保存pilot运行快照；不是新实验、不是计划生成或推理复现。依据用户本轮仓库侧交叉核验及既有run.json源链，未进行新的远端研究。v3已被替代；以下历史核验中“页面文字完全不变”仅指上一轮v3，v5仅改B1命令、阅读标签及对应资料。B2离线分析命令保持临时out，未执行。
 
-# G14 LongLLMLingua v4｜素材来源与核验报告
+# G14 LongLLMLingua v5｜素材来源与核验报告
 
 本轮仅本地finish，无新增页、无推理、无API、无远端上传。9页已逐页渲染亲看；按已认可前三页证据标准复核密度、层次、证据可读、结论对应和图注，而非只看无重叠。
 
@@ -260,18 +260,26 @@ beb0bb256c2b4732077de7d267226187e7182a4b4ae893e8f115821769c05a1b  sources/verifi
 d3739a281dcd782ec9d064844364fdf906d9b82816d1d83664f15a7e44041724  sources/verified-member1-sources.md
 
 ## 最终成品检查结果
-- 9页物理顺序未变；v4除B1只读证据命令、标签与出处说明外，其余8页页面XML与v3逐字节相同，未变数据、排版或短标题。
+- 9页物理顺序未变；v5除B1只读证据命令、标签与出处说明外，其余8页页面XML与v3逐字节相同，未变数据、排版或短标题。
 - 全9页逐页亲看；修后再看P4/B1与全组最终拼图。
 - check-overlap：no findings；OOXML：72个XML部件校验通过，1个无schema；两种字体均已安装，无影响可见文本的缺失字体。
 - P1/P2/P3/P7页面XML不变；P5/P6/B2只加既有页脚内部跳转；P4/B1仅残留排版修复。备注9/9写入新版讲稿与源链。
 - 同版PDF和逐页图均从最终PPTX一次渲染导出；PDF为静态备览，PPTX保留原生文字、表格、图形和引用论文图，不是整页截图。
 - 机器检查不替代Windows/投影、真人计时、录屏或课程评分验收。
 
-## v4最终交叉核对
+## v5最终交叉核对
 - 物理第8页正确命令：`python -m json.tool reports/stage3-main/run.json`；标签为查看已保存pilot运行快照。仅查看已有JSON，不加载模型、不调用API，不生成计划。
 - 第9页原命令完整保留：`python scripts/analyze_stage4.py --out /tmp/g14-stage4-audit`。临时out避免覆盖已提交结果，本轮未执行。
-- v4已去除不适用的配置路径与相关计划/推理命令；v4包不包含旧历史备注附件。v3成品和旧zip仍保留，仅历史参考，已被v4替代。
+- v5已去除不适用的配置路径与相关计划/推理命令；v5包不包含旧历史备注附件。v3成品和旧zip仍保留，仅历史参考，已被v5替代。
 - 已亲看最终全组拼图与第8页渲染：无字符缺失、容器溢出或图注遮挡。其他8页XML字节不变。
 - 全套check-overlap无发现；72个XML部件schema校验通过，1个无schema；两种字体已安装，无影响可见文本的缺失字体。
-- 页数9不变；备注9页仅统一v4版本标识及相应错误修正；B1成员3讲稿、QA、证据导航与本报告同步。
+- 页数9不变；备注9页仅统一v5版本标识及相应错误修正；B1成员3讲稿、QA、证据导航与本报告同步。
 - 本轮只修证据命令与配套资料，不是新实验，未执行所展示命令、模型推理或API，也未上传。既有事实边界和未验证项不变。
+
+
+## v5 本轮补充核验
+仅更改视觉表达与图表指认，原数据变化为0；不新增推理/API。P1/P2/P7保留结论横幅，P3/P4/P5/P6/P8/P9改局部证据表达。
+P5七方法可编辑点图按原方法顺序，EM轴0–100；仅右侧两条真实问题级配对CI，跨0不证明等效，Long4x18/500超预算。
+P6以NPU full82.6为配对参照；ablation.csv与analyze_stage4.py L54–71证明CI来自paired_comparisons，full无CI、original外部参照、no_recovery为已有回答派生。右侧独立效率total_pipeline_seconds_p50/p95是分位点，非CI；没有端到端加速。
+P9保留原效率图，阶段中位数不能相加为E2E。P8只查看已有pilot快照：`python -m json.tool reports/stage3-main/run.json`。P9保留`python scripts/analyze_stage4.py --out /tmp/g14-stage4-audit`，本轮两命令均未执行。
+作图原值/线性映射见sources/g2/v5-chart-data-and-mapping.json，独立坐标核对见chart-source-audit-v5.json。历史输出缓存、CUDA型号、CANN缺口保留；Windows投影与真人计时未验证。
