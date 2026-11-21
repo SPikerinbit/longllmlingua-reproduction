@@ -115,7 +115,9 @@ run `2a7f4accf6127178a76b`。`coverage.json`：1200/1200。`efficiency.csv` 每�
 
 ## 当前 9 页演示稿
 
-提交用的文件是 `docs/presentation/final/slides.pptx` 与同目录 `slides.pdf`。`docs/presentation/slides/G14-LongLLMLingua-template.pptx` 是更早的骨架，不是这份 slides。页上主比较、阶段一 smoke、阶段二 396/400、阶段四 82.6/45.0/78.0 和效率 1.12/6.45 秒与本登记表一致。
+提交用的文件是 `docs/presentation/final/slides.pptx` 与同目录 `slides.pdf`。`docs/presentation/slides/G14-LongLLMLingua-template.pptx` 是更早的骨架，不是这份 slides。P1、P2、P7 保留结论横幅，其余 6 页改为就地表达。页上主比较、阶段一 smoke、阶段二 396/400、阶段四 82.6/45.0/78.0 和效率 1.12/6.45 秒与本登记表一致。
+
+作图映射 `docs/presentation/final/v5-chart-data-and-mapping.json` 已与仓库原件逐字段核对：`summary.json` 的 7 个方法、`stats.json` 的 Long 2x/4x 两条区间、`ablation.csv` 的 8 行、`efficiency.csv` 里 original 与 Long 2x 的 p50/p95。不一致 0 条。21 个点是 7 个 EM、2 个区间中心、8 个消融差值、4 个效率端点；9 条区间是主比较 2 条加消融 7 条，full 行没有区间。位置 EM original 84/84/84/85/86、Long 2x 83/83/82/84/84 来自 `summary.json` 的 groups。这次核对的是数值，没有重测幻灯片上的英寸坐标。
 
 物理第 8 页（B1）现在的命令是 `python -m json.tool reports/stage3-main/run.json`。它只读打印已保存的 pilot 运行快照。仓库里仍然没有 `configs/stage3-pilot-as-run.json`，默认 `configs/stage3.json` 的 split 仍是 main。上一版页上的 plan 配置路径已经从这一版幻灯片正文去掉。本轮没有执行该命令，也没有新推理。
 

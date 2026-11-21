@@ -18,3 +18,11 @@ stage1 smoke20的92/87/64来自300槽；CUDA pilot100的84.6/83.2/79是不同批
 
 ## B1命令做什么？
 `python -m json.tool reports/stage3-main/run.json`只格式化查看已有pilot运行快照，不加载模型、不调用API，不生成计划。默认configs/stage3.json是main，不能拿来解释pilot。B2命令仍为`python scripts/analyze_stage4.py --out /tmp/g14-stage4-audit`，保留临时out，避免覆盖已提交结果；本轮未执行。
+
+
+## v5 本轮补充核验
+仅更改视觉表达与图表指认，原数据变化为0；不新增推理/API。P1/P2/P7保留结论横幅，P3/P4/P5/P6/P8/P9改局部证据表达。
+P5七方法可编辑点图按原方法顺序，EM轴0–100；仅右侧两条真实问题级配对CI，跨0不证明等效，Long4x18/500超预算。
+P6以NPU full82.6为配对参照；ablation.csv与analyze_stage4.py L54–71证明CI来自paired_comparisons，full无CI、original外部参照、no_recovery为已有回答派生。右侧独立效率total_pipeline_seconds_p50/p95是分位点，非CI；没有端到端加速。
+P9保留原效率图，阶段中位数不能相加为E2E。P8只查看已有pilot快照：`python -m json.tool reports/stage3-main/run.json`。P9保留`python scripts/analyze_stage4.py --out /tmp/g14-stage4-audit`，本轮两命令均未执行。
+作图原值/线性映射见sources/g2/v5-chart-data-and-mapping.json，独立坐标核对见chart-source-audit-v5.json。历史输出缓存、CUDA型号、CANN缺口保留；Windows投影与真人计时未验证。

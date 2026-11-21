@@ -7,7 +7,7 @@
 | 提交项 | 证据 | 阶段 | 命令或结果 | 状态 |
 | --- | --- | --- | --- | --- |
 | 报告 | `docs/presentation/report/report.pdf` | 全部 | 正文 5 页 + 参考文献 1 页 + 附录 5 页。可编辑源 `report.docx`、`report.md`、`SOURCES.md` | 通过（文件）；P 编号、姓名、录屏未完成 |
-| slides.pptx / slides.pdf | `docs/presentation/final/slides.pptx` 与同目录 `slides.pdf` | 全部 | 9 页。旧骨架 `docs/presentation/slides/G14-LongLLMLingua-template.pptx` 不是这份 slides | 通过（文件）；投影和真人计时未完成 |
+| slides.pptx / slides.pdf | `docs/presentation/final/slides.pptx` 与同目录 `slides.pdf` | 全部 | 9 页。P1/P2/P7 留横幅。旧骨架不是这份 slides | 通过（文件）；投影和真人计时未完成 |
 | README 结果入口 | `README.md` | 全部 | 指向已有 DeepSeek 结果和阶段一离线审计 | 通过（入口）；终稿包装未完成 |
 | code/ 与 configs/ | `reproduction/`、`scripts/`、`configs/` | 全部 | 离线测试可导入这些模块 | 通过（代码在库内）；zip 未打 |
 | data/README.md | `data/README.md`、`manifests/resources.json` | 一 | 五个 gz 的 sha256 已在清单中 | 通过（说明）；gz 本身不进包 |
@@ -21,7 +21,7 @@
 | 阶段二/三逐条案例 | 组内 results.jsonl 不在 git | 二、三 | 不能用对话补写 | 资源阻塞 |
 | 阶段四恢复案例 | `inputs/recovery-cases.json` 3 条 | 四 | 由对变错，尚未拆进 results/cases | 未完成（整理） |
 | contributions 本人段 | `contributions.md` | 全部 | 成员二至四的亲历段仍是待填；代做部分已标明 | 未完成 |
-| 最终 zip | `NLP2026_G14_Pxx.zip` | 全部 | 占位包按课程目录生成。P 编号、登记表四人信息、阶段二/三/四完整槽缓存仍缺 | 未完成 |
+| 最终 zip | 课程目录占位包，不入库 | 全部 | 包名 `NLP2026_G14_Pxx.zip`。P 编号和登记表四人信息待补，不能直接提交 | 未完成（身份与上传） |
 
 | 评分项 | 已有证据 | 负责阶段 | 状态 |
 | --- | --- | --- | --- |

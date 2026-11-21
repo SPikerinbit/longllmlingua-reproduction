@@ -1,6 +1,8 @@
 # 提交前待补
 
-占位包名是 `NLP2026_G14_Pxx.zip`。课程规范要求 `NLP2026_G编号_P编号.zip`，P 编号要用教师确认的编号。仓库没有这个编号，也没有登记表上的四人信息，所以这个包不能直接上传。
+占位包名是 `NLP2026_G14_Pxx.zip`。课程规范要求 `NLP2026_G编号_P编号.zip`，P 编号要用教师确认的编号。仓库没有这个编号，也没有登记表上的四人信息。包可以供核验，不能直接上传，也没有代交延河课堂或登记表。
+
+当前 slides 是 `docs/presentation/final/slides.pptx`。P1、P2、P7 保留结论横幅，其余 6 页就地表达。数据、短标题和证据命令没有改。第 8 页命令仍是 `python -m json.tool reports/stage3-main/run.json`。
 
 课程原文（<https://nlp.hltbit.top/2026/materials/w01/classroom/requirements.html>）写的是包内 `contributions.md` 包含四名成员的实际贡献，选题记录写“四人信息、联系人”。没有单独要求“法定姓名”。姓名仍只来自登记表，这里不编造。
 
@@ -11,7 +13,7 @@
 | 课程路径 | 来源 |
 | --- | --- |
 | `report.pdf` | `docs/presentation/report/report.pdf` |
-| `slides.pptx` / `slides.pdf` | `docs/presentation/final/` 的 v4 文件，不是早期 template |
+| `slides.pptx` / `slides.pdf` | `docs/presentation/final/`。早期 template 不是这份 slides |
 | `README.md` | 仓库根 `README.md` |
 | `code/` | `reproduction/`、`scripts/`、`vendor/` |
 | `configs/` | `configs/` |
