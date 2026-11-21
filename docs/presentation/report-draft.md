@@ -46,7 +46,13 @@ LLMLingua 与 LongLLMLingua 共用 LLaMA-2-7B-Chat，revision `351844e75ed0bcbbe
 
 这些核对不是成员二、三、四的亲自运行记录。新的压缩、新的配对问答和新的消融仍然缺权重或受控会话。
 
-## 6 尚未完成
+## 6 当前演示稿
+
+9 页文件在 `docs/presentation/final/`。演讲顺序是物理页 1、2、3、4、5、8、6、9、7。四人各 90 秒，提问和换人另计。这不是已经计时的现场记录，也不是课程 zip。
+
+物理第 8 页写了 `configs/stage3-pilot-as-run.json`。该文件不在仓库里。演示时改打开 `reports/stage3-main/run.json`。幻灯片字节没有为了这条路径被改写。
+
+## 7 尚未完成
 
 终稿 PDF、幻灯片视觉、录屏、P 编号、组内 `results.jsonl` 的 sha256、压缩权重上的新消融，都还没有。离线测试 36 项通过只说明代码和已提交记录可以复核，不等于重新调用了模型。本文不承诺满分。
 
