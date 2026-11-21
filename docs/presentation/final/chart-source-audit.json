@@ -1,0 +1,30 @@
+{
+  "source_values_changed": 0,
+  "mapping_matches_summary_stats_csv": true,
+  "paired_CI_code_confirmed": true,
+  "marker_centers_checked": 21,
+  "CI_segments_checked": 9,
+  "full_CI": null,
+  "missing_CI_not_imputed": true,
+  "quantiles_not_CI": true,
+  "unchanged_pages": [
+    1,
+    2,
+    7
+  ],
+  "source_material_bytes_unchanged": true,
+  "visual_review_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "windows_projection_verified": false,
+  "human_timing_verified": false,
+  "final_nine_page_images_identical_to_personally_reviewed_render": true
+}

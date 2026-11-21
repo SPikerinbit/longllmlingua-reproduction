@@ -1,0 +1,255 @@
+{
+  "P5": {
+    "source": "sources/g1/summary.json methods/groups; sources/g2/stats.json comparisons",
+    "axis_EM": {
+      "min": 0,
+      "max": 100,
+      "x_inches": 3.65,
+      "width_inches": 2.9
+    },
+    "ordered_methods": [
+      {
+        "method": "original",
+        "kind": "original",
+        "ratio": 1.0,
+        "success": 500,
+        "failed": 0,
+        "missing": 0,
+        "expected": 500,
+        "mean_em": 0.846,
+        "mean_actual_ratio": 1.0,
+        "budget_satisfied_rate": 1.0,
+        "api_input_tokens": 1472015,
+        "api_output_tokens": 38435
+      },
+      {
+        "method": "bm25_2x",
+        "kind": "bm25",
+        "ratio": 2.0,
+        "success": 500,
+        "failed": 0,
+        "missing": 0,
+        "expected": 500,
+        "mean_em": 0.724,
+        "mean_actual_ratio": 2.001659249299371,
+        "budget_satisfied_rate": 1.0,
+        "api_input_tokens": 736405,
+        "api_output_tokens": 34165
+      },
+      {
+        "method": "bm25_4x",
+        "kind": "bm25",
+        "ratio": 4.0,
+        "success": 500,
+        "failed": 0,
+        "missing": 0,
+        "expected": 500,
+        "mean_em": 0.558,
+        "mean_actual_ratio": 4.006014731935584,
+        "budget_satisfied_rate": 1.0,
+        "api_input_tokens": 368950,
+        "api_output_tokens": 33471
+      },
+      {
+        "method": "llmlingua_2x",
+        "kind": "llmlingua",
+        "ratio": 2.0,
+        "success": 500,
+        "failed": 0,
+        "missing": 0,
+        "expected": 500,
+        "mean_em": 0.468,
+        "mean_actual_ratio": 2.043583184994991,
+        "budget_satisfied_rate": 1.0,
+        "api_input_tokens": 721438,
+        "api_output_tokens": 42747
+      },
+      {
+        "method": "llmlingua_4x",
+        "kind": "llmlingua",
+        "ratio": 4.0,
+        "success": 500,
+        "failed": 0,
+        "missing": 0,
+        "expected": 500,
+        "mean_em": 0.356,
+        "mean_actual_ratio": 4.172981157130074,
+        "budget_satisfied_rate": 1.0,
+        "api_input_tokens": 354454,
+        "api_output_tokens": 37608
+      },
+      {
+        "method": "longllmlingua_2x",
+        "kind": "longllmlingua",
+        "ratio": 2.0,
+        "success": 500,
+        "failed": 0,
+        "missing": 0,
+        "expected": 500,
+        "mean_em": 0.832,
+        "mean_actual_ratio": 2.0799542177673707,
+        "budget_satisfied_rate": 1.0,
+        "api_input_tokens": 708844,
+        "api_output_tokens": 36305
+      },
+      {
+        "method": "longllmlingua_4x",
+        "kind": "longllmlingua",
+        "ratio": 4.0,
+        "success": 500,
+        "failed": 0,
+        "missing": 0,
+        "expected": 500,
+        "mean_em": 0.79,
+        "mean_actual_ratio": 4.089871205331284,
+        "budget_satisfied_rate": 0.964,
+        "api_input_tokens": 361590,
+        "api_output_tokens": 31563
+      }
+    ],
+    "paired_CI": [
+      {
+        "method": "longllmlingua_2x",
+        "baseline": "original",
+        "n_questions": 100,
+        "coverage": 1.0,
+        "baseline_mean": 0.846,
+        "method_mean": 0.832,
+        "mean": -0.013999999999999999,
+        "ci_low": -0.06199999999999999,
+        "ci_high": 0.029999999999999992
+      },
+      {
+        "method": "longllmlingua_4x",
+        "baseline": "original",
+        "n_questions": 100,
+        "coverage": 1.0,
+        "baseline_mean": 0.846,
+        "method_mean": 0.79,
+        "mean": -0.056,
+        "ci_low": -0.11600000000000002,
+        "ci_high": -0.003999999999999993
+      }
+    ],
+    "CI_axis": {
+      "min": -14,
+      "max": 4,
+      "x_inches": 8.7,
+      "width_inches": 3.55
+    }
+  },
+  "P6": {
+    "source": "sources/g2/ablation.csv, efficiency.csv; analyze_stage4.py L54-73, RESULTS.md L18",
+    "paired_baseline": "longllmlingua_2x",
+    "paired_CI_proof": "analyze_stage4.py sets baseline to full and invokes stage3.paired_comparisons; CSV CI fields are paired delta, not independent EM intervals",
+    "axis_delta": {
+      "min": -50,
+      "max": 8,
+      "x_inches": 3,
+      "width_inches": 3.1
+    },
+    "ablation": [
+      {
+        "method": "original",
+        "n": "500",
+        "em_percent": "84.6",
+        "delta_pp": "2.0",
+        "ci_low_pp": "-2.2",
+        "ci_high_pp": "6.999999999999999",
+        "mean_actual_ratio": "1.0",
+        "budget_misses": "0"
+      },
+      {
+        "method": "longllmlingua_2x",
+        "n": "500",
+        "em_percent": "82.6",
+        "delta_pp": "0",
+        "ci_low_pp": "",
+        "ci_high_pp": "",
+        "mean_actual_ratio": "2.080178940339819",
+        "budget_misses": "0"
+      },
+      {
+        "method": "longllmlingua_2x_no_coarse",
+        "n": "500",
+        "em_percent": "45.0",
+        "delta_pp": "-37.6",
+        "ci_low_pp": "-47.19999999999999",
+        "ci_high_pp": "-28.400000000000002",
+        "mean_actual_ratio": "2.0569691580697684",
+        "budget_misses": "0"
+      },
+      {
+        "method": "longllmlingua_2x_no_fine",
+        "n": "500",
+        "em_percent": "81.2",
+        "delta_pp": "-1.4000000000000001",
+        "ci_low_pp": "-4.2",
+        "ci_high_pp": "1.2",
+        "mean_actual_ratio": "2.0398624658110127",
+        "budget_misses": "0"
+      },
+      {
+        "method": "longllmlingua_2x_no_dynamic",
+        "n": "500",
+        "em_percent": "78.0",
+        "delta_pp": "-4.6",
+        "ci_low_pp": "-8.600000000000001",
+        "ci_high_pp": "-0.7999999999999997",
+        "mean_actual_ratio": "2.0325239871864755",
+        "budget_misses": "0"
+      },
+      {
+        "method": "longllmlingua_2x_no_restrict",
+        "n": "500",
+        "em_percent": "83.2",
+        "delta_pp": "0.6",
+        "ci_low_pp": "-2.1999999999999997",
+        "ci_high_pp": "3.600000000000001",
+        "mean_actual_ratio": "2.079000466454627",
+        "budget_misses": "0"
+      },
+      {
+        "method": "longllmlingua_2x_reorder",
+        "n": "500",
+        "em_percent": "79.6",
+        "delta_pp": "-3.0",
+        "ci_low_pp": "-7.200000000000001",
+        "ci_high_pp": "0.8",
+        "mean_actual_ratio": "2.0448746254517536",
+        "budget_misses": "0"
+      },
+      {
+        "method": "longllmlingua_2x_no_recovery",
+        "n": "500",
+        "em_percent": "83.2",
+        "delta_pp": "0.6",
+        "ci_low_pp": "0.0",
+        "ci_high_pp": "1.6",
+        "mean_actual_ratio": "2.080178940339819",
+        "budget_misses": "0"
+      }
+    ],
+    "efficiency": [
+      {
+        "method": "original",
+        "n": "99",
+        "total_pipeline_seconds_p50": "1.120468680979684",
+        "total_pipeline_seconds_p95": "1.5420867950422685"
+      },
+      {
+        "method": "longllmlingua_2x",
+        "n": "99",
+        "total_pipeline_seconds_p50": "6.449125320883468",
+        "total_pipeline_seconds_p95": "7.4866623027483"
+      }
+    ],
+    "axis_E2E_s": {
+      "min": 0,
+      "max": 8,
+      "x_inches": 9.15,
+      "width_inches": 3.35
+    },
+    "efficiency_interval_type": "p50/p95 quantiles, NOT confidence intervals"
+  }
+}
