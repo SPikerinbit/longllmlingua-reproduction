@@ -96,7 +96,7 @@ DeepSeek 侧已有 13 条可追溯槽，见 `reports/stage1-supplement/cases.md`
 
 已有：四人任务书、数字登记、这份证据表、阶段一至四的轻量结果。离线测试 `tests/test_stage4_results.py`、`tests/test_cloud910b.py`、`tests/test_stage3.py`、`tests/test_stage4_recovery_analysis.py`、`tests/test_final_delivery.py` 在四条已同步分支上各 31 项通过。这些测试不加载权重、不调用 API。通过它们不等于当年的 3500 槽又跑了一遍。
 
-报告文件已在 `docs/presentation/report/`。当前 slides 仍是 v4，在 `docs/presentation/final/`。v5 只改部分页上方绿色结论横幅的表达，数据、短标题和证据命令不动；v5 到达前不替换幻灯片，也不封课程 zip，也不出最终 bundle。未勾选：延河课堂提交、录屏、真人计时、P 编号、登记表四人信息、阶段二/三/四完整槽缓存。口播计时还没有用手机实讲。Cursor 受控对话没有回答。
+报告文件在 `docs/presentation/report/`，正文 5 页。当前 slides 在 `docs/presentation/final/`，9 页，只有 P1、P2、P7 保留结论横幅。作图数值已与原 CSV/JSON 核对，变化 0。未勾选：延河课堂提交、录屏、真人计时、P 编号、登记表四人信息、阶段二/三/四完整槽缓存、成员本人确认。口播计时还没有用手机实讲。Cursor 受控对话没有回答，没有新的 API 调用。占位包不能直接提交。
 
 ## 真实运行和离线检查
 

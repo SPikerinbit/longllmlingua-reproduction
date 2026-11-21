@@ -69,7 +69,7 @@ CUDA 主比较与 NPU 消融分开保留来源，不拼接不同硬件的耗时�
 
 `reports/cursor_dialogue/` 是单独的问答设置。本环境不能提供无工具、无仓库、固定采样的受控会话，所以没有 Cursor 回答，也不能把它和 DeepSeek 的延迟或 EM 放在一起比。压缩模型仍不可用，对话不能代替 LLMLingua。这些补充都是离线核对和材料汇编，没有新的推理或 API 调用。
 
-当前提交用的演示稿是 `docs/presentation/final/slides.pptx` 与同目录 `slides.pdf`（9 页：7 页主讲加 2 页已有运行记录）。`docs/presentation/slides/G14-LongLLMLingua-template.pptx` 只是更早的骨架，不是这份 slides。讲稿、QA、证据跳转和来源核验也在 `docs/presentation/final/`。正式报告是 `docs/presentation/report/report.pdf`（正文 5 页、参考文献 1 页、13 条案例附录 5 页），可编辑源是同目录的 `report.docx`、`report.md` 和 `SOURCES.md`。验收矩阵和发言对照是 `docs/presentation/03-acceptance-matrix.md`、`04-speaker-map.md`。
+当前提交用的演示稿是 `docs/presentation/final/slides.pptx` 与同目录 `slides.pdf`（9 页：7 页主讲加 2 页已有运行记录）。只有 P1、P2、P7 保留结论横幅；P5 是七方法 EM 点图，P6 是配对差值区间和独立 NPU 分位点。`docs/presentation/slides/G14-LongLLMLingua-template.pptx` 只是更早的骨架，不是这份 slides。讲稿、QA、证据跳转、来源核验和作图映射也在 `docs/presentation/final/`。正式报告是 `docs/presentation/report/report.pdf`（正文 5 页、参考文献 1 页、13 条案例附录 5 页），可编辑源是同目录的 `report.docx`、`report.md` 和 `SOURCES.md`。验收矩阵和发言对照是 `docs/presentation/03-acceptance-matrix.md`、`04-speaker-map.md`。
 
 课程包名按规范应为 `NLP2026_G14_Pxx.zip`。P 编号和登记表上的四人信息尚未写入仓库，占位包不能直接提交。查看已保存的 pilot 运行快照用 `python -m json.tool reports/stage3-main/run.json`，这不是现场推理。
 
