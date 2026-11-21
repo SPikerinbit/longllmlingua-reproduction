@@ -66,3 +66,17 @@ Q4 4 条超标怎么处理？15 秒：保留 `budget_satisfied=false`，不改�
 Q5 阶段二的 0.940 能不能当主结果？15 秒：不能。那是 20 题。100 题主比较的 LongLLMLingua 2x 是 83.2%，而且机器记录不同。依据 README 和 `summary.json`。
 
 Q6 动态比率 0.3 是否等于论文的 δτ？15 秒：参数值是 0.3，但映射表写库实现是按排名线性分配，和论文对整体预算的描述不完全相同。要在报告第 5 节说这句。不能说：完全一致。
+
+## 课程五项里由成员二讲解的证据
+
+继续在 `stage2-compression` 上推进。对照 `docs/presentation/02-score-evidence.md`。被点名时按这个顺序打开文件。未勾选项不能说成已经复核。
+
+| 项 | 打开什么 | 8 分目标下还缺的 |
+| --- | --- | --- |
+| 理解与范围 | `docs/stage2-parameter-map.md` 中 k=2、τ_ins、τ_que 三行 | 不能把未暴露参数说成已复现 |
+| 数据与实现 | `reports/stage2-smoke/REPORT.md` 的模型、revision 记录在 `docs/experiments.md`；硬件 CANN 8.5.2 只属于这次 smoke | 权重不在 git 中。`data/scratch/npu/switch_probe.json` 未入库，P3 只能使用已入库的 100/100 |
+| 对照与消融 | `verification.json`：400 槽，硬预算 396，4 条目标 742 | 这是 20 题。100 题主比较不由本页的 0.940 代替 |
+| 错误分析 | 4 条超标的 slot 前缀 `23707ea62773` | M2-01 至 M2-03 还没有从组内 results.jsonl 摘出 |
+| 交付与答问 | 入口 `python -m reproduction.stage2` | 在没有权重的机器上不能勾“本次重新压缩通过” |
+
+离线记录是打开 `reports/stage2-smoke/verification.json`。真实运行是 `python -m reproduction.stage2 run`。二者不要混称。密钥不写入 REPORT 或案例。
