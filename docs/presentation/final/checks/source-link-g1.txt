@@ -1,0 +1,1 @@
+PASS: JUnit has 77 testcases, tests=77 errors=failures=skipped=0. stdout has 77 passed in3.53s. Screenshot WEBP SHA256 identical. Relative video target evidence/local-offline-evidence.mp4 exists (1915107 bytes); external hyperlink, not embedded.

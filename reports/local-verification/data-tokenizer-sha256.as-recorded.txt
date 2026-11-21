@@ -1,0 +1,10 @@
+timestamp=Asia/Shanghai 2026-11-21 17:46:19 CST
+commit=bdb11d3b3e39523594c0ffcd6c058f6fb7bca1b4
+
+# Expected vs actual sha256
+69a8dd87a45f07fb3ed9b804917a89db975cd6e488682fc838edca029cc3881f  /workspace/g14-local-main/repo/data/raw/nq-open-20_total_documents_gold_at_0.jsonl.gz
+86c1a25093615baefdd1ee4db7a993548b3bef24ca02eb9bd8db43fbedf517f2  /workspace/g14-local-main/repo/data/raw/nq-open-20_total_documents_gold_at_14.jsonl.gz
+d79b715e1b8c8301335e93cb01659f68c24f0253a808c3190b06d21896506c6c  /workspace/g14-local-main/repo/data/raw/nq-open-20_total_documents_gold_at_19.jsonl.gz
+c5e44700c4db24536f139f7383e3dd002413515ee889aeadc72767dd7f289682  /workspace/g14-local-main/repo/data/raw/nq-open-20_total_documents_gold_at_4.jsonl.gz
+cbada411f70235afc47d9b5407e9358ad72eb021742402ff032c8b65076ffb2f  /workspace/g14-local-main/repo/data/raw/nq-open-20_total_documents_gold_at_9.jsonl.gz
+c90dfa01249db1be4245780a052ede752e1361c612ac6d08e2bdada7d599476b  /workspace/g14-local-main/repo/data/tokenizer/tokenizer.json

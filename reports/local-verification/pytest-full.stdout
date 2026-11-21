@@ -1,0 +1,22 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-8.4.2, pluggy-1.7.0
+rootdir: /workspace/g14-local-main/repo
+configfile: pytest.ini
+testpaths: tests
+plugins: anyio-4.16.0
+collected 77 items
+
+tests/test_cloud910b.py ..                                               [  2%]
+tests/test_final_deck.py ...                                             [  6%]
+tests/test_final_delivery.py ..                                          [  9%]
+tests/test_later_stage_supplements.py ...                                [ 12%]
+tests/test_stage1.py ......................                              [ 41%]
+tests/test_stage1_supplement.py .....                                    [ 48%]
+tests/test_stage2.py ...........                                         [ 62%]
+tests/test_stage2_record_narrative.py ..                                 [ 64%]
+tests/test_stage3.py ..............                                      [ 83%]
+tests/test_stage4_recovery_analysis.py ..........                        [ 96%]
+tests/test_stage4_results.py ...                                         [100%]
+
+------ generated xml file: /workspace/g14-local-main/runs/junit-full.xml -------
+============================== 77 passed in 3.53s ==============================

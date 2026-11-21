@@ -1,0 +1,12 @@
+Preparing nq-open-20_total_documents_gold_at_0.jsonl.gz
+Preparing nq-open-20_total_documents_gold_at_4.jsonl.gz
+Preparing nq-open-20_total_documents_gold_at_9.jsonl.gz
+Preparing nq-open-20_total_documents_gold_at_14.jsonl.gz
+Preparing nq-open-20_total_documents_gold_at_19.jsonl.gz
+Preparing LICENSE
+Preparing metrics.py
+Preparing qa.prompt
+Preparing prompting.py.reference
+Preparing evaluate_qa_responses.py.reference
+Preparing official DeepSeek tokenizer (no model weights)
+Validated 2655 questions x 5 positions; nested 20/100/500 manifests ready.

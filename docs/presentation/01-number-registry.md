@@ -130,3 +130,23 @@ run `2a7f4accf6127178a76b`。`coverage.json`：1200/1200。`efficiency.csv` 每�
 ## 本机计时（2026-11-21，无 API）
 
 `python scripts/analyze_stage4.py` 用时 0.337 秒，会重写 `ablation.csv` 和 `efficiency.csv`。`python scripts/plot_results.py` 在安装 matplotlib 3.10.0 后用时 1.413 秒，会重写三张图。两次运行后都已用 git 恢复原文件。现场可以跑分析脚本，不要把覆盖提交进仓库。
+
+## 本机全套离线测试（2026-11-21，无 API，当前验收入口）
+
+提交 `bdb11d3b3e39523594c0ffcd6c058f6fb7bca1b4`。解释器 Python 3.13.5，`tokenizers==0.22.1`（`requirements-lock.txt`）。不要与上文阶段四实测的 Python 3.12.0 / tokenizers 0.21.4，或先前离线审计记录中的 Python 3.12.3，说成同一次环境。
+
+公开资源：五个 NQ `jsonl.gz` 的 sha256 与 `manifests/resources.json` 一致；分词器为 `deepseek-ai/DeepSeek-V4.1-Flash` revision `314113f8a7dadb388215396ba5fbee2c610a04d6` 的 `tokenizer.json`，sha256 `c90dfa01249db1be4245780a052ede752e1361c612ac6d08e2bdada7d599476b`。见 `reports/local-verification/data-tokenizer-sha256.txt`。
+
+| 步骤 | 时间（Asia/Shanghai） | 结果 |
+| --- | --- | --- |
+| 数据尚未就位的基线 `python -m pytest` | 17:45:50–17:45:51 | 收集 77，72 通过、5 失败，退出码 1 |
+| `python -m reproduction prepare` | 17:46:00–17:46:07 | 退出码 0，未下载大模型 |
+| 全套 `python -m pytest` | 17:46:58–17:47:02 | 收集 77，77 通过，退出码 0，约 3.53 秒 |
+
+命令与日志的相对路径在 `reports/local-verification/`。四阶段离线审计 `api_calls` 均为 0；已发表官方分数未改。阶段二/三/四完整缓存、CUDA 具体型号、阶段四 CANN、受控 Cursor 结果仍缺。这不是本机重新做模型推理。
+
+历史口径不要删：上述 5 个文件共 31 项是子集；报告旧稿曾写 36 项 / 31 项，后又按仓库侧回传写 43 项（见 `docs/presentation/report/report.md` 附录 A.2，制作时未在该环境亲跑）。更早过程回传里还出现过 44 项，当前仓库正文未见该口径。当前入口统一为 77。
+
+## 本机离线验收实录（2026-11-21，无 API）
+
+`evidence/local-offline-evidence.mp4`：50.000 秒，1920×1200，H.264，1,915,107 字节，sha256 `663ac1b50c588424dd401698dc046de9813986b39779d7edc662906941648b33`。脚本实际运行约 7 秒，成片停留供阅读。这是对已记录 77/77 结果的演示，不是把旧实验再跑一遍。videoReview 报连续运行、退出码 0、未见密钥。真人讲述计时与本人确认仍缺。

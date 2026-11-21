@@ -69,13 +69,13 @@ CUDA 主比较与 NPU 消融分开保留来源，不拼接不同硬件的耗时�
 
 `reports/cursor_dialogue/` 是单独的问答设置。本环境不能提供无工具、无仓库、固定采样的受控会话，所以没有 Cursor 回答，也不能把它和 DeepSeek 的延迟或 EM 放在一起比。压缩模型仍不可用，对话不能代替 LLMLingua。这些补充都是离线核对和材料汇编，没有新的推理或 API 调用。
 
-当前提交用的演示稿是 `docs/presentation/final/slides.pptx` 与同目录 `slides.pdf`（9 页：7 页主讲加 2 页已有运行记录）。只有 P1、P2、P7 保留结论横幅；P5 是七方法 EM 点图，P6 是配对差值区间和独立 NPU 分位点。`docs/presentation/slides/G14-LongLLMLingua-template.pptx` 只是更早的骨架，不是这份 slides。讲稿、QA、证据跳转、来源核验和作图映射也在 `docs/presentation/final/`。正式报告是 `docs/presentation/report/report.pdf`（正文 5 页、参考文献 1 页、13 条案例附录 5 页），可编辑源是同目录的 `report.docx`、`report.md` 和 `SOURCES.md`。验收矩阵和发言对照是 `docs/presentation/03-acceptance-matrix.md`、`04-speaker-map.md`。
+当前提交用的演示稿是 `docs/presentation/final/slides.pptx` 与同目录 `slides.pdf`（v6，9 页）。P1–P7 正文未改；P8 是历史 CUDA 运行记录；P9 是历史 NPU 记录加 2026-11-21 本机离线验收。只有 P1、P2、P7 保留结论横幅；P5 是七方法 EM 点图，P6 是配对差值区间和独立 NPU 分位点。相对视频为 `evidence/local-offline-evidence.mp4`（本目录 `evidence/` 与仓库根 `evidence/` 为同一组文件）。`docs/presentation/slides/G14-LongLLMLingua-template.pptx` 只是更早的骨架，不是这份 slides。讲稿、QA、证据跳转、来源核验也在 `docs/presentation/final/`。正式报告是 `docs/presentation/report/report.pdf`（正文 5 页、参考文献 1 页、13 条案例附录 5 页），可编辑源是同目录的 `report.docx`、`report.md` 和 `SOURCES.md`。验收矩阵和发言对照是 `docs/presentation/03-acceptance-matrix.md`、`04-speaker-map.md`。50 秒实录已完成，见 `evidence/`；导出 PDF 中的视频链接若为绝对路径则不可移植，请从 `evidence/` 打开 mp4。
 
-课程包名按规范应为 `NLP2026_G14_Pxx.zip`。P 编号和登记表上的四人信息尚未写入仓库，占位包不能直接提交。查看已保存的 pilot 运行快照用 `python -m json.tool reports/stage3-main/run.json`，这不是现场推理。
+课程包名按规范应为 `NLP2026_G14_Pxx.zip`。P 编号和登记表上的四人信息尚未写入仓库，占位包不能直接提交。包文件的 sha256 只写在包外的清单里，不写进包内文档，以免自引用矛盾。2026-11-21 更早的 v5 占位包 sha256 `662091f86a0d1a8cc518f8ebedd6308b3db3cb574774bf4bdd63ff5d5788f273` 只是历史记录，不是当前包。查看已保存的 pilot 运行快照用 `python -m json.tool reports/stage3-main/run.json`，这不是现场推理。
 
 ## 本地重建结果
 
-只重建已保存的统计和图不需要模型权重、API 密钥或云服务器。使用 Python 3.12，在仓库根目录执行：
+只重建已保存的统计和图不需要模型权重、API 密钥或云服务器。阶段四实测与云端记录使用 Python 3.12.0 等环境，见[实验说明](docs/experiments.md)。下面的重建命令仍可在 Python 3.12 下执行。在仓库根目录：
 
 ```bash
 python -m venv .venv
@@ -91,7 +91,11 @@ python scripts/plot_results.py
 python -m pytest tests/test_stage4_results.py tests/test_cloud910b.py tests/test_stage3.py tests/test_stage4_recovery_analysis.py tests/test_final_delivery.py
 ```
 
-这 31 项检查覆盖调度、恢复分析、相同负载匹配和最终结果重建。完整 `python -m pytest` 还包含需要真实 NQ 文件及固定 tokenizer 的前阶段测试，应先执行 `python -m reproduction prepare` 获取公开数据；该命令不下载大模型、不调用问答 API。
+这 31 项检查（上述 5 个文件）覆盖调度、恢复分析、相同负载匹配和最终结果重建，是完整测试集的一个历史子集，不要把它写成当前全套验收口径。
+
+当前验收入口是仓库根目录的完整 `python -m pytest`。2026-11-21 17:46:58–17:47:02（Asia/Shanghai），在已推 `main` 提交 `bdb11d3b3e39523594c0ffcd6c058f6fb7bca1b4` 上，使用 Python 3.13.5 与 `requirements-lock.txt` 中的 `tokenizers==0.22.1`，先执行 `python -m reproduction prepare` 取得公开 NQ 五个 jsonl.gz 以及 `deepseek-ai/DeepSeek-V4.1-Flash` revision `314113f8a7dadb388215396ba5fbee2c610a04d6` 的 `tokenizer.json`（sha256 `c90dfa01249db1be4245780a052ede752e1361c612ac6d08e2bdada7d599476b`）后，收集 77 项、全部通过，退出码 0。同日 17:45:50–17:45:51、尚未放置这些文件时：同样收集 77 项，72 通过、5 失败，退出码 1。那 5 项失败是环境缺口，不是靠改测试通过的。命令、stdout、JUnit 与哈希清单见 [`reports/local-verification/`](reports/local-verification/README.md)。这是离线测试与记录复核，API 调用为 0，不是本机重新做模型推理。`prepare` 不下载大模型、不调用问答 API；不要把 `data/raw/*.jsonl.gz` 或 `data/tokenizer/tokenizer.json` 提交进 git。
+
+注意：`python scripts/plot_results.py` 会写回已发表的 `reports/stage3-main/positions.*` 与 `reports/stage4-ablation-efficiency/figures/`。本机核验图另存在 `reports/local-verification/figures/`，未覆盖已发表文件。可移植复查：`bash reports/local-verification/recheck.sh`。
 
 `reports/stage4-ablation-efficiency/inputs/metrics.jsonl` 是用于重建统计的轻量逐槽指标，不包含完整提示、回答或请求缓存。完整数据、预测和原始返回包留在组内存储；取得原始包后可按 [实验说明](docs/experiments.md) 独立重评分。
 

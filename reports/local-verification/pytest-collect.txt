@@ -1,0 +1,12 @@
+tests/test_cloud910b.py: 2
+tests/test_final_deck.py: 3
+tests/test_final_delivery.py: 2
+tests/test_later_stage_supplements.py: 3
+tests/test_stage1.py: 22
+tests/test_stage1_supplement.py: 5
+tests/test_stage2.py: 11
+tests/test_stage2_record_narrative.py: 2
+tests/test_stage3.py: 14
+tests/test_stage4_recovery_analysis.py: 10
+tests/test_stage4_results.py: 3
+

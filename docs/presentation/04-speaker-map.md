@@ -1,6 +1,6 @@
 # 发言对照
 
-当前提交用的演示稿在 `docs/presentation/final/slides.pptx`。物理顺序是 P1、P2、P3、P4、P5、P6、P7、B1、B2。演讲顺序是 1、2、3、4、5、8、6、9、7。这 9 页就是现在的 slides。`docs/presentation/slides/G14-LongLLMLingua-template.pptx` 是早期骨架。P1、P2、P7 保留结论横幅。
+当前提交用的演示稿在 `docs/presentation/final/slides.pptx`（v6）。物理顺序是 P1、P2、P3、P4、P5、P6、P7、B1、B2。演讲顺序是 1、2、3、4、5、8、6、9、7。这 9 页就是现在的 slides。P8（B1）是历史 CUDA 记录，P9（B2）是历史 NPU 记录加本机 50 秒实录。`docs/presentation/slides/G14-LongLLMLingua-template.pptx` 是早期骨架。P1、P2、P7 保留结论横幅。
 
 四人各 90 秒。PPT 主讲合计 300 秒，B1 与 B2 合计 60 秒。提问 90 秒和换人 30 秒另计。这是安排，不是已经用秒表量过的时间。
 

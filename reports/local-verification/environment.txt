@@ -1,0 +1,7 @@
+timestamp=Asia/Shanghai 2026-11-21 17:45:50 CST
+commit=bdb11d3b3e39523594c0ffcd6c058f6fb7bca1b4
+python=3.13.5 (main, Aug 10 2026, 12:06:59) [GCC 14.2.0]
+python_path=/workspace/g14-local-main/venv/bin/python
+cwd=/workspace/g14-local-main/repo
+# Credential values were never written to any log.
+# Two boolean presence flags from the raw snapshot were omitted from this published copy.

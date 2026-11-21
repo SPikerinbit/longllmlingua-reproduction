@@ -1,0 +1,126 @@
+{
+  "total_pdf_pages": 11,
+  "body_pages": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "references_pages": [
+    6
+  ],
+  "appendix_pages": [
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "blank_pages": 0,
+  "fonts_all_embedded": true,
+  "text_outside_page_bounds": [],
+  "replacement_character_found": false,
+  "distinct_clickable_source_urls": 12,
+  "native_editable_docx": true,
+  "page_body_bounds": [
+    {
+      "page": 1,
+      "word_count": 86,
+      "body_bottom_pt": 710.910764
+    },
+    {
+      "page": 2,
+      "word_count": 173,
+      "body_bottom_pt": 721.960764
+    },
+    {
+      "page": 3,
+      "word_count": 177,
+      "body_bottom_pt": 669.253764
+    },
+    {
+      "page": 4,
+      "word_count": 212,
+      "body_bottom_pt": 722.603764
+    },
+    {
+      "page": 5,
+      "word_count": 180,
+      "body_bottom_pt": 761.903764
+    },
+    {
+      "page": 6,
+      "word_count": 218,
+      "body_bottom_pt": 528.174764
+    },
+    {
+      "page": 7,
+      "word_count": 172,
+      "body_bottom_pt": 763.467764
+    },
+    {
+      "page": 8,
+      "word_count": 294,
+      "body_bottom_pt": 624.131764
+    },
+    {
+      "page": 9,
+      "word_count": 304,
+      "body_bottom_pt": 587.081764
+    },
+    {
+      "page": 10,
+      "word_count": 318,
+      "body_bottom_pt": 678.581764
+    },
+    {
+      "page": 11,
+      "word_count": 239,
+      "body_bottom_pt": 552.174764
+    }
+  ],
+  "visual_inspection": "11/11 final updated pages rendered and individually inspected; no clipping, orphaned case blocks, missing Chinese, blank pages or collisions observed.",
+  "new_model_inference_calls": 0,
+  "verified_cases": 13,
+  "current_local_pytest": {
+    "tests": 77,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "duration_seconds": 3.53,
+    "exit": 0,
+    "time_window": "2026-11-21 17:46:58–17:47:02 Asia/Shanghai",
+    "code_commit": "bdb11d3b3e39523594c0ffcd6c058f6fb7bca1b4",
+    "executed_by_report_editor": false
+  },
+  "previous_baseline": {
+    "tests": 77,
+    "passed": 72,
+    "failed_missing_resources": 5,
+    "resolved": true
+  },
+  "public_resources_hashes_checked": 6,
+  "copied_evidence_manifest_matches": 49,
+  "published_result_snapshots_unchanged": true,
+  "video_status": {
+    "status": "completed offline acceptance recording",
+    "seconds": 50,
+    "resolution": "1920x1200",
+    "videoReview": "passed per parent confirmation",
+    "metadata_copy_sha_and_screenshot_checked": true,
+    "human_oral_timing_and_member_confirmation": "not completed"
+  },
+  "distinct_case_questions": 4,
+  "stage1_predictions_sha256": "cac37c9e84678f2f591af8c4f6ccdb7a69d010cf71eae5678b85109bcb27bd62",
+  "pdf_sha256": "d244da9646229ed98eca1455970c551c9ae5b9b74e3e75844a524e51e8df8cd6",
+  "final_recording_sync_visual_check": {
+    "changed_pages": [
+      5,
+      7
+    ],
+    "changed_pages_reinspected": true,
+    "other_nine_pages_pixel_identical_to_individually_inspected_version": true,
+    "page_count_preserved": 11
+  }
+}

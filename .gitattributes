@@ -4,3 +4,5 @@
 /vendor/** -text
 *.gz -text
 *.pdf -text
+# Preserve recorded SHA-256 evidence bytes exactly.
+/reports/local-verification/** -text

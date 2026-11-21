@@ -1,0 +1,42 @@
+============================================================
+G14 offline evidence demo (not a new model run)
+============================================================
+time:      2026-11-21 17:50:07 CST (Asia/Shanghai)
+repo:      /workspace/g14-local-main/repo
+venv:      /workspace/g14-local-main/venv
+HEAD:      bdb11d3b3e39523594c0ffcd6c058f6fb7bca1b4
+expected:  bdb11d3b3e39523594c0ffcd6c058f6fb7bca1b4
+subject:   Merge stage4-ablation-efficiency into the local main candidate. Co-authored-by: Rainkey <SPikerinbit@users.noreply.github.com>
+
+[1] Pinned public artifacts (sha256 must match manifests/resources.json)
+tokenizer.json  c90dfa01249db1be4245780a052ede752e1361c612ac6d08e2bdada7d599476b
+expected        c90dfa01249db1be4245780a052ede752e1361c612ac6d08e2bdada7d599476b
+tokenizer: MATCH
+nq gold_at_0    69a8dd87a45f07fb3ed9b804917a89db975cd6e488682fc838edca029cc3881f
+expected        69a8dd87a45f07fb3ed9b804917a89db975cd6e488682fc838edca029cc3881f
+nq gold_at_0: MATCH
+
+[2] Re-run the five tests that failed before data/tokenizer were present
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-8.4.2, pluggy-1.7.0
+rootdir: /workspace/g14-local-main/repo
+configfile: pytest.ini
+plugins: anyio-4.16.0
+collected 5 items
+
+tests/test_stage1.py .....                                               [100%]
+
+============================== 5 passed in 3.28s ===============================
+
+[3] Full suite already collected as 77 items on this checkout
+........................................................................ [ 93%]
+.....                                                                    [100%]
+
+[4] Published official numbers (from committed JSON; this is not new inference)
+stage2 canonical: 396/400  accepted_run=outputs/stage2/a1bd26fe3d82dea3f65d
+stage1 official EM (20 questions): original=0.92 bm25_2x=0.87 bm25_4x=0.64
+stage1 audit api_calls= 0  mismatches= []
+stage3 CUDA official EM: original=84.6% longllmlingua_2x=83.2%
+These figures are committed records. This demo only rechecked them offline.
+
+Done. No API calls, no weights loaded, no screen was cleared.

@@ -1,0 +1,15 @@
+Asia/Shanghai 2026-11-21 17:45:50 CST
+collect_start=Asia/Shanghai 2026-11-21 17:45:50 CST
+collect_exit=0
+baseline_start=Asia/Shanghai 2026-11-21 17:45:50 CST
+baseline_end=Asia/Shanghai 2026-11-21 17:45:51 CST baseline_exit=1
+prepare_start=Asia/Shanghai 2026-11-21 17:46:00 CST
+prepare_end=Asia/Shanghai 2026-11-21 17:46:07 CST prepare_exit=0
+full_pytest_start=Asia/Shanghai 2026-11-21 17:46:58 CST
+full_pytest_end=Asia/Shanghai 2026-11-21 17:47:02 CST full_pytest_exit=0
+audit1_start=Asia/Shanghai 2026-11-21 17:47:50 CST
+audit1_end=Asia/Shanghai 2026-11-21 17:47:53 CST exit=0
+plan_start=Asia/Shanghai 2026-11-21 17:48:03 CST
+plan_end=Asia/Shanghai 2026-11-21 17:48:14 CST exit=0
+analyze4_start=Asia/Shanghai 2026-11-21 17:48:14 CST
+analyze4_end=Asia/Shanghai 2026-11-21 17:48:14 CST exit=0

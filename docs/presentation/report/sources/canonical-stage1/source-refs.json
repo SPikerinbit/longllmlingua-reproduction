@@ -1,0 +1,11 @@
+{
+  "base_ref": "183cf488db1d2e5b79a37f28e2120cea2ce2ae27",
+  "head_ref": "5788cc2d4aab75501b390dcfb9553df5bf086d71",
+  "source_blobs": {
+    "reports/stage1-acceptance/predictions.jsonl": "1b83a71924e015a1fff3354cdd21958d2ee5722e",
+    "reports/stage1-acceptance/acceptance.json": "fc78f18d8b1b984729ff0445a1294f4225dfbbf0",
+    "manifests/smoke.json": "ae2f50f8dc2f6534a1ef7484a570c1b68b44d012",
+    "configs/stage1.json": "43deec072eba136b497245157a67b5d6f9307087"
+  },
+  "audit_blob": "ca4d12a51726fc56c3953fe5e77ca3edf70ca5a7"
+}

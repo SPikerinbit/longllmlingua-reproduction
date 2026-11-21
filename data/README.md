@@ -38,6 +38,8 @@ python -m reproduction prepare
 
 这条命令按 `reproduction/data.py` 下载上述文件并用 git blob SHA-1 核对，不调用问答 API，不下载 LLaMA 权重。下载完成后，五个 gz 的 sha256 应与上表一致。
 
+2026-11-21 17:46:00–17:46:07（Asia/Shanghai）已在提交 `bdb11d3b3e39523594c0ffcd6c058f6fb7bca1b4`、Python 3.13.5、`tokenizers==0.22.1` 的本机环境执行该命令，退出码 0。五个 gz 与 `tokenizer.json` 的 sha256 均与上表及 `manifests/resources.json` 一致，见 `reports/local-verification/data-tokenizer-sha256.txt`。这些二进制文件仍不入库、不进课程 zip。已提交清单里 DeepSeek LICENSE 记录的是 CRLF（1084 字节）摘要；本机检出为 LF（1064 字节），`verify_resources` 按设计接受这种换行等价。
+
 ## 固定划分和样本 ID
 
 `prepare` 检查 2,655 题在五个位置上的问题集合、文档集合和 gold 位置，然后按问题 ID 排序，用 `random.Random(42)` 打乱，取嵌套前缀。

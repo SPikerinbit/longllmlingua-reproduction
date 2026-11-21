@@ -14,7 +14,7 @@
 | 数据与实现 | `run.json` 的 run_id、config_hash、`cuda:0`；`manifests/pilot.json` | 本机 GPU 型号和包版本。没有写出之前不能勾 |
 | 对照与消融 | `summary.json` 七行；`stats.json` 的 2000 次、seed 42、100 题 | `configs/stage3-pilot-as-run.json` 尚未从 run.json 抽出 |
 | 错误分析 | 还没有 M3-01 至 M3-03 | 从组内 `results.jsonl` 摘 3 条后再勾 |
-| 交付与答问 | `coverage.json` 的 3500/3500；离线测试 31 项通过只说明代码和轻量结果，不是重新跑了 API | 录屏与终稿 PDF 未做 |
+| 交付与答问 | `coverage.json` 的 3500/3500。2026-11-21 较早回传的 31 项是完整测试集子集；当前验收入口为同日稍后本机完整 pytest 77 项通过，见 `reports/local-verification/`。这只说明代码和轻量结果，不是重新跑了 API | 正式报告 PDF 与 50 秒组内离线实录已有；真人讲述计时与本人确认未做 |
 
 真实运行入口是 `python -m reproduction.stage3 run --config <与 run.json 一致的配置>`。离线检查是 `python -m pytest tests/test_stage3.py tests/test_final_delivery.py`。后者不需要密钥。密钥不要写入配置或日志。
 

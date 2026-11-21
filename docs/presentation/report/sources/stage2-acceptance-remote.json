@@ -1,0 +1,81 @@
+{
+  "accepted_run": "outputs/stage2/a1bd26fe3d82dea3f65d",
+  "config_hash": "bbaa854bd830f8e12470d259a6334088381739a021112a3ea30e1f2c8d3437a5",
+  "implementation_hash": "b9de0421e01d14393f48ef6ba25f8fe0a1bf6acecb7bac5b527276b759525aa6",
+  "slots": 400,
+  "methods": [
+    "llmlingua_2x",
+    "llmlingua_4x",
+    "longllmlingua_2x",
+    "longllmlingua_4x"
+  ],
+  "positions": [
+    1,
+    5,
+    10,
+    15,
+    20
+  ],
+  "budget_mode": "hard",
+  "budget_satisfied": 396,
+  "budget_honest_misses": [
+    {
+      "slot_id": "23707ea627731d1e8786f6a2d21e325e8c4d0d6c8c741752da1b2d91d0e8048e:1:longllmlingua_4x",
+      "prompt_tokens": 749,
+      "target": 742
+    },
+    {
+      "slot_id": "23707ea627731d1e8786f6a2d21e325e8c4d0d6c8c741752da1b2d91d0e8048e:5:longllmlingua_4x",
+      "prompt_tokens": 751,
+      "target": 742
+    },
+    {
+      "slot_id": "23707ea627731d1e8786f6a2d21e325e8c4d0d6c8c741752da1b2d91d0e8048e:10:longllmlingua_4x",
+      "prompt_tokens": 754,
+      "target": 742
+    },
+    {
+      "slot_id": "23707ea627731d1e8786f6a2d21e325e8c4d0d6c8c741752da1b2d91d0e8048e:15:longllmlingua_4x",
+      "prompt_tokens": 753,
+      "target": 742
+    }
+  ],
+  "checks": [
+    {
+      "check": "run metadata is stage-two and reproducible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "matrix complete (400 slots)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "stored summary reproduces offline",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "recovery replays offline on 10 stored rows",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "every method x position cell is complete",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "hard-budget satisfaction 396/400, honest misses: 4",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "question-aware ranking differs on 100/100 samples",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "passed": true
+}

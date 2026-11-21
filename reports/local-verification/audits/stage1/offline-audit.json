@@ -1,0 +1,83 @@
+{
+  "kind": "stage1-offline-audit",
+  "api_calls": 0,
+  "elapsed_seconds": 1.9489796519992524,
+  "python": "3.13.5 (main, Aug 10 2026, 12:06:59) [GCC 14.2.0]",
+  "platform": "Linux-6.12.113+-x86_64-with-glibc2.41",
+  "predictions_sha256": "cac37c9e84678f2f591af8c4f6ccdb7a69d010cf71eae5678b85109bcb27bd62",
+  "prediction_rows": 300,
+  "inputs": [
+    {
+      "name": "nq-open-20_total_documents_gold_at_0.jsonl.gz",
+      "bytes": 15151873,
+      "sha256": "69a8dd87a45f07fb3ed9b804917a89db975cd6e488682fc838edca029cc3881f"
+    },
+    {
+      "name": "nq-open-20_total_documents_gold_at_4.jsonl.gz",
+      "bytes": 15163003,
+      "sha256": "c5e44700c4db24536f139f7383e3dd002413515ee889aeadc72767dd7f289682"
+    },
+    {
+      "name": "nq-open-20_total_documents_gold_at_9.jsonl.gz",
+      "bytes": 15155756,
+      "sha256": "cbada411f70235afc47d9b5407e9358ad72eb021742402ff032c8b65076ffb2f"
+    },
+    {
+      "name": "nq-open-20_total_documents_gold_at_14.jsonl.gz",
+      "bytes": 15152418,
+      "sha256": "86c1a25093615baefdd1ee4db7a993548b3bef24ca02eb9bd8db43fbedf517f2"
+    },
+    {
+      "name": "nq-open-20_total_documents_gold_at_19.jsonl.gz",
+      "bytes": 15114700,
+      "sha256": "d79b715e1b8c8301335e93cb01659f68c24f0253a808c3190b06d21896506c6c"
+    }
+  ],
+  "manifests": {
+    "smoke": 20,
+    "pilot": 100,
+    "main": 500,
+    "smoke_prefix_of_pilot": true,
+    "pilot_prefix_of_main": true,
+    "seed": 42,
+    "population": 2655,
+    "source_commit": "29b8a6d042ce29abccee3db1a73171a107d7e6af"
+  },
+  "isolation": {
+    "smoke_questions": 20,
+    "population_per_position": {
+      "1": 2655,
+      "5": 2655,
+      "10": 2655,
+      "15": 2655,
+      "20": 2655
+    },
+    "failures": []
+  },
+  "budget": {
+    "violations": [],
+    "usage_prompt_equals_local_plus_4": 300
+  },
+  "rescore": {
+    "mismatches": [],
+    "official_mean_score": {
+      "bm25_2x": 0.87,
+      "bm25_4x": 0.64,
+      "original": 0.92
+    }
+  },
+  "diagnostic_not_official_metric": {
+    "rule": "same best_subspan_em; full-text variant joins newlines with spaces before scoring",
+    "strong_denial_regex": "(cannot definitively|is not explicitly stated|none of the documents contain|do not contain the answer|do not provide an answer|no information about)",
+    "first_line_zero_but_joined_text_one": [
+      "64a3debb5e078f5b6b41d180d4beb9288e39cb6ef737a178b56d56d3fbd644c5:20:original",
+      "64a3debb5e078f5b6b41d180d4beb9288e39cb6ef737a178b56d56d3fbd644c5:5:original"
+    ],
+    "strong_denial_and_official_score_one": [
+      "64a3debb5e078f5b6b41d180d4beb9288e39cb6ef737a178b56d56d3fbd644c5:10:bm25_2x",
+      "64a3debb5e078f5b6b41d180d4beb9288e39cb6ef737a178b56d56d3fbd644c5:10:bm25_4x",
+      "64a3debb5e078f5b6b41d180d4beb9288e39cb6ef737a178b56d56d3fbd644c5:15:bm25_4x",
+      "64a3debb5e078f5b6b41d180d4beb9288e39cb6ef737a178b56d56d3fbd644c5:1:bm25_2x"
+    ]
+  }
+}

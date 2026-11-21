@@ -1,0 +1,54 @@
+{
+  "physical_slides": 9,
+  "visually_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "external_relationships": [
+    {
+      "part": "ppt/slides/_rels/slide9.xml.rels",
+      "target": "evidence/local-offline-evidence.mp4",
+      "package_target_exists": true
+    }
+  ],
+  "protected_P1_P7": {
+    "1": true,
+    "1_rels": true,
+    "2": true,
+    "2_rels": true,
+    "3": true,
+    "3_rels": true,
+    "4": true,
+    "4_rels": true,
+    "5": true,
+    "5_rels": true,
+    "6": true,
+    "6_rels": true,
+    "7": true,
+    "7_rels": true
+  },
+  "unchanged_from_build": {
+    "1": true,
+    "2": true,
+    "3": true,
+    "4": true,
+    "5": true,
+    "6": true,
+    "7": true,
+    "8": true,
+    "9": true
+  },
+  "P9_historical_figure_preserved": true,
+  "embedded_video": false,
+  "JUnit_testcases": 77,
+  "screenshot_original_identical": true,
+  "PDF_pages": 9,
+  "PDF_links": "PPTX relationship checked; PDF link actions not parsed (PDF library unavailable)"
+}

@@ -1,0 +1,38 @@
+{
+  "kind": "stage2-offline-audit",
+  "api_calls": 0,
+  "compression_rerun": false,
+  "elapsed_seconds": 0.00017142800061265007,
+  "run_id": "a1bd26fe3d82dea3f65d",
+  "rows": 400,
+  "budget_satisfied": 396,
+  "budget_misses": [
+    {
+      "slot_id": "23707ea627731d1e8786f6a2d21e325e8c4d0d6c8c741752da1b2d91d0e8048e:1:longllmlingua_4x",
+      "tokens": 749,
+      "target": 742
+    },
+    {
+      "slot_id": "23707ea627731d1e8786f6a2d21e325e8c4d0d6c8c741752da1b2d91d0e8048e:5:longllmlingua_4x",
+      "tokens": 751,
+      "target": 742
+    },
+    {
+      "slot_id": "23707ea627731d1e8786f6a2d21e325e8c4d0d6c8c741752da1b2d91d0e8048e:10:longllmlingua_4x",
+      "tokens": 754,
+      "target": 742
+    },
+    {
+      "slot_id": "23707ea627731d1e8786f6a2d21e325e8c4d0d6c8c741752da1b2d91d0e8048e:15:longllmlingua_4x",
+      "tokens": 753,
+      "target": 742
+    }
+  ],
+  "official_mean_score": {
+    "llmlingua_2x": 0.62,
+    "llmlingua_4x": 0.46,
+    "longllmlingua_2x": 0.94,
+    "longllmlingua_4x": 0.88
+  },
+  "problems": []
+}

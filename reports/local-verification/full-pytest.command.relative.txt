@@ -1,0 +1,3 @@
+# Portable form, run from the repository root after `python -m reproduction prepare`.
+# Original as-run command with /workspace paths is in full-pytest.command.as-run.txt.
+python -m pytest -v --tb=short --junitxml=reports/local-verification/junit-full.xml

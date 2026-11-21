@@ -1,0 +1,101 @@
+{
+  "coverage": {
+    "ablation": {
+      "expected": 3500,
+      "success": 3500
+    },
+    "efficiency": {
+      "expected": 1200,
+      "success": 1200,
+      "failed": 0,
+      "missing": 0,
+      "complete": true,
+      "failures": []
+    },
+    "overall_planned_efficiency_complete": true
+  },
+  "ablation": [
+    {
+      "method": "original",
+      "n": 500,
+      "em_percent": 84.6,
+      "delta_pp": 2.0,
+      "ci_low_pp": -2.2,
+      "ci_high_pp": 6.999999999999999,
+      "mean_actual_ratio": 1.0,
+      "budget_misses": 0
+    },
+    {
+      "method": "longllmlingua_2x",
+      "n": 500,
+      "em_percent": 82.6,
+      "delta_pp": 0,
+      "ci_low_pp": null,
+      "ci_high_pp": null,
+      "mean_actual_ratio": 2.080178940339819,
+      "budget_misses": 0
+    },
+    {
+      "method": "longllmlingua_2x_no_coarse",
+      "n": 500,
+      "em_percent": 45.0,
+      "delta_pp": -37.6,
+      "ci_low_pp": -47.19999999999999,
+      "ci_high_pp": -28.400000000000002,
+      "mean_actual_ratio": 2.0569691580697684,
+      "budget_misses": 0
+    },
+    {
+      "method": "longllmlingua_2x_no_fine",
+      "n": 500,
+      "em_percent": 81.2,
+      "delta_pp": -1.4000000000000001,
+      "ci_low_pp": -4.2,
+      "ci_high_pp": 1.2,
+      "mean_actual_ratio": 2.0398624658110127,
+      "budget_misses": 0
+    },
+    {
+      "method": "longllmlingua_2x_no_dynamic",
+      "n": 500,
+      "em_percent": 78.0,
+      "delta_pp": -4.6,
+      "ci_low_pp": -8.600000000000001,
+      "ci_high_pp": -0.7999999999999997,
+      "mean_actual_ratio": 2.0325239871864755,
+      "budget_misses": 0
+    },
+    {
+      "method": "longllmlingua_2x_no_restrict",
+      "n": 500,
+      "em_percent": 83.2,
+      "delta_pp": 0.6,
+      "ci_low_pp": -2.1999999999999997,
+      "ci_high_pp": 3.600000000000001,
+      "mean_actual_ratio": 2.079000466454627,
+      "budget_misses": 0
+    },
+    {
+      "method": "longllmlingua_2x_reorder",
+      "n": 500,
+      "em_percent": 79.6,
+      "delta_pp": -3.0,
+      "ci_low_pp": -7.200000000000001,
+      "ci_high_pp": 0.8,
+      "mean_actual_ratio": 2.0448746254517536,
+      "budget_misses": 0
+    },
+    {
+      "method": "longllmlingua_2x_no_recovery",
+      "n": 500,
+      "em_percent": 83.2,
+      "delta_pp": 0.6,
+      "ci_low_pp": 0.0,
+      "ci_high_pp": 1.6,
+      "mean_actual_ratio": 2.080178940339819,
+      "budget_misses": 0
+    }
+  ],
+  "efficiency_common": 100,
+  "efficiency_n": 99
+}

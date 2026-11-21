@@ -1,0 +1,9 @@
+{
+  "sources/canonical-stage1/predictions.jsonl": "cac37c9e84678f2f591af8c4f6ccdb7a69d010cf71eae5678b85109bcb27bd62",
+  "sources/cases-verified.json": "5627c2f6ed3188bcf4c6b61619d79661d42917a9dd09b53637b9ab5d6020b8a1",
+  "sources/g1/summary.json": "435043bf6971bb3cd2bfbf2d1a26045b33378658453a82343ab411a27cef8a02",
+  "sources/g1/run.json": "433eb590541e62b4e402fc8d8d1c09570a5b26a7f533f150f7ea29ff03ef3ffd",
+  "sources/g2/ablation.csv": "d23b63dc6450bf6eecf4e00caa504f3a50ca19ce9516dee98dfc82fa9d6612d0",
+  "sources/g2/efficiency.csv": "3b27422a7552c44ff164448adf822ff402256786ba502de42ffb10f0292942aa",
+  "sources/stage3-stats-remote.json": "d8e110232901480083806003e648d7b8fa278cdce3d24ade7d77c167e2275aae"
+}

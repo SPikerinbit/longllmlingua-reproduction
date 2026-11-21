@@ -1,0 +1,14 @@
+{
+  "elapsed_seconds": 1.9489796519992524,
+  "rows": 300,
+  "isolation_failures": 0,
+  "budget_violations": 0,
+  "rescore_mismatches": 0,
+  "newline_boundary": 2,
+  "denial_credit": 4,
+  "means": {
+    "bm25_2x": 0.87,
+    "bm25_4x": 0.64,
+    "original": 0.92
+  }
+}

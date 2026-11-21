@@ -1,0 +1,19 @@
+Title:           G14 LongLLMLingua 复现
+Subject:         NLP 2026 论文部分复现
+Creator:         Impress
+Producer:        LibreOffice 25.2.3.2 (X86_64) / LibreOffice Community
+CreationDate:    Sat Nov 21 18:13:54 2026 CST
+Custom Metadata: no
+Metadata Stream: yes
+Tagged:          no
+UserProperties:  no
+Suspects:        no
+Form:            none
+JavaScript:      no
+Pages:           9
+Encrypted:       no
+Page size:       960.009 x 540 pts
+Page rot:        0
+File size:       1477383 bytes
+Optimized:       no
+PDF version:     1.7

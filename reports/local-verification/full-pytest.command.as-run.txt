@@ -1,0 +1,2 @@
+cd /workspace/g14-local-main/repo
+/workspace/g14-local-main/venv/bin/python -m pytest -v --tb=short --junitxml=/workspace/g14-local-main/runs/junit-full.xml

@@ -1,0 +1,272 @@
+{
+  "run_id": "2a7f4accf6127178a76b",
+  "stage": 3,
+  "split": "smoke",
+  "question_ids": [
+    "ef848352f36bc278ab99b295486d00f8fa68d2a26552caa8c12a67932b85b9fc",
+    "0b6dde118f5c85bc3f4d120a9bd287bf2fbdda405bda05bf3d8587c10efc9be7",
+    "fece0693c3c432f98fcb1673a4ee2229ef0453205c44ecd2e1cda94dc2602ce2",
+    "64a3debb5e078f5b6b41d180d4beb9288e39cb6ef737a178b56d56d3fbd644c5",
+    "d58fcfa6cab7615ccc77dca5e7e0b5c559c79504e724a66627116291e216b1f0",
+    "0582fd6d9bba4a7fefc3d4de5437f6cf8ae280e2225036798d5760d5db0d305f",
+    "6b5482bc5952801e46a3631762565d4482bbeac19dd3dfb37ed9fbe637be2268",
+    "663a8098b27bb75f573cfb25d33120518501fb6ff1b10c04b5eed350785ba3b2",
+    "f5d10809ec2a6acc5b708ac48eaf65f8389eeb69812a7712b542bf40a66e295d",
+    "23707ea627731d1e8786f6a2d21e325e8c4d0d6c8c741752da1b2d91d0e8048e",
+    "32b8bbc4c5caf338f118e8727cf94df81529171fa99ecd0ebc162c03ffe157d9",
+    "7bb119aada2fcdecc60c2e79a366e8d10dbc773f130a87f96f2138627f8be10f",
+    "7a98fe270eaddc1b3aa34abf2c186a2cfeb6bea64c91642c9cd6e88e21e79176",
+    "25e546b8ffef968d33a8bd12482a6b100a5d3369cdb52d0dfc8f34fe059543f4",
+    "c21bf6a0b05d84d30299a32d577bf0dfa6a957242d88ee5c3e28bca72d01ae15",
+    "dd2f7695aa5d8956a680551d3affa1f2f8b0ac795bfa4a1b60dafa80d60acfaa",
+    "eea8ae864c0ece22a4ce2d354c1df5d58e295152b12ccfb69ced409696fd971d",
+    "17088bb5c6115ba020e69961baedab42ffbffb9e6fed52d0207a17b7ed98dafb",
+    "9188f9e5acbf4aa37b87519e6bc2f185f6a5fbcbcc152234f04ff126ec323c2b",
+    "c50e828b993afc6629a55bcc8e514aadf82542b63d40193a21b42a4d0d12405c"
+  ],
+  "manifest": {
+    "split": "smoke",
+    "seed": 42,
+    "source_commit": "29b8a6d042ce29abccee3db1a73171a107d7e6af",
+    "population": 2655,
+    "question_ids": [
+      "ef848352f36bc278ab99b295486d00f8fa68d2a26552caa8c12a67932b85b9fc",
+      "0b6dde118f5c85bc3f4d120a9bd287bf2fbdda405bda05bf3d8587c10efc9be7",
+      "fece0693c3c432f98fcb1673a4ee2229ef0453205c44ecd2e1cda94dc2602ce2",
+      "64a3debb5e078f5b6b41d180d4beb9288e39cb6ef737a178b56d56d3fbd644c5",
+      "d58fcfa6cab7615ccc77dca5e7e0b5c559c79504e724a66627116291e216b1f0",
+      "0582fd6d9bba4a7fefc3d4de5437f6cf8ae280e2225036798d5760d5db0d305f",
+      "6b5482bc5952801e46a3631762565d4482bbeac19dd3dfb37ed9fbe637be2268",
+      "663a8098b27bb75f573cfb25d33120518501fb6ff1b10c04b5eed350785ba3b2",
+      "f5d10809ec2a6acc5b708ac48eaf65f8389eeb69812a7712b542bf40a66e295d",
+      "23707ea627731d1e8786f6a2d21e325e8c4d0d6c8c741752da1b2d91d0e8048e",
+      "32b8bbc4c5caf338f118e8727cf94df81529171fa99ecd0ebc162c03ffe157d9",
+      "7bb119aada2fcdecc60c2e79a366e8d10dbc773f130a87f96f2138627f8be10f",
+      "7a98fe270eaddc1b3aa34abf2c186a2cfeb6bea64c91642c9cd6e88e21e79176",
+      "25e546b8ffef968d33a8bd12482a6b100a5d3369cdb52d0dfc8f34fe059543f4",
+      "c21bf6a0b05d84d30299a32d577bf0dfa6a957242d88ee5c3e28bca72d01ae15",
+      "dd2f7695aa5d8956a680551d3affa1f2f8b0ac795bfa4a1b60dafa80d60acfaa",
+      "eea8ae864c0ece22a4ce2d354c1df5d58e295152b12ccfb69ced409696fd971d",
+      "17088bb5c6115ba020e69961baedab42ffbffb9e6fed52d0207a17b7ed98dafb",
+      "9188f9e5acbf4aa37b87519e6bc2f185f6a5fbcbcc152234f04ff126ec323c2b",
+      "c50e828b993afc6629a55bcc8e514aadf82542b63d40193a21b42a4d0d12405c"
+    ],
+    "selection": "sorted stable IDs, random.Random(42).shuffle, nested prefixes"
+  },
+  "config": {
+    "stage": 3,
+    "provider": "deepseek",
+    "base_url": "https://api.deepseek.com",
+    "model": "deepseek-flash",
+    "expected_model_version": "DeepSeek-V4.1-Flash-1017",
+    "api_key_env": "DEEPSEEK_API_KEY",
+    "thinking": {
+      "type": "disabled"
+    },
+    "temperature": 0,
+    "max_tokens": 512,
+    "timeout_seconds": 90,
+    "max_attempts": 3,
+    "retry_delay_seconds": 2,
+    "request_interval_seconds": 0.2,
+    "max_requests_per_run": 1500,
+    "max_context_tokens": 16000,
+    "split": "smoke",
+    "positions": [
+      1,
+      5,
+      10,
+      15,
+      20
+    ],
+    "seed": 42,
+    "baseline": "original",
+    "statistics": {
+      "bootstrap_samples": 2000,
+      "seed": 42,
+      "confidence": 0.95
+    },
+    "tokenizer": {
+      "repo": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "revision": "314113f8a7dadb388215396ba5fbee2c610a04d6",
+      "file": "tokenizer.json",
+      "counting": "prompt-text-only; excludes API chat framing; API usage is billing truth"
+    },
+    "upstream": {
+      "lost_in_the_middle": "29b8a6d042ce29abccee3db1a73171a107d7e6af",
+      "llmlingua": "5a4c78ae18ab17a98cf997e8259354e546081d64"
+    },
+    "bm25": {
+      "k1": 1.5,
+      "b": 0.75,
+      "tokenization": "unicode-word-lower-v1"
+    },
+    "compressor": {
+      "model_path": "/cache/models/llama-2-7b-chat",
+      "model_name": "NousResearch/Llama-2-7b-chat-hf",
+      "device": "npu:0",
+      "torch_dtype": "float16",
+      "attn_implementation": "eager",
+      "iterative_size": 200,
+      "context_budget": "+100",
+      "budget_mode": "hard",
+      "max_budget_passes": 3,
+      "seed": 42,
+      "model_revision": "351844e75ed0bcbbe3f10671b3c808d2b83894ee"
+    },
+    "recovery": {
+      "tokenizer": "deepseek-answer-model",
+      "scope": "response-only"
+    },
+    "methods": {
+      "original": {
+        "kind": "original",
+        "ratio": 1.0
+      },
+      "bm25_2x": {
+        "kind": "bm25",
+        "ratio": 2.0
+      },
+      "bm25_4x": {
+        "kind": "bm25",
+        "ratio": 4.0
+      },
+      "llmlingua_2x": {
+        "kind": "llmlingua",
+        "ratio": 2.0,
+        "rank_method": "llmlingua",
+        "condition_in_question": "none",
+        "condition_compare": false,
+        "dynamic_context_compression_ratio": 0.0,
+        "reorder_context": "original",
+        "use_context_level_filter": true,
+        "restrict": false,
+        "recovery": false
+      },
+      "llmlingua_4x": {
+        "kind": "llmlingua",
+        "ratio": 4.0,
+        "rank_method": "llmlingua",
+        "condition_in_question": "none",
+        "condition_compare": false,
+        "dynamic_context_compression_ratio": 0.0,
+        "reorder_context": "original",
+        "use_context_level_filter": true,
+        "restrict": false,
+        "recovery": false
+      },
+      "longllmlingua_2x": {
+        "kind": "longllmlingua",
+        "ratio": 2.0,
+        "rank_method": "longllmlingua",
+        "condition_in_question": "after",
+        "condition_compare": true,
+        "dynamic_context_compression_ratio": 0.3,
+        "reorder_context": "original",
+        "use_context_level_filter": true,
+        "restrict": true,
+        "recovery": true
+      },
+      "longllmlingua_4x": {
+        "kind": "longllmlingua",
+        "ratio": 4.0,
+        "rank_method": "longllmlingua",
+        "condition_in_question": "after",
+        "condition_compare": true,
+        "dynamic_context_compression_ratio": 0.3,
+        "reorder_context": "original",
+        "use_context_level_filter": true,
+        "restrict": true,
+        "recovery": true
+      },
+      "longllmlingua_2x_no_coarse": {
+        "kind": "longllmlingua",
+        "ratio": 2.0,
+        "rank_method": "llmlingua",
+        "condition_in_question": "after",
+        "condition_compare": true,
+        "dynamic_context_compression_ratio": 0.3,
+        "reorder_context": "original",
+        "use_context_level_filter": true,
+        "restrict": true,
+        "recovery": true
+      },
+      "longllmlingua_2x_no_fine": {
+        "kind": "longllmlingua",
+        "ratio": 2.0,
+        "rank_method": "longllmlingua",
+        "condition_in_question": "after",
+        "condition_compare": false,
+        "dynamic_context_compression_ratio": 0.3,
+        "reorder_context": "original",
+        "use_context_level_filter": true,
+        "restrict": true,
+        "recovery": true
+      },
+      "longllmlingua_2x_no_dynamic": {
+        "kind": "longllmlingua",
+        "ratio": 2.0,
+        "rank_method": "longllmlingua",
+        "condition_in_question": "after",
+        "condition_compare": true,
+        "dynamic_context_compression_ratio": 0.0,
+        "reorder_context": "original",
+        "use_context_level_filter": true,
+        "restrict": true,
+        "recovery": true
+      },
+      "longllmlingua_2x_no_restrict": {
+        "kind": "longllmlingua",
+        "ratio": 2.0,
+        "rank_method": "longllmlingua",
+        "condition_in_question": "after",
+        "condition_compare": true,
+        "dynamic_context_compression_ratio": 0.3,
+        "reorder_context": "original",
+        "use_context_level_filter": true,
+        "restrict": false,
+        "recovery": true
+      },
+      "longllmlingua_2x_reorder": {
+        "kind": "longllmlingua",
+        "ratio": 2.0,
+        "rank_method": "longllmlingua",
+        "condition_in_question": "after",
+        "condition_compare": true,
+        "dynamic_context_compression_ratio": 0.3,
+        "reorder_context": "sort",
+        "use_context_level_filter": true,
+        "restrict": true,
+        "recovery": true
+      }
+    },
+    "experiment_phase": "efficiency",
+    "benchmark_no_cache": true,
+    "measurement_session": "course100-efficiency-final-v1"
+  },
+  "config_hash": "c3d8468eb37f94c978a1861b245c3bd9d64191bccce744a2a456feb0b7a455a4",
+  "implementation_hash": "ba889fbc1117884257dfc0545547ae46365a5dfa174b0d964c84b27b62a5c468",
+  "started_at": "2026-11-11T17:51:20+0800",
+  "upstream": {
+    "lost_in_the_middle": "29b8a6d042ce29abccee3db1a73171a107d7e6af",
+    "llmlingua": "5a4c78ae18ab17a98cf997e8259354e546081d64"
+  },
+  "tokenizer": {
+    "repo": "deepseek-ai/DeepSeek-V4.1-Flash",
+    "revision": "314113f8a7dadb388215396ba5fbee2c610a04d6",
+    "file": "tokenizer.json",
+    "counting": "prompt-text-only; excludes API chat framing; API usage is billing truth"
+  },
+  "compressor": {
+    "model_path": "/cache/models/llama-2-7b-chat",
+    "model_name": "NousResearch/Llama-2-7b-chat-hf",
+    "device": "npu:0",
+    "torch_dtype": "float16",
+    "attn_implementation": "eager",
+    "load_seconds": 5.448083759052679,
+    "move_seconds": 10.97080898215063,
+    "max_position_embeddings": 4096,
+    "model_revision": "351844e75ed0bcbbe3f10671b3c808d2b83894ee",
+    "warmup_compressions": 2
+  }
+}

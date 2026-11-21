@@ -1,0 +1,614 @@
+北京理工大学 · 自然语言处理课程   | G14 方法级复现报告
+
+
+
+
+                 LongLLMLingua 方法级复现报告
+                            BIT 自然语言处理课程          G14
+                        2026 年 11 月 21 日（Asia/Shanghai）
+
+摘要     针对长上下文问答中的冗余与位置偏置，本文整理并核验 G14 已有的 LongLLMLingua 复现记录。
+CUDA pilot 100 题上，2×压缩 EM 为 83.2%，原始提示为 84.6%；按题配对的差值 95%区间为[−6.2,
++3.0]个百分点。独立 NPU 实验表明问题感知文档筛选作用较大，但本批次未获得端到端加速。本文仅作既
+有实验汇编与离线核验，不声称重新推理。
+
+1 问题与复现范围
+LongLLMLingua[1]通过提高与问题相关的信息密度、调整信息位置并恢复输出子序列，缓解长提示
+的成本与性能问题。本文检验三个问题：同一问答设置下能否在 2×/4×压缩后保留准确率；哪些模块
+贡献较大；输入缩短是否转化为整条流水线加速。
+
+范围限定为 Natural Questions 的 20 文档多文档问答版本[2,3]与固定 pilot 100 题、五个 gold 位
+置；不覆盖原论文全部基准、训练或 GPT-3.5 绝对分数。问答模型替换为 deepseek-flash，因此属于
+方法级而非逐数值复现。500 题仅有清单，不作为已完成结果。
+
+2 方法与实现差异
+
+
+
+
+  图 1 LongLLMLingua 原方法框架。来源：Jiang 等[1]，arXiv:2310.06839v2，图 2（原图截取，非本组实验图）。
+
+粗粒度阶段以文档条件下的问题及 restrict 后缀的困惑度刻画相关性；细粒度阶段利用问题感知对比困
+惑度迭代选择 token，并按文档排名动态分配预算。压缩后的提示送入黑盒问答模型，恢复模块在问答
+后对输出作子序列恢复[1,4]。
+
+主比较关闭文档重排序，以保留五位置干预；重排序另列消融。固定实现中的 k=2 映射在当前路径无效，
+τ_ins=0.85 与 τ_que=0.9 预压缩未实现；动态比率 0.3 按排名线性分配，不能宣称与论文控制完全等价
+[5]。
+
+
+
+
+                                    G14   ·   1
+北京理工大学 · 自然语言处理课程      | G14 方法级复现报告
+
+
+
+3 数据、实现设置与公平性
+
+3.1 输入与版本固定
+
+数据总体为 2655 题。先按稳定 ID 排序，再用 seed=42 打乱，按嵌套前缀取得 smoke 20 题、pilot
+100 题和 main 500 题。每题 20 篇文档，gold 置于 1、5、10、15、20（从 1 计数）。一“槽”指题目
+×位置×方法，不是独立问题。输入仅含问题与文档 ID、标题、正文；参考答案、gold 标记和位置元
+数据不进入 BM25 或问答提示[6]。
+
+ 项目            实际设置与来源
+
+               LLMLingua 与 LongLLMLingua 共用 LLaMA-2-7B-Chat 镜像权重；fp16、eager，迭代段长
+ 压缩器
+               200
+
+ 问答 API        deepseek-flash，非思考，temperature=0，max_tokens=512；历史真实记录保持不变
+
+ 计数与 BM25      DeepSeek 固定分词器；BM25 k1=1.5、b=0.75，unicode-word-lower-v1
+
+ 代码锁定          压缩库、数据模板与指标锁定提交；完整 SHA 见[9,10]，权重 revision 见附录 A
+
+ 实际批次          阶段三为 CUDA（仅 cuda:0，型号未登记）；阶段四为 Ascend910B4，不能合并硬件记录
+
+3.2 指标、配对区间与预算边界
+
+主指标沿用首行 best_subspan_em：先取模型回答第一行，再按上游规范化规则检查参考答案子串。
+它不是语义正确性判定，否定句提及答案也可能得 1 分。统计先在每题内平均五位置，再计算方法与
+original 的题内差值；以题目为单位配对 bootstrap 2000 次，seed=42，保留同题全部位置，报告
+95%区间[7]。不能把 500 槽当作 500 道独立题。
+
+所有方法共享题单、可见输入、模板、问答设置与计数口径。硬预算目标为⌊原始完整提示本地 token
+数/目标倍率⌋；压缩器最多 3 轮收紧预算，保留超标槽而不删失。库内 context_budget=“+100”是
+软余量，不是最终合格标准。恢复只作用于回答，且采用 DeepSeek 分词器，区别于论文恢复粒度
+[5]。
+
+本地预算仅计提示文本，不含 API 聊天封装；阶段一 300 槽的 API 输入均比本地多 4 token，不能将
+文本长度直接当账单。压缩率均值是逐槽比值的平均，不等于 API 输入总量之比。temperature=0 和
+返回 fingerprint 亦不足以证明不可变模型快照。
+
+3.3 分阶段验收与证据等级
+
+ 批次             槽数与结果                                 解释
+
+ 阶段一 smoke      20×5×3=300；EM 92.0/87.0/64.0%         依次为 original/BM25 2×/4×；预算 300/300
+
+ 阶段二 smoke      20×5×4=400；预算 396/400                 canonical run a1bd…；4 槽超标，不写成全合格
+
+ 历史离线审计         阶段一重评分不一致 0；API 0                     原记录耗时 2.055 秒，不是推理效率
+
+ 本机完整 pytest    77/77、退出 0；问答 API 0                   2026-11-21 17:46:58–17:47:02（北京时间）[12]
+阶段一已记录五个公开 gz 校验和一致、20 题跨位置文档集合与 gold 位置检查失败 0。阶段二 4 个异常均为
+同题 Long 4×，目标 742，实测 749/751/754/753 token；只报告现象，不推断完整缓存中尚未核实的根
+因。兼容旧分支 stage_3 的 394/400 不作为本报告口径。
+
+
+
+
+                                        G14   ·   2
+北京理工大学 · 自然语言处理课程   | G14 方法级复现报告
+
+
+
+4 主比较：CUDA pilot 100 题
+阶段三 run e8f151b9c286648caf98 共 3500/3500 槽：100 题×5 位置×7 方法，每方法 500 槽。表 1
+来自 summary.json 与 stats.json[7]；置信区间直接引用既有按题配对统计，不以汇总均值伪造逐样
+本区间。下文 Long 为 LongLLMLingua 的简称。
+      表 1 CUDA 主比较。EM 为%；Δ 与 95% CI 为相对 original 的百分点（pp）；倍率为本地实测均值。
+
+     方法             EM     Δ (pp)   95% CI (pp)      倍率       预算合格
+
+     Original       84.6   —        基线               1.000×   500/500
+
+     BM25 2×        72.4   -12.2    [-19.2, -5.8]    2.002×   500/500
+
+     BM25 4×        55.8   -28.8    [-37.6, -19.4]   4.006×   500/500
+
+     LLMLingua 2×   46.8   -37.8    [-46.8, -29.2]   2.044×   500/500
+
+     LLMLingua 4×   35.6   -49.0    [-57.6, -40.0]   4.173×   500/500
+
+     Long 2×        83.2   -1.4     [-6.2, +3.0]     2.080×   500/500
+
+     Long 4×        79.0   -5.6     [-11.6, -0.4]    4.090×   482/500
+
+同批次中，Long 2×较 BM25 2×高 10.8pp，Long 4×较 BM25 4×高 23.2pp；这是点估计差，表 1
+区间的参照始终是 original，不能误用作方法间差值的区间。LLMLingua 在本设置明显较低，不能据
+此断言其在所有任务无效。
+
+Long 2×相对 original 为−1.4pp，95% CI [−6.2, +3.0]跨 0：数据未明确区分两者，但未预设等效界
+值，不能写成“等效”或“无损”。Long 4×差−5.6pp，区间[−11.6, −0.4]，且 18/500 槽超预算；
+79.0%的 EM 是含这些超标槽的整体结果，不是严格 4×预算下的无条件性能。
+
+
+
+
+    图 2 同一 CUDA 批次的分位置 EM，每点 100 题。依据[7]的 groups 重绘；坐标从 30%起，未绘方法见表 1。
+
+图 2 将平均分拆至五个位置，避免只凭总体 EM 判断位置鲁棒性。当前原始提示未呈现典型的“中间最
+差”曲线；本文未另作位置差的显著性检验，不将其包装为复现了论文全部位置偏置现象。Long 两档
+在所测位置均相对稳定，但只有 100 题与五个离散位置，不能推出一般长上下文鲁棒性。
+
+阶段一 original 92.0%对应嵌套 smoke 20 题，阶段三 84.6%对应 pilot 100 题及独立运行；两者不是
+同一分母。本文不跨批次拼接最优值，也不将小样本 smoke 结果作为 CUDA 主比较的基线。
+
+
+
+
+                                      G14   ·   3
+北京理工大学 · 自然语言处理课程           | G14 方法级复现报告
+
+
+
+5 独立 NPU 消融与效率
+
+5.1 单因素消融
+
+阶段四 run a9d2295195adde90484d 基于 pilot 100 题、五位置，既有推理记录 3500 槽。参照是同机
+Long 2×的 82.6%，不是 CUDA 的 83.2%。表 2 中“无恢复”由已有恢复前得分离线派生，不额外计
+作 500 次推理[8]。
+                 表 2 NPU 消融，各行 500 槽；Δ 与按题配对 95% CI 均相对同批次完整 Long 2×。
+
+ 方法/改动                                   EM (%)               Δ (pp)   95% CI (pp)
+
+ Original                                84.6                 +2.0     [-2.2, +7.0]
+
+ Long 2×完整                               82.6                 +0.0     参照
+
+ 无问题感知粗粒度                                45.0                 -37.6    [-47.2, -28.4]
+
+ 无问题感知细粒度                                81.2                 -1.4     [-4.2, +1.2]
+
+ 无动态预算                                   78.0                 -4.6     [-8.6, -0.8]
+
+ 无 restrict 后缀                           83.2                 +0.6     [-2.2, +3.6]
+
+ 额外开启重排序                                 79.6                 -3.0     [-7.2, +0.8]
+
+ 无恢复（离线派生）                               83.2                 +0.6     [+0.0, +1.6]
+
+“无粗粒度”具体是将 rank_method 改为 llmlingua，仍保留文档过滤，并非禁用整个筛选过程；其
+−37.6pp 支持问题感知排序在本设置的重要性。去动态预算下降 4.6pp。细粒度与 restrict 的区间跨
+0，证据不足以稳定排序小幅效果；主比较原本关闭重排序，此处为额外打开而非再次移除。
+
+关闭恢复的点估计反而高 0.6pp，区间[0.0, +1.6]包含边界 0；已有 3 条恢复由对变错记录，集中于 2
+题。恢复不是单调有益模块，不能以原论文叙述替代本批次负面证据。
+
+5.2 端到端效率而非仅 token 节约
+
+效率独立 run 2a7f4accf6127178a76b 共 1200 槽（12 方法×100 个共同题目—位置槽）。每方法去掉
+同一个首槽后为 99 槽，位置分布 19/20/20/20/20；它们不是 99 道独立题。表 3 保留主要参照，完整
+12 行见随附 CSV。
+            表 3 NPU 同批次耗时（秒）与峰值分配内存（十进制 GB）；p50/p95 分别为中位数/95 分位。
+
+ 方法                  压缩 p50       API p50             端到端 p50 / p95                     峰值 GB
+
+ Original            0.01         1.09                1.12 / 1.54                       未报
+
+ BM25 2×             0.10         1.03                1.20 / 1.59                       未报
+
+ LLMLingua 2×        8.26         1.30                9.63 / 12.45                      16.25
+
+ Long 2×             5.23         1.12                6.45 / 7.49                       16.43
+
+ Long 4×             7.38         1.05                8.57 / 12.88                      14.99
+
+端到端包含压缩、API 与恢复及流程开销。Long 2×为 6.45 秒，对比 original 1.12 秒，没有端到端加
+速；压缩开销在本批次占主导。各组件分位数不能直接相加得到总分位数。效率不等于 API 账单，也
+不包含 Cursor 会话计时；CUDA 与 NPU 耗时不可相加。
+
+
+
+
+                                                G14   ·   4
+北京理工大学 · 自然语言处理课程   | G14 方法级复现报告
+
+
+
+6 真实案例与误差边界
+附录 B 列出 S1-01 至 S1-13 的真实首行、参考答案、token 和分数，均来自阶段一 run
+d54b3118c61ea4930624 并与 canonical 预测核对一致。13 槽仅覆盖 4 题，不是 13 道独立问题，亦
+非阶段三 LongLLMLingua 逐样本误差集。
+
+ 真实槽索引        观察                                  可支持的解释
+
+              Manipur：original/2×对，4×错；           输出 Pakhangpa 而非参考 Pakhangba/
+ S1-01—03
+              822/822 token                       Pamheiba；预算合格不保证答案保留
+
+              Macbeth：三种方法均写 Banquo，均得 BM25 在部分问题可保留关键实体，不应只挑失
+ S1-04—06
+              1                                   败槽
+
+                                                  S1-08/09 否定句含 Los Lonely Boys 仍得 1；
+ S1-07—11     Heaven：拒答、否定提及和首行边界
+                                                  10/11 仅后续行命中
+
+                                                  压缩后发生年份混淆；仅由输出不能断定内部因
+ S1-12—13     Astros：2013 变为 2017；4×得 0
+                                                  果
+
+首行子串 EM 不等于语义正确：S1-08/09 否定目标歌名却提及 Los Lonely Boys 而得 1。既有审计共 4
+槽同类现象；另 2 槽 original 拼接全文后由 0 变 1。本文保留官方首行指标，不作事后替换。
+
+恢复负例中，Bantu Education Act 回答截短后由 1 变 0；Cracker Barrel 两个位置输出替换为“645
+stores in 44 states”等文本后得 0。缺完整缓存与参考上下文，仅支持恢复可能损害既定 EM，不声
+称已定位全部根因[8]。
+
+7 局限、代码与 AI 辅助披露
+结论受单一数据集、100 题、五位置及问答模型替代限制。硬预算、恢复分词器与无效 k 映射偏离论
+文；API 版本非不可变快照。未预注册等效界值，消融区间未作多重比较校正，小差异不作稳健优劣结
+论。
+
+CUDA 型号、阶段四 CANN 及阶段二/三/四完整输出、压缩/问答缓存和校验和仍缺，不能独立重放全
+部推理；阶段一 canonical 预测已核验。历史 tokenizers 0.21.0/0.21.4 与本机离线 0.22.1 分开，阶
+段二 16.67 GB 与效率 16.428 GB 不合并。
+
+代码依赖锁定版本的 LLMLingua 与 Lost in the Middle；本文档更新未改源码或原结果。AI 辅助仅
+用于汇编、写作、图表与排版，不生成模型回答、压缩文本或案例。2026-11-21 初版所载 43 项为历史
+回传，当时未在报告环境亲跑。同日 17:46:58–17:47:02（北京时间），本机完整 pytest 为 77/77、退
+出 0，问答 API 调用 0；配齐公开 NQ 与固定分词器后，原 72 过/5 因缺资源失败已解决[12]。这是离线
+代码/记录核验，不是重新推理 3500 槽，原分数未改。
+
+受控 Cursor 回答仍缺、无新分数，不把对话当 DeepSeek API。代推进不冒充成员亲历，也未代勾自
+检。占位资料包已生成，P 编号、四人登记信息与本人确认仍缺。50 秒离线验收实录已完成，但不等
+同真人讲述计时、成员本人参与或新模型实验，不宣称课程满分。
+
+8 结论
+本次方法级证据支持 LongLLMLingua 较传统压缩基线保留更多问答性能，问题感知排序贡献突出；
+但 2×未证成等效，4×有预算超标，且本批次无端到端加速。结论受批次、计数口径和缺失原始输出
+限制。
+
+
+
+
+                                    G14   ·   5
+北京理工大学 · 自然语言处理课程              | G14 方法级复现报告
+
+
+
+参考文献与公开来源（不计正文）
+正文为前 5 页。以下为参考文献及来源索引；公开网页核对日期：2026 年 11 月 21 日（Asia/Shanghai）。文献作者以
+ACL Anthology 正式条目核对，版权人不代替合著者名单。
+
+[1] Jiang, H., Wu, Q., Luo, X., Li, D., Lin, C.-Y., Yang, Y., & Qiu, L. 2024. LongLLMLingua: Accelerating and
+Enhancing LLMs in Long Context Scenarios via Prompt Compression. ACL 2024 (Long Papers). 本报告对照
+arXiv:2310.06839v2。 [点击来源]
+
+[2] Liu, N. F., Lin, K., Hewitt, J., Paranjape, A., Bevilacqua, M., Petroni, F., & Liang, P. 2024. Lost in the
+Middle: How Language Models Use Long Contexts. Transactions of the Association for Computational
+Linguistics, 12:157–173. [点击来源]
+
+[3] Kwiatkowski, T., et al. 2019. Natural Questions: A Benchmark for Question Answering Research.
+Transactions of the Association for Computational Linguistics, 7:453–466. [点击来源]
+
+[4] Jiang, H., Wu, Q., Lin, C.-Y., Yang, Y., & Qiu, L. 2023. LLMLingua: Compressing Prompts for Accelerated
+Inference of Large Language Models. EMNLP 2023. [点击来源]
+
+[5] G14. 论文参数与固定实现对照（stage2-parameter-map.md）；记录 k 映射、预压缩、计数和恢复的差异。 [点击
+来源]
+
+[6] G14. 阶段一离线审计、canonical 预测与 13 槽案例；stage1-foundation 公开记录。 [点击来源]
+
+[7] G14. CUDA pilot 主比较：run.json、summary.json 与 stats.json；stage3-main-comparison 公开记录。 [点
+击来源]
+
+[8] G14. 独立 NPU 消融、效率与恢复负例；stage4-ablation-efficiency 公开记录。 [点击来源]
+
+[9] Microsoft. LLMLingua 公开实现，锁定提交 5a4c78ae18ab17a98cf997e8259354e546081d64。 [点击来源]
+
+[10] Lost in the Middle. 数据、问答模板及评分代码，锁定提交 29b8a6d042ce29abccee3db1a73171a107d7e6af。
+[点击来源]
+
+[11] BIT 自然语言处理课程. 2026 年课程要求，第七节。验收由课程方判定，本文不推定评分。 [点击来源]
+
+[12] G14. 2026-11-21 本机离线核验记录：命令、JUnit、资源 SHA 与四阶段审计随附 sources/local-verification/。
+被测代码为 main bdb11d3；链接指向代码提交，不冒充已推送的证据目录。 [点击来源]
+
+本地随附 SOURCES.md 给出来源清单、对应批次、锁定分支头与文件 SHA-256；sources/保存实际用于报告的轻量表
+格与案例。原论文 PDF 位于用户指定本地目录；图 1 标注原文图号。本文新绘图 2 仅从真实分位置汇总重绘，未添加模
+拟点。
+
+
+
+
+                                                     G14   ·   6
+北京理工大学 · 自然语言处理课程          | G14 方法级复现报告
+
+
+
+附录 A 可追溯性与待补清单（不计正文）
+
+A.1   锁定资源与真实运行
+压缩权重：NousResearch/Llama-2-7b-chat-hf；revision 351844e75ed0bcbbe3f10671b3c808d2b83894ee。
+DeepSeek 计数分词器：deepseek-ai/DeepSeek-V4.1-Flash；revision
+314113f8a7dadb388215396ba5fbee2c610a04d6。问答 API 模型名并不证明该版本被不可变固定。
+
+阶段四已记录环境：Python 3.12.0，torch 2.7.1，torch-npu 2.7.1.post2，transformers 4.53.1，tokenizers
+0.21.4，numpy 1.26.4，accelerate 1.0.1；设备 Ascend910B4。CANN 版本未登记，不能以 npu-smi 版本替代。
+
+本机离线核验环境为 Python 3.13.5、tokenizers 0.22.1，与上述推理环境分开。prepare 已配齐公开 NQ 五 gz 与上述
+固定 revision 的官方 tokenizer.json；六文件 SHA 与清单一致，不载权重、不调用付费 API。tokenizer SHA-256：
+c90dfa01249db1be4245780a052ede752e1361c612ac6d08e2bdada7d599476b。
+
+ 阶段 / run_id                         证据定位（仓库路径）
+
+                                     reports/stage1-acceptance/predictions.jsonl；reports/stage1-
+ 一 d54b3118c61ea4930624
+                                     supplement/offline-audit.json
+
+ 二 a1bd26fe3d82dea3f65d              reports/smoke-stage2-acceptance.json；预算 396/400
+
+ 三 e8f151b9c286648caf98              reports/stage3-main/run.json、summary.json、stats.json
+
+                                     reports/stage4-ablation-efficiency/ablation.csv 与 inputs/
+ 四 a9d2295195adde90484d
+                                     ablation-run.json
+
+ 效率 2a7f4accf6127178a76b             同目录 efficiency.csv 与 inputs/efficiency-run.json
+阶段三 pilot 快照为 reports/stage3-main/run.json；默认 configs/stage3.json 是 main，不能冒充 pilot。此次本机
+四阶段审计的 api_calls 均为 0；阶段四已重建至独立输出目录，未覆盖原结果，JSON 一致、CSV 仅 CRLF/LF 差异。
+证据见随附 local-verification/与运行摘要[12]。
+
+阶段一 canonical 预测 SHA-256：
+cac37c9e84678f2f591af8c4f6ccdb7a69d010cf71eae5678b85109bcb27bd62。该校验和与原审计、本机新审计一
+致；13 槽首行、分数与 token 均已核对，主比较与消融分数未改。
+
+A.2   源稿差异处理记录
+
+ 项目                        本报告处理
+
+ stage2 旧 394/400          推荐分支口径 396/400；旧兼容副本单独说明，不混用 run
+
+ PPT 中的 pilot 配置入口         仓库不存在独立 pilot-as-run 配置文件；只引用真实 run.json 快照
+
+                           2026-11-21 本机全套 pytest 全过；31/36/43/44 是历史不同子集/回传，非同一全套
+ 当前 77/77
+                           口径。43 为当日报告初版回传，当时未亲跑；详见[12]
+
+ 环境与显存差异                   阶段二 CANN 8.5.2 不外推至阶段四；tokenizers 与峰值 GB 并列差异不暗改
+
+                           缺 tokenizer/NQ 导致的 5 项失败已解决；占位包与 50 秒离线实录已完成，登记及
+ 公开资源与资料包
+                           本人确认仍缺
+
+A.3   实际剩余缺口
+仍缺 CUDA 型号、阶段四 CANN、阶段二/三/四完整逐条输出及压缩/问答缓存与校验和、受控 Cursor 回答、P
+号与四人登记信息、本人确认及真人讲述计时。公开资源已配齐，课程占位包已生成但登记未齐。50 秒
+1920×1200 连续终端离线验收实录已完成并通过 videoReview；5 项定向测试通过、77 项进度 100%、脚本退出
+0。课程包路径为 evidence/local-offline-evidence.mp4 及同前缀-result.webp；SHA 见 SOURCES。不等同
+本人参与或新模型实验，未代勾自检。
+
+
+
+
+                                           G14   ·   7
+北京理工大学 · 自然语言处理课程            | G14 方法级复现报告
+
+
+
+附录 B 13 条真实槽案例（1/4，不计正文）
+统一 run：d54b3118c61ea4930624；问答：deepseek-flash。以下为来源首行原文（保留英文以便核验），分数不重
+写。时间统一转换为 Asia/Shanghai。完整 64 位 ID 与 slot_id 随附 cases-verified.json，以下使用 12 位 ID 前缀定
+位，前缀在本组 13 槽中无歧义。
+
+S1-01 original / 位置 1
+问题：who was the first coronated king of manipur at kangla
+参考：Pakhangba；Pamheiba ｜            ID 前缀：ef848352f36b
+
+score=1；原始/压缩/目标=3289/3289/3289 token；2026-11-06 18:10:59（Asia/Shanghai）
+
+ Based on the provided search results, the first coronated king of Manipur at Kangla was **Pakhangba**,
+ who ascended the throne in 33 AD according to the royal chronicle "Cheitharol Kummaba" [Document 1].
+ The search results also mention that "Kanglei which is now called 'Kangla' was the first capital" and that
+ Pakhangpa gave birth to the seven clans of Meitei society [Document 2].
+
+诊断：无诊断标记。
+
+S1-02 bm25_2x / 位置 1
+问题：who was the first coronated king of manipur at kangla
+参考：Pakhangba；Pamheiba ｜            ID 前缀：ef848352f36b
+
+score=1；原始/压缩/目标=3289/1644/1644 token；2026-11-06 18:11:00（Asia/Shanghai）
+
+ Based on the provided search results, the first coronated king of Manipur at Kangla was **Pakhangba**.
+ According to Document [1], "'Kangla' was the royal palace since the reign of Pakhangba who ascended the
+ throne in 33 AD, according to 'Cheitharol Kummaba', the royal Chronicle of Manipur." Document [2] also
+ states that "Kanglei which is now called 'Kangla' was the first capital" and references the reign of "Konchin
+ Tukthapa Ipu Athoupa Pakhangpa."
+
+诊断：无诊断标记。
+
+S1-03 bm25_4x / 位置 1
+问题：who was the first coronated king of manipur at kangla
+参考：Pakhangba；Pamheiba ｜            ID 前缀：ef848352f36b
+
+score=0；原始/压缩/目标=3289/822/822 token；2026-11-06 18:11:02（Asia/Shanghai）
+
+ Based on the provided search results, the specific name of the first coronated king of Manipur at Kangla is
+ not explicitly stated. However, Document [1] mentions that "Kanglei which is now called 'Kangla' was the
+ first capital" and that mythological origins begin with the reign of "Konchin Tukthapa Ipu Athoupa
+ Pakhangpa," who gave birth to the seven clans of Meitei society.
+
+诊断：无诊断标记。
+
+
+
+
+                                                  G14   ·   8
+北京理工大学 · 自然语言处理课程           | G14 方法级复现报告
+
+
+
+附录 B 13 条真实槽案例（2/4，不计正文）
+
+S1-04 original / 位置 1
+问题：character in macbeth who is murdered and appears as a ghost
+参考：Lord Banquo；Banquo ｜           ID 前缀：0b6dde118f5c
+
+score=1；原始/压缩/目标=2898/2898/2898 token；2026-11-06 18:11:37（Asia/Shanghai）
+
+ The character in Macbeth who is murdered and appears as a ghost is Banquo. According to the search
+ results, Banquo is at first an ally to Macbeth, and the witches prophesy that Banquo will not be king
+ himself but that his descendants will be. Later, Macbeth sees Banquo as a threat and has him murdered
+ by two hired assassins, though Banquo's son Fleance escapes. Banquo's ghost returns in a later scene (the
+ Banquet Scene), causing Macbeth to react with alarm during a public feast.
+
+诊断：无诊断标记。
+
+S1-05 bm25_2x / 位置 1
+问题：character in macbeth who is murdered and appears as a ghost
+参考：Lord Banquo；Banquo ｜           ID 前缀：0b6dde118f5c
+
+score=1；原始/压缩/目标=2898/1449/1449 token；2026-11-06 18:11:39（Asia/Shanghai）
+
+ Based on the search results, the character in Macbeth who is murdered and appears as a ghost is
+ **Banquo**. Document [1] states that Macbeth "has him murdered by two hired assassins" and that
+ "Banquo's ghost returns in a later scene [Banquet Scene], causing Macbeth to react with alarm during a
+ public feast." Document [4] also describes the ghost of Banco (Banquo) sitting in Macbeth's place at the
+ table and Macbeth raving at the ghost.
+
+诊断：无诊断标记。
+
+S1-06 bm25_4x / 位置 1
+问题：character in macbeth who is murdered and appears as a ghost
+参考：Lord Banquo；Banquo ｜           ID 前缀：0b6dde118f5c
+
+score=1；原始/压缩/目标=2898/724/724 token；2026-11-06 18:11:40（Asia/Shanghai）
+
+ Based on the search results, the character in Macbeth who is murdered and later appears as a ghost is
+ **Banquo**. According to Document [1], Macbeth sees Banquo as a threat and has him murdered by two
+ hired assassins, and "Banquo's ghost returns in a later scene [Banquet Scene], causing Macbeth to react
+ with alarm during a public feast."
+
+诊断：无诊断标记。
+
+
+
+
+                                                 G14   ·   9
+北京理工大学 · 自然语言处理课程           | G14 方法级复现报告
+
+
+
+附录 B 13 条真实槽案例（3/4，不计正文）
+
+S1-07 original / 位置 10
+问题：who sang the song how far is heaven
+参考：Los Lonely Boys ｜        ID 前缀：64a3debb5e07
+
+score=0；原始/压缩/目标=2928/2928/2928 token；2026-11-06 18:13:56（Asia/Shanghai）
+
+ Based on the provided search results, I cannot definitively answer who sang a song titled "How Far Is
+ Heaven." None of the documents mention a song with that exact title.
+
+诊断：无诊断标记。
+
+S1-08 bm25_2x / 位置 10
+问题：who sang the song how far is heaven
+参考：Los Lonely Boys ｜        ID 前缀：64a3debb5e07
+
+score=1；原始/压缩/目标=2928/1463/1464 token；2026-11-06 18:13:58（Asia/Shanghai）
+
+ Based on the provided search results, none of the documents contain information about a song titled
+ "How Far Is Heaven." The results discuss songs such as "If Heaven Wasn't So Far Away" (recorded by Rhett
+ Akins and later Justin Moore), "Heaven" (by Los Lonely Boys and by Warrant), "The Nearest Thing to
+ Heaven" (by Bunny Walters), "Far from Heaven" (a film), and "Little Bit of Heaven" (by Lisa Stansfield), but
+ none mention "How Far Is Heaven" or identify who sang it.
+
+诊断：首行有明确否认，但官方分数为 1。
+
+S1-09 bm25_4x / 位置 10
+问题：who sang the song how far is heaven
+参考：Los Lonely Boys ｜        ID 前缀：64a3debb5e07
+
+score=1；原始/压缩/目标=2928/732/732 token；2026-11-06 18:13:59（Asia/Shanghai）
+
+ Based on the provided search results, none of the documents contain information about a song titled
+ "How Far Is Heaven." The results mention songs such as "If Heaven Wasn't So Far Away," "Heaven" by Los
+ Lonely Boys, "The Nearest Thing to Heaven," and "Over the Hills and Far Away," but none of these match
+ the song in your question. Therefore, the search results do not provide an answer.
+
+诊断：首行有明确否认，但官方分数为 1。
+
+S1-10 original / 位置 5
+问题：who sang the song how far is heaven
+参考：Los Lonely Boys ｜        ID 前缀：64a3debb5e07
+
+score=0；原始/压缩/目标=2928/2928/2928 token；2026-11-06 18:13:03（Asia/Shanghai）
+
+ Based on the provided search results, there is no song titled "How Far Is Heaven." However, the search
+ results do contain information about several songs with "Heaven" in the title, including:
+
+诊断：参考答案不在首行、拼成一行后才会被同一评分函数记为 1。
+
+
+
+
+                                                 G14   ·   10
+北京理工大学 · 自然语言处理课程           | G14 方法级复现报告
+
+
+
+附录 B 13 条真实槽案例（4/4，不计正文）
+
+S1-11 original / 位置 20
+问题：who sang the song how far is heaven
+参考：Los Lonely Boys ｜       ID 前缀：64a3debb5e07
+
+score=0；原始/压缩/目标=2928/2928/2928 token；2026-11-06 18:15:51（Asia/Shanghai）
+
+ Based on the search results, I cannot definitively answer who sang a song titled "How Far Is Heaven." The
+ provided documents discuss several songs with "Heaven" in the title, but none is exactly "How Far Is
+ Heaven."
+
+诊断：参考答案不在首行、拼成一行后才会被同一评分函数记为 1。
+
+S1-12 original / 位置 1
+问题：when did the astros change from the national league to the american league
+参考：2013；March 31, 2013       ｜   ID 前缀：eea8ae864c0e
+
+score=1；原始/压缩/目标=2841/2841/2841 token；2026-11-06 18:12:37（Asia/Shanghai）
+
+ The Astros moved to the American League West division in 2013, after spending their first 51 seasons in
+ the National League. It was announced that 2012 would be the last season for the Astros in the NL, and the
+ move was a condition for the sale to the new ownership group.
+
+诊断：无诊断标记。
+
+S1-13 bm25_4x / 位置 1
+问题：when did the astros change from the national league to the american league
+参考：2013；March 31, 2013       ｜   ID 前缀：eea8ae864c0e
+
+score=0；原始/压缩/目标=2841/708/710 token；2026-11-06 18:12:40（Asia/Shanghai）
+
+ The Astros moved to the American League after the 2017 American League Championship Series, where
+ they defeated the Boston Red Sox 3–1 in the ALDS; this was the Astros' fifth appearance in a League
+ Championship Series and their first since transferring from the National League to the American League.
+
+诊断：无诊断标记。
+
+可复查来源：reports/stage1-supplement/cases.md 与 canonical predictions.jsonl。本报告 13 条槽不代表 13 道独
+立问题，且不能替代尚缺的阶段二/三完整逐条记录。
+
+
+
+
+                                                G14   ·   11
+

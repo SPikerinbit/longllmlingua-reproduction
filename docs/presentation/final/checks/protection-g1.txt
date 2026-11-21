@@ -1,0 +1,1 @@
+PASS: physical P8=slide8.xml; P9=slide9.xml. P1–P7 XML/relationships and package-level XML unchanged. P9 source NPU figure canonical XML identical. Only P9 own image/hyperlink relationships changed. No video embedded.

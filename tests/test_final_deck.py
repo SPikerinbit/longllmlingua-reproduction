@@ -6,8 +6,8 @@ from pathlib import Path
 from zipfile import ZipFile
 
 ROOT = Path(__file__).resolve().parents[1]
-PPTX_SHA = "03e823e4b4c49867d3ea14018ed69bf2a8be5270b27d993458fd2f81ba7d1f11"
-PDF_SHA = "79c9f8773456200e1b3b37fd087cafbc49418a6f4eb946b93e7ea76124314ae1"
+PPTX_SHA = "d33717136d9542b437c9c53456ab347b882c63478e3e94b3f356ad8c0a145ac9"
+PDF_SHA = "770bc1680c808112d155ef56992169c056fb3440abc28511dec29f965d99de2b"
 
 
 def test_final_deck_has_nine_slides_and_is_not_the_old_template():

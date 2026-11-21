@@ -1,0 +1,6 @@
+{
+  "stage1-foundation": "fba1b896f889d30087280cbe57f8e5c0d161ac03",
+  "stage2-compression": "a64294fe86584395e87a33867261094ff4cbf596",
+  "stage3-main-comparison": "e07ac7726faa364e15b1ff6b2ab0299c0aa84883",
+  "stage4-ablation-efficiency": "f08b229b3b650ab7c82aa366ba83a895d87f5fe9"
+}

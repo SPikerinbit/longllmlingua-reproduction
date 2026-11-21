@@ -1,0 +1,19 @@
+{
+  "kind": "stage3-offline-audit",
+  "api_calls": 0,
+  "elapsed_seconds": 0.00017305000073974952,
+  "questions": 100,
+  "slots": 3500,
+  "mean_em": {
+    "original": 0.846,
+    "bm25_2x": 0.724,
+    "bm25_4x": 0.558,
+    "llmlingua_2x": 0.468,
+    "llmlingua_4x": 0.356,
+    "longllmlingua_2x": 0.832,
+    "longllmlingua_4x": 0.79
+  },
+  "longllmlingua_2x_minus_original": -0.014000000000000012,
+  "longllmlingua_4x_budget_satisfied_rate": 0.964,
+  "problems": []
+}

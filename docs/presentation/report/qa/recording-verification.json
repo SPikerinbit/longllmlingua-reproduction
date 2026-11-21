@@ -1,0 +1,44 @@
+{
+  "status": "completed offline acceptance recording",
+  "duration_seconds": 50,
+  "width": 1920,
+  "height": 1200,
+  "codec": "h264",
+  "files": [
+    {
+      "package_path": "evidence/local-offline-evidence.mp4",
+      "sha256": "663ac1b50c588424dd401698dc046de9813986b39779d7edc662906941648b33",
+      "bytes": 1915107,
+      "source_copy_hash_match": true
+    },
+    {
+      "package_path": "evidence/local-offline-evidence-result.webp",
+      "sha256": "7ce691de1ef81f247b5f6d9327bafddaffe9e5309b26a11abe22a487e69ad118",
+      "bytes": 209442,
+      "source_copy_hash_match": true
+    }
+  ],
+  "videoReview": {
+    "passed": true,
+    "source": "2026-11-21 18:02 Asia/Shanghai parent/user confirmation",
+    "reported_observations": [
+      "continuous real terminal execution",
+      "SHA matches",
+      "5 targeted tests passed",
+      "77-item suite progress 100%",
+      "script exit 0",
+      "no secret",
+      "not new inference"
+    ]
+  },
+  "report_editor_checks": [
+    "ffprobe duration and resolution",
+    "source and packaged files SHA-256 equality",
+    "result screenshot inspected"
+  ],
+  "not_proven": [
+    "human oral presentation timing",
+    "member personal participation or confirmation",
+    "new model inference"
+  ]
+}
