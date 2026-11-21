@@ -1,0 +1,40 @@
+{
+  "split": "smoke",
+  "questions": 100,
+  "slots": 400,
+  "logical_call_limit": 400,
+  "budget_mode": "hard",
+  "compressor_model": "NousResearch/Llama-2-7b-chat-hf",
+  "compressor_model_path": "/cache/models/llama-2-7b-chat",
+  "compressor_present": false,
+  "budget": [
+    {
+      "method": "llmlingua_2x",
+      "ratio": 2.0,
+      "slots": 100,
+      "origin_tokens": 300005,
+      "target_tokens": 149980
+    },
+    {
+      "method": "llmlingua_4x",
+      "ratio": 4.0,
+      "slots": 100,
+      "origin_tokens": 300005,
+      "target_tokens": 74965
+    },
+    {
+      "method": "longllmlingua_2x",
+      "ratio": 2.0,
+      "slots": 100,
+      "origin_tokens": 300005,
+      "target_tokens": 149980
+    },
+    {
+      "method": "longllmlingua_4x",
+      "ratio": 4.0,
+      "slots": 100,
+      "origin_tokens": 300005,
+      "target_tokens": 74965
+    }
+  ]
+}

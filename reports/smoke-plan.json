@@ -1,5 +1,5 @@
 {
-  "config_hash": "621ac92b0374e28d2773616142ea7949288aea0f2d5571a812e93289b7364667",
+  "config_hash": "bdfacaf5a91e3d8eabc0c454ee7836f32a9a6cfd02c2cb13d2afe81a4f111d98",
   "split": "smoke",
   "provider": "deepseek",
   "model": "deepseek-flash",
@@ -8,19 +8,19 @@
       "slots": 100,
       "input_text_tokens": 300005,
       "output_token_cap": 51200,
-      "cache_hits": 31
+      "cache_hits": 0
     },
     "bm25_2x": {
       "slots": 100,
       "input_text_tokens": 149900,
       "output_token_cap": 51200,
-      "cache_hits": 49
+      "cache_hits": 0
     },
     "bm25_4x": {
       "slots": 100,
       "input_text_tokens": 74870,
       "output_token_cap": 51200,
-      "cache_hits": 68
+      "cache_hits": 0
     }
   },
   "max_input_text_tokens": 3549,

@@ -12,13 +12,32 @@ from .evaluation import score, summarize
 from .methods import TokenCounter, build_prompt
 
 
-def verify_resources(config):
+def _resource_matches(data, expected):
+    """Compare a resource digest, tolerating line-ending conversion.
+
+    ``manifests/resources.json`` was recorded on Windows, so text resources carry
+    CRLF digests there; a git checkout on Linux stores the same files with LF.
+    Accepting the LF<->CRLF equivalents keeps the recorded manifest usable across
+    platforms without rewriting provenance data.
+    """
     import hashlib
+
+    lf = data.replace(b"\r\n", b"\n")
+    for candidate in (data, lf, lf.replace(b"\n", b"\r\n")):
+        if hashlib.sha256(candidate).hexdigest() == expected:
+            return True
+    return False
+
+
+def verify_resources(config):
     if config["tokenizer"]["revision"] != "314113f8a7dadb388215396ba5fbee2c610a04d6":
         raise ValueError("Tokenizer revision changed: prepare and record a new source before running")
     provenance = read_json(ROOT / "manifests/resources.json")
+    # Manifest keys were produced on Windows and use backslashes; normalize them
+    # so the same manifest verifies on POSIX checkouts.
     for name, info in provenance["files"].items():
-        if hashlib.sha256((ROOT / name).read_bytes()).hexdigest() != info["sha256"]:
+        path = ROOT / name.replace("\\", "/")
+        if not _resource_matches(path.read_bytes(), info["sha256"]):
             raise ValueError(f"Resource changed since prepare: {name}")
     if config["upstream"]["lost_in_the_middle"] != provenance["lost_in_the_middle_commit"]:
         raise ValueError("Upstream revision mismatch")

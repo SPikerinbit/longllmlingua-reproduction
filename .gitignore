@@ -11,6 +11,7 @@ venv/
 __pycache__/
 *.py[cod]
 .pytest_cache/
+/tests/.scratch/
 .mypy_cache/
 .ruff_cache/
 *.egg-info/
@@ -20,6 +21,7 @@ dist/
 # Full datasets, model weights, predictions, caches, and large runtime outputs
 /data/*
 !/data/README.md
+/data.tar.gz
 /models/
 /checkpoints/
 /cache/
@@ -40,3 +42,8 @@ dist/
 .vscode/
 Thumbs.db
 .DS_Store
+
+# uv related things
+.python-version
+pyproject.toml
+uv.lock

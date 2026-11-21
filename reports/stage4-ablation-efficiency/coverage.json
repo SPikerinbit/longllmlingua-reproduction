@@ -1,0 +1,15 @@
+{
+  "ablation": {
+    "expected": 3500,
+    "success": 3500
+  },
+  "efficiency": {
+    "expected": 1200,
+    "success": 1200,
+    "failed": 0,
+    "missing": 0,
+    "complete": true,
+    "failures": []
+  },
+  "overall_planned_efficiency_complete": true
+}
