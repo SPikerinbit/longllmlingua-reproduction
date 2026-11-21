@@ -113,6 +113,14 @@ run `2a7f4accf6127178a76b`。`coverage.json`：1200/1200。`efficiency.csv` 每�
 
 诊断不是新的主指标。13 条槽写在 `reports/stage1-supplement/cases.md`。
 
+## 当前 9 页演示稿
+
+文件是 `docs/presentation/final/slides.pptx`，不是 `docs/presentation/slides/G14-LongLLMLingua-template.pptx`。页上主比较、阶段一 smoke、阶段二 396/400、阶段四 82.6/45.0/78.0 和效率 1.12/6.45 秒与本登记表一致。
+
+物理第 8 页（B1）写的命令是 `python -m reproduction.stage3 --config configs/stage3-pilot-as-run.json plan`。仓库里没有 `configs/stage3-pilot-as-run.json`。`reproduction/stage3.py` 的 plan 子命令本身存在，默认配置 `configs/stage3.json` 的 split 是 main。这页没有改。演示时打开 `reports/stage3-main/run.json`，不要执行这条还不存在的配置路径。
+
+物理第 9 页（B2）的 `python scripts/analyze_stage4.py --out /tmp/g14-stage4-audit` 与脚本参数一致。默认 `--out` 会写回 `reports/stage4-ablation-efficiency/`。现场若要跑，必须把输出放到临时目录。
+
 ## cursor_dialogue
 
 没有回答，没有分数，没有耗时。关卡未通过，见 `reports/cursor_dialogue/PROTOCOL.md`。试跑只准备了 3 条盲提示；重建后的 token 与同一 DeepSeek 槽一致：original 3289/3289/3289，bm25_2x 3289/1644/1644，bm25_4x 3289/822/822。不能把这些数字写成 Cursor 的 EM 或延迟。
