@@ -89,3 +89,17 @@
 | 阶段一结果 | `results/stage1/` | 复制 `REPORT.md`、`summary.md`、`summary.json`、`acceptance.json`、`predictions.jsonl` | 11-22 16:00 打包时复制 | 成员四 | 复制后 300 行仍在 |
 | 组内全文路径 | `results/stage1/SOURCE.txt` | 路径加 sha256，不放全文 | 11-22 12:00，成员一补 sha256 | 成员二 | 文件不存在则 SOURCE.txt 写明未取得，不留空 |
 | 录屏 | 可选 `results/demo/member1-qa.mp4` | 不超过 20 秒，无密钥 | 11-22 18:00 前若要做 | 成员四 | 不做也可以，因为 60 秒证据不是成员一的 |
+
+## 课程五项里由成员一讲解的证据
+
+继续在 `stage1-foundation` 上推进。对照 `docs/presentation/02-score-evidence.md`。被点名时按这个顺序打开文件。未勾选项不能说成已经复核。
+
+| 项 | 打开什么 | 8 分目标下还缺的 |
+| --- | --- | --- |
+| 理解与范围 | `manifests/resources.json` 的两个提交号；`docs/experiments.md` 的 100 题范围 | P 编号仍是 Pxx |
+| 数据与实现 | `data/README.md` 的 sha256；`reproduction/data.py` 的 `question_id`；`configs/stage1.json` | `python -m reproduction prepare` 后的 sha256 输出还没写入 `results/stage1/SOURCE.txt` |
+| 对照与消融 | 阶段一 smoke 的 92.0/87.0/64.0 在 `reports/stage1-acceptance/acceptance.json`；主比较 84.6 在 `reports/stage3-main/summary.json` | 这两个分母不同，口播不能合成一个“退步” |
+| 错误分析 | `docs/presentation/members/member1/cases.md` 的 M1-01 至 M1-03 | 全组还缺成员二、三的案例才到 10 条 |
+| 交付与答问 | `predictions.jsonl` 300 行；`qa.md` 10 题 | 组内 run 目录 `outputs/stage1/d54b3118c61ea4930624` 的 sha256 未记录。手机实讲未做 |
+
+离线检查是重算 `predictions.jsonl` 的三个 EM，应得到 0.92、0.87、0.64。`python scripts/accept_stage1.py outputs/stage1/d54b3118c61ea4930624` 才是带完整提示的复核，仓库里没有该目录，不能勾成这次已跑。密钥不进入 `data/README.md` 或案例。
