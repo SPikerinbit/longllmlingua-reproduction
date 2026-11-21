@@ -1,6 +1,6 @@
-# LongLLMLingua 复现报告源稿（非终稿）
+# LongLLMLingua 复现报告源稿
 
-本文按课程要求组织，正文目标是 4–6 页。它还不是 `report.pdf`。P 编号未知。没有把未跑完的 Cursor 对话或不可用的压缩模型写成已完成实验。原有 DeepSeek 结果没有改。
+正文按 4–6 页组织，参考文献不计入这 4–6 页。本文件是制作 `report.pdf` 的源稿。PDF 还没有生成，课程 zip 也还没有封包。P 编号、成员法定姓名待补。没有把未跑完的 Cursor 对话或不可用的压缩模型写成已完成实验。原有 DeepSeek 结果没有改。
 
 ## 1 范围
 
@@ -54,15 +54,23 @@ LLMLingua 与 LongLLMLingua 共用 LLaMA-2-7B-Chat，revision `351844e75ed0bcbbe
 
 ## 7 尚未完成
 
-终稿 PDF、幻灯片视觉、录屏、P 编号、组内 `results.jsonl` 的 sha256、压缩权重上的新消融，都还没有。离线测试 36 项通过只说明代码和已提交记录可以复核，不等于重新调用了模型。本文不承诺满分。
+`report.pdf`、课程终包 zip、录屏、P 编号和法定姓名都还没有。完整问答缓存、GPU 型号和 CANN 版本仍缺，不能补写。组内 `results.jsonl` 的 sha256 未登记。压缩权重上的新消融没有做。离线测试只复核代码和已提交记录，本轮没有新的模型调用。本文不把本轮写成满分完成。
+
+## 参考文献
+
+Jiang, Huiqiang, Qianhui Wu, Xufang Luo, Dongsheng Li, Chin-Yew Lin, Yuqing Yang, and Lili Qiu. 2024. LongLLMLingua: Accelerating and Enhancing LLMs in Long Context Scenarios via Prompt Compression. arXiv:2310.06839v2. ACL 2024 long paper 2024.acl-long.91.
+
+Liu, Nelson，及 lost-in-the-middle 仓库中的 Lost in the Middle 数据与模板。本仓库只核对到版权人 Nelson Liu，2023，见 `vendor/lost_in_the_middle/LICENSE`。数据与模板锁定提交 `29b8a6d042ce29abccee3db1a73171a107d7e6af`，见 `manifests/resources.json`。合著者名单待从该提交的论文页补全，这里不另写。
+
+压缩实现锁定 microsoft/LLMLingua 提交 `5a4c78ae18ab17a98cf997e8259354e546081d64`。
 
 ## 包内清单
 
 | 路径 | 状态 |
 | --- | --- |
 | `report.pdf` | 未生成。源稿是本文件 |
-| `slides.pptx` / `slides.pdf` | 视觉由另一流程制作。本仓库模板未在本轮改字节 |
-| `README.md` | 已有结果入口，并指向本轮审计和关卡 |
+| `docs/presentation/final/slides.pptx` 与 `slides.pdf` | 当前 9 页演示稿，字节与核验包一致。旧骨架 `docs/presentation/slides/G14-LongLLMLingua-template.pptx` 不是这一版 |
+| `README.md` | 已指向 `docs/presentation/final/` |
 | `data/README.md` | 已有来源、sha256 和划分。五个 gz 不进包 |
 | `contributions.md` | 成员一有记录。其他三人的亲历段仍待本人填写 |
 | `code/` 与 `configs/` | 仓库已有。打包时不要带 `.env`、权重和 `outputs/` |
