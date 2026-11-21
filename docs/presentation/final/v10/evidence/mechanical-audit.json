@@ -1,0 +1,24 @@
+{
+  "candidate": "/workspace/slides/g14-lite-0GqV20/lite-candidate.pptx",
+  "candidate_sha256": "b2bb8abaa8fd8ea8e6d981a81b1def2d4dc4a67d0ff2d404a893636c1196182f",
+  "candidate_bytes": 7687902,
+  "zip_part_count": 79,
+  "changed_parts": [
+    "ppt/media/media1.mp4",
+    "ppt/slides/slide9.xml"
+  ],
+  "all_other_parts_byte_identical": true,
+  "p1_to_p8_xml_byte_identical": true,
+  "p9_caption_only_change": true,
+  "p9_timing_byte_identical": true,
+  "all_relationships_byte_identical": true,
+  "broken_relationships": [],
+  "external_media_relationships": [],
+  "slide_jump_actions": [],
+  "png_hashes": {
+    "ppt/media/chart-raster-3926x2120.png": "942da4f0dcdef26b5e5e1c8217319e26b779cfd49633f61952db7389a0b3304d",
+    "ppt/media/core-evidence-poster.png": "f0dcb9d32a98ee4822c44712450664f993b59d8a1553ddea65b8f5c86447b5a8"
+  },
+  "embedded_sha256": "3192f268b4a9daf937678d4bd8c154bb7b380e9723858023cbbcc099862eb3d6",
+  "embedded_bytes": 6954031
+}

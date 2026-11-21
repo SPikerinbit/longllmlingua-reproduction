@@ -1,0 +1,14 @@
+{
+  "pages": 9,
+  "fresh_export": true,
+  "source": "poster-only derivative of exact v10 candidate",
+  "embedded_files": 0,
+  "forbidden_media_file_action_tokens": [],
+  "decompressed_streams_scanned": 154,
+  "current_caption_found": true,
+  "methods": [
+    "poppler pdfinfo / pdfinfo -url / pdfdetach",
+    "raw and zlib-decoded PDF token scan",
+    "pdftotext current caption assertion"
+  ]
+}

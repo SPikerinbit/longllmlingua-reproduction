@@ -1,0 +1,18 @@
+{
+  "candidate_sha256": "b2bb8abaa8fd8ea8e6d981a81b1def2d4dc4a67d0ff2d404a893636c1196182f",
+  "final_sha256": "b2bb8abaa8fd8ea8e6d981a81b1def2d4dc4a67d0ff2d404a893636c1196182f",
+  "byte_identical_final": true,
+  "total_parts": 79,
+  "changed_parts": [
+    "ppt/media/media1.mp4",
+    "ppt/slides/slide9.xml"
+  ],
+  "other_parts_byte_identical": 77,
+  "caption_only_exact_substitution": true,
+  "static_copy_removed": [
+    "slide9.xml:hlinkClick",
+    "slide9.xml:videoFile",
+    "slide9.xml:media",
+    "slide9.xml:timing"
+  ]
+}

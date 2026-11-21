@@ -1,0 +1,4 @@
+/workspace/g14-presentation-v10-lite/slides.pptx: 3 font(s), 0 missing that change visible text
+  Noto Sans CJK SC (theme): 211 text run(s), 81 other [installed]
+  Inconsolata: 16 text run(s), 42 other [installed]
+  Noto Sans Mono: 1 text run(s), 0 other [installed]

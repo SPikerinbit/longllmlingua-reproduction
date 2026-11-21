@@ -1,13 +1,13 @@
 {
   "sha256": {
-    "mp4": "e3be31222267724b62bc9b9d1e0c4c8026902acde62edac488f342a6e7dbee8e",
+    "mp4": "3192f268b4a9daf937678d4bd8c154bb7b380e9723858023cbbcc099862eb3d6",
     "poster": "f0dcb9d32a98ee4822c44712450664f993b59d8a1553ddea65b8f5c86447b5a8",
     "srt": "c5032092117b79f7e90428af2b7e5f5e10a89923410042f8004e22be770a51b7",
     "wav": "29fe007d963cdd84a6a05684f71bd694ba7b00d6b10fc4e47459f59bcbfb0291",
     "mp3": "18f108ad1c9cb4fcfc8a12756d4d902461ff0514659741c5a41781638a35f9ec"
   },
   "sizes": {
-    "mp4": 11550287,
+    "mp4": 6954031,
     "poster": 419251,
     "srt": 1246,
     "wav": 11520078,
@@ -15,30 +15,35 @@
   },
   "probe": {
     "format": {
-      "duration": "60.000000",
-      "size": "11550287",
-      "bit_rate": "1540038"
+      "duration": "60.010000",
+      "size": "6954031",
+      "bit_rate": "927049"
     },
     "streams": [
       {
         "codec_name": "h264",
-        "profile": "High",
-        "width": 1920,
-        "height": 1080,
+        "profile": "Constrained Baseline",
+        "width": 1280,
+        "height": 720,
         "pix_fmt": "yuv420p",
+        "level": 31,
         "avg_frame_rate": "15/1",
         "nb_frames": "900",
-        "bit_rate": "1433343"
+        "bit_rate": "820610",
+        "refs": 1,
+        "has_b_frames": 0,
+        "bits_per_raw_sample": 8
       },
       {
         "codec_name": "aac",
         "profile": "LC",
         "avg_frame_rate": "0/0",
-        "nb_frames": "2814",
-        "sample_rate": "48000",
+        "nb_frames": "2586",
+        "sample_rate": "44100",
         "channels": 2,
-        "bit_rate": "102484"
+        "bit_rate": "103142"
       }
-    ]
+    ],
+    "notes": "Video stream duration is 60.000s (900 frames at 15 fps). Container duration is 60.010s. AAC bitrate is the measured stream value; encode target was 128 kbps CBR-style setting."
   }
 }

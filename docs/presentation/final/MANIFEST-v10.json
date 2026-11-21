@@ -1,0 +1,31 @@
+{
+  "version": "v10-lite",
+  "timezone": "Asia/Shanghai",
+  "date": "2026-11-21",
+  "pptx_sha256": "b2bb8abaa8fd8ea8e6d981a81b1def2d4dc4a67d0ff2d404a893636c1196182f",
+  "pdf_sha256": "f66aece4f5cf68b120aa14af0570f448fe9e00dda57d490b0e3d39bccdc294bd",
+  "video_sha256": "3192f268b4a9daf937678d4bd8c154bb7b380e9723858023cbbcc099862eb3d6",
+  "embedded_part": "ppt/media/media1.mp4",
+  "files": {
+    "slides.pptx": {
+      "bytes": 7687902,
+      "sha256": "b2bb8abaa8fd8ea8e6d981a81b1def2d4dc4a67d0ff2d404a893636c1196182f"
+    },
+    "slides.pdf": {
+      "bytes": 973217,
+      "sha256": "f66aece4f5cf68b120aa14af0570f448fe9e00dda57d490b0e3d39bccdc294bd"
+    },
+    "contact.jpg": {
+      "bytes": 207689,
+      "sha256": "8456349e383e86c7980074b6a1e9d23c3bc31e284bedee119380fa844de3d62a"
+    },
+    "pages/slide-09.jpg": {
+      "bytes": 156076,
+      "sha256": "f09236e82c2bce9ee1f559ca9ce824cdfc45db6c0bdc2cdc18403c77b007fe92"
+    },
+    "../../../evidence/core-evidence-60s.mp4": {
+      "bytes": 6954031,
+      "sha256": "3192f268b4a9daf937678d4bd8c154bb7b380e9723858023cbbcc099862eb3d6"
+    }
+  }
+}

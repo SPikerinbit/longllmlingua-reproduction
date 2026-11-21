@@ -6,12 +6,12 @@ from pathlib import Path
 from zipfile import ZipFile
 
 ROOT = Path(__file__).resolve().parents[1]
-PPTX_SHA = "28d542c996917dde26cffea912a2b2d9bd9af4175a4580b4175766317267957e"
-PDF_SHA = "bf86724c9843b7d744ecb364f5b0da318514e10bd8fe8ddaffd1fcac9f265d74"
+PPTX_SHA = "b2bb8abaa8fd8ea8e6d981a81b1def2d4dc4a67d0ff2d404a893636c1196182f"
+PDF_SHA = "f66aece4f5cf68b120aa14af0570f448fe9e00dda57d490b0e3d39bccdc294bd"
 REPORT_PDF_SHA = "c22fdba0788021c922433eec6bdad154f52e564c7ee0dabd0a2d2fd36bde4c3e"
-VIDEO_SHA = "e3be31222267724b62bc9b9d1e0c4c8026902acde62edac488f342a6e7dbee8e"
+VIDEO_SHA = "3192f268b4a9daf937678d4bd8c154bb7b380e9723858023cbbcc099862eb3d6"
 POSTER_SHA = "f0dcb9d32a98ee4822c44712450664f993b59d8a1553ddea65b8f5c86447b5a8"
-EMBEDDED_MP4_PART = "ppt/media/core-evidence-60s.mp4"
+EMBEDDED_MP4_PART = "ppt/media/media1.mp4"
 EMBEDDED_POSTER_PART = "ppt/media/core-evidence-poster.png"
 
 
@@ -77,8 +77,8 @@ def test_pptx_embeds_unique_core_video_without_external_media():
                     assert match is not None
                     video_targets.append(match.group(1).decode("utf-8"))
         assert video_targets, "expected internal video or media relationships"
-        # Targets are written as ../media/core-evidence-60s.mp4 from slide rels.
-        assert all(target.endswith("media/core-evidence-60s.mp4") for target in video_targets)
+        # Targets are written as ../media/media1.mp4 from slide rels (v10 lite embedded part name).
+        assert all(target.endswith("media/media1.mp4") for target in video_targets)
         assert len(set(video_targets)) == 1
 
 
