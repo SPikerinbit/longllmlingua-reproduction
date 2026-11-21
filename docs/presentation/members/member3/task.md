@@ -2,7 +2,7 @@
 
 继续在 `stage3-main-comparison` 上推进。`stage_3` 保留不删，不再往该分支加新提交。口播 P5 的 60 秒，加运行证据前 30 秒。法定姓名待本人填写。主比较是 CUDA 上的 pilot 100 题，不是 `configs/stage3.json` 里那个 split=main 的 500 题配置。
 
-本分支继承了 `stage_3` 对 `reports/smoke-stage2-acceptance.json` 的历史修改：预算满足 394/400，`accepted_run` 为 `outputs/stage2/875ddf42e70e37db8455`。`main` 上同一文件仍是 396/400、run `a1bd26fe3d82dea3f65d`。对外讲阶段二超标时要说明用的是哪一个文件。主比较数字仍以 `reports/stage3-main/` 为准。
+本推荐分支上的 `reports/smoke-stage2-acceptance.json` 与 `main` 相同：硬预算 396/400，`accepted_run` 为 `outputs/stage2/a1bd26fe3d82dea3f65d`。只有兼容分支 `stage_3` 仍保留历史副本 394/400 和 `outputs/stage2/875ddf42e70e37db8455`。对外讲阶段二超标时，推荐分支用 396/400，不要把 `stage_3` 的旧副本说成当前结果。主比较数字仍以 `reports/stage3-main/` 为准。
 
 ## 课程五项里由成员三讲解的证据
 

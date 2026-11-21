@@ -26,7 +26,7 @@ LLMLingua 与 LongLLMLingua 共用 LLaMA-2-7B-Chat，revision `351844e75ed0bcbbe
 
 已经完成并保留的记录是：
 
-- 阶段二 smoke run `a1bd26fe3d82dea3f65d`：400/400，硬预算 396/400。`stage_3` 历史副本把同一验收文件写成 394/400，引用时要分开。
+- 阶段二 smoke 的公开验收文件在 `main` 和四条推荐分支上是 run `outputs/stage2/a1bd26fe3d82dea3f65d`，400 槽，硬预算 396/400。只有兼容分支 `stage_3` 仍保留 394/400 和 `outputs/stage2/875ddf42e70e37db8455`。引用时要分开，不能把旧副本写成推荐结果。
 - 阶段三 CUDA run `e8f151b9c286648caf98`：pilot 100 题，3500/3500。LongLLMLingua 2x EM 83.2%，原始提示 84.6%，差 −1.4 个百分点，95% 区间 [−6.2, 3.0]。4x 为 79.0%，18/500 未达硬预算。设备只记到 `cuda:0`。
 - 阶段四 910B run `a9d2295195adde90484d`：同机完整方法 82.6%，去掉粗粒度后 45.0%。效率 run `2a7f4accf6127178a76b`：每方法 99 槽，完整 2x 端到端 p50/p95 为 6.45/7.49 秒，原始提示 1.12/1.54 秒。这不是 API 账单，也不是 Cursor 会话时间。
 
