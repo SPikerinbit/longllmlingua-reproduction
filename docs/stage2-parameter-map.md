@@ -8,7 +8,7 @@
 | --- | --- | --- | --- | --- |
 | 压缩模型 LLaMA-2-7B-Chat | §4 实验设置 | 暴露：`PromptCompressor(model_name=..., model_config=...)`；默认名 `NousResearch/Llama-2-7b-hf`（base，不是 chat） | `/cache/models/llama-2-7b-chat`（`NousResearch/Llama-2-7b-chat-hf` 权重，`meta-llama` gated 库的无门槛镜像） | 与论文同为 7B chat 权重；镜像仓库需在交接中说明来源与 revision。LLMLingua 与 LongLLMLingua 共用同一权重 |
 | 迭代段长 200 | 附录 | 暴露：`iterative_size=200` 即默认值 | `compressor.iterative_size=200` | 一致 |
-| 粗细粒度控制系数 k=2 | 附录 | **未暴露**：`compress_prompt` 无 k 参数；只有 `context_level_rate`（默认 `(rate+1)/2`）与 `context_level_target_token` | `context_level_target_token = 2 × target_token` 近似 | 近似等价：k 控制粗/细粒度预算比例，我们用"粗粒度保留两倍细粒度预算"表达；影响粗粒度文档筛选强度，已在差异表登记 |
+| 粗细粒度控制系数 k=2 | 附录 | **未暴露**：`compress_prompt` 无 k 参数；适配层传入 `context_level_target_token`，但固定版本的 LongLLMLingua `control_context_budget` 路径未使用它 | 历史代码仍传入 `context_level_target_token = 2 × target_token`，未改写既有运行 | 后续源码核验确认该近似映射在当前 LongLLMLingua 路径无效，不能称为近似等价或作为 k 消融；粗粒度筛选仍运行，但未严格复现论文 k=2 设置 |
 | 指令预定义压缩 τ_ins=0.85 | 附录 | **未暴露**：该提交 `compress_prompt` 路径不压缩 instruction，最终提示原样拼回；旧版 budget controller 才有此类参数 | 不设置；instruction 走问答模板、不压缩 | 未实现，登记为差异；会让压缩后提示略长于论文 |
 | 问题预定义压缩 τ_que=0.9 | 附录 | **未暴露**：同上，question 原样拼回（`concate_question=False` 时不进待压缩上下文） | 不设置；question 不压缩 | 未实现，登记为差异 |
 | restrict 提示 `We can get the answer to this question in the given documents.` | §3.2 | **半暴露**：不是参数；硬编码在 `get_distance_longllmlingua` 内，只追加到文档级 condition perplexity 的 question，**不进入最终给问答模型的提示** | 默认打开（与官方行为一致）；`restrict` 开关关闭时，适配器在 `get_condition_ppl` 中精确剥离该后缀 | 语义与论文 r_k 的 `x^que,restrict` 一致；开关是我们自实现的（官方不可配置），用于阶段四 restrict 消融 |
@@ -36,4 +36,4 @@
 | 子序列恢复 | `methods.*.recovery = false` | 回答不做后处理 | 行内 `recovery_stats.changed=false`，`answer_after_recovery == answer_before_recovery` |
 | 重排序 | `methods.*.reorder_context = "sort"` 开；`"original"` 关 | 主矩阵关闭 | trace `used_doc_indices` 保持原顺序与置乱顺序对比 |
 
-`k=2`、`τ_ins`、`τ_que` 不是有效开关，不用于消融；表中已标记为未实现或近似。
+`k=2`、`τ_ins`、`τ_que` 不是有效开关，不用于消融；分别属于当前路径无效映射或未实现。表中硬件行记录成员二历史环境；成员三/四的实际环境和课程范围见[实验说明](experiments.md)。

@@ -1,0 +1,238 @@
+{
+  "split": "pilot",
+  "questions": 100,
+  "positions": [
+    1,
+    5,
+    10,
+    15,
+    20
+  ],
+  "methods": [
+    "original",
+    "bm25_2x",
+    "bm25_4x",
+    "llmlingua_2x",
+    "llmlingua_4x",
+    "longllmlingua_2x",
+    "longllmlingua_4x"
+  ],
+  "expected_slots": 3500,
+  "success": 3500,
+  "failed": 0,
+  "missing": 0,
+  "cells": [
+    {
+      "method": "original",
+      "position": 1,
+      "expected": 100,
+      "success": 100
+    },
+    {
+      "method": "original",
+      "position": 5,
+      "expected": 100,
+      "success": 100
+    },
+    {
+      "method": "original",
+      "position": 10,
+      "expected": 100,
+      "success": 100
+    },
+    {
+      "method": "original",
+      "position": 15,
+      "expected": 100,
+      "success": 100
+    },
+    {
+      "method": "original",
+      "position": 20,
+      "expected": 100,
+      "success": 100
+    },
+    {
+      "method": "bm25_2x",
+      "position": 1,
+      "expected": 100,
+      "success": 100
+    },
+    {
+      "method": "bm25_2x",
+      "position": 5,
+      "expected": 100,
+      "success": 100
+    },
+    {
+      "method": "bm25_2x",
+      "position": 10,
+      "expected": 100,
+      "success": 100
+    },
+    {
+      "method": "bm25_2x",
+      "position": 15,
+      "expected": 100,
+      "success": 100
+    },
+    {
+      "method": "bm25_2x",
+      "position": 20,
+      "expected": 100,
+      "success": 100
+    },
+    {
+      "method": "bm25_4x",
+      "position": 1,
+      "expected": 100,
+      "success": 100
+    },
+    {
+      "method": "bm25_4x",
+      "position": 5,
+      "expected": 100,
+      "success": 100
+    },
+    {
+      "method": "bm25_4x",
+      "position": 10,
+      "expected": 100,
+      "success": 100
+    },
+    {
+      "method": "bm25_4x",
+      "position": 15,
+      "expected": 100,
+      "success": 100
+    },
+    {
+      "method": "bm25_4x",
+      "position": 20,
+      "expected": 100,
+      "success": 100
+    },
+    {
+      "method": "llmlingua_2x",
+      "position": 1,
+      "expected": 100,
+      "success": 100
+    },
+    {
+      "method": "llmlingua_2x",
+      "position": 5,
+      "expected": 100,
+      "success": 100
+    },
+    {
+      "method": "llmlingua_2x",
+      "position": 10,
+      "expected": 100,
+      "success": 100
+    },
+    {
+      "method": "llmlingua_2x",
+      "position": 15,
+      "expected": 100,
+      "success": 100
+    },
+    {
+      "method": "llmlingua_2x",
+      "position": 20,
+      "expected": 100,
+      "success": 100
+    },
+    {
+      "method": "llmlingua_4x",
+      "position": 1,
+      "expected": 100,
+      "success": 100
+    },
+    {
+      "method": "llmlingua_4x",
+      "position": 5,
+      "expected": 100,
+      "success": 100
+    },
+    {
+      "method": "llmlingua_4x",
+      "position": 10,
+      "expected": 100,
+      "success": 100
+    },
+    {
+      "method": "llmlingua_4x",
+      "position": 15,
+      "expected": 100,
+      "success": 100
+    },
+    {
+      "method": "llmlingua_4x",
+      "position": 20,
+      "expected": 100,
+      "success": 100
+    },
+    {
+      "method": "longllmlingua_2x",
+      "position": 1,
+      "expected": 100,
+      "success": 100
+    },
+    {
+      "method": "longllmlingua_2x",
+      "position": 5,
+      "expected": 100,
+      "success": 100
+    },
+    {
+      "method": "longllmlingua_2x",
+      "position": 10,
+      "expected": 100,
+      "success": 100
+    },
+    {
+      "method": "longllmlingua_2x",
+      "position": 15,
+      "expected": 100,
+      "success": 100
+    },
+    {
+      "method": "longllmlingua_2x",
+      "position": 20,
+      "expected": 100,
+      "success": 100
+    },
+    {
+      "method": "longllmlingua_4x",
+      "position": 1,
+      "expected": 100,
+      "success": 100
+    },
+    {
+      "method": "longllmlingua_4x",
+      "position": 5,
+      "expected": 100,
+      "success": 100
+    },
+    {
+      "method": "longllmlingua_4x",
+      "position": 10,
+      "expected": 100,
+      "success": 100
+    },
+    {
+      "method": "longllmlingua_4x",
+      "position": 15,
+      "expected": 100,
+      "success": 100
+    },
+    {
+      "method": "longllmlingua_4x",
+      "position": 20,
+      "expected": 100,
+      "success": 100
+    }
+  ],
+  "missing_slot_ids": [],
+  "failed_slot_ids": []
+}
