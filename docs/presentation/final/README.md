@@ -1,17 +1,7 @@
-# G14 LongLLMLingua v4 交付索引
+# G14 LongLLMLingua v5
 
-- `G14-LongLLMLingua-slides-v4.pptx`：可编辑9页PowerPoint，含新版备注。
-- 同名PDF：同版静态备览。
-- `G14-LongLLMLingua-contact-v4.jpg`：最终全组拼图。
-- `G14-LongLLMLingua-pages-v4/slide-01.jpg`至`slide-09.jpg`：逐页图。
-- `G14-LongLLMLingua-member1-script-v4.md`至`member4-script-v4.md`：四人独立讲稿。
-- `G14-LongLLMLingua-QA-v4.md`：QA。
-- `G14-LongLLMLingua-evidence-navigation-v4.md`：已有记录演示跳转表。
-- `G14-LongLLMLingua-sources-verification-v4.md`：素材源链、fixed/left、核验。
-- v3旧包保留在原deliverables目录，已被v4替代；v4不收录含旧命令的历史备注。
+9页PowerPoint本地交付，未上传，未覆盖v4。
+演讲顺序：1,2,3,4,5,8,6,9,7。成员1：P1 25s/P2 35s/P7 30s；成员2：P3/P4各45s；成员3：P5 60s/P8 30s；成员4：P6 60s/P9 30s。每人90s、主讲300s+证据60s；均为计划非实测。
 
-物理顺序：P1 P2 P3 P4 P5 P6 P7 B1 B2。
-演讲顺序：P1 P2 P3 P4 P5 B1 P6 B2 P7，即1→2→3→4→5→8→6→9→7。
-四人各90秒，主讲300秒+证据60秒；QA90秒与换人总30秒另计。均为目标安排，未真人计时。证据为已有运行记录，不是现场推理。
-
-未上传Drive/GitHub，未新增页、未重跑推理/API，原工作目录保留。Windows/投影/真人计时/录屏未验证；CUDA型号、CANN版本、阶段2/3/4完整输出与校验和缺口详见报告。
+PPTX图表点/线/标签可编辑。PDF/拼图/逐页图由同版文件渲染；sources含原JSON/CSV/图/代码与作图mapping，核验记录见chart-source-audit-v5.json。所有新绘数据均来自既有来源，数据变化0。
+历史完整输出缓存、CUDA GPU型号、CANN元数据缺失；未验证Windows/投影、真人计时与录屏；不宣称课程满分。
