@@ -65,3 +65,17 @@ Q4 为什么压缩更慢？15 秒：完整 2x 端到端 p50 6.45 秒，其中压
 Q5 峰值内存怎么读？15 秒：`efficiency.csv` 的 peak_allocated_GB 是 16.428089344，按 1e9 字节。HBM 总量 32768 MB 是设备容量，不是这次峰值。不要把阶段二 REPORT 的 16.67 GB 和这个 16.43 GB 当成同一次测量。
 
 Q6 旧的 402 运行进表了吗？15 秒：没有。run `6fa24e170b73981099fd` 是 738 成功、1 失败、461 缺失，留在组内归档。最终表只用 `2a7f4accf6127178a76b`。
+
+## 课程五项里由成员四讲解的证据
+
+继续在 `stage4-ablation-efficiency` 上推进。对照 `docs/presentation/02-score-evidence.md`。被点名时按这个顺序打开文件。未勾选项不能说成已经复核。
+
+| 项 | 打开什么 | 8 分目标下还缺的 |
+| --- | --- | --- |
+| 理解与范围 | `docs/experiments.md`：消融与效率分开登记，不拼接 CUDA 耗时 | 不能把 82.6 说成主比较的 83.2 |
+| 数据与实现 | `environment/environment-current.json`；权重 revision 在 `docs/experiments.md` | `package-versions.json` 的 tokenizers 0.21.0 与 0.21.4 不一致，原因未写清前不能勾成单一环境 |
+| 对照与消融 | `ablation.csv` 与 `configs/stage4-ablation.json`；一次只改一个开关 | 重排序是额外打开，不是再做一次“关闭重排序” |
+| 错误分析 | `inputs/recovery-cases.json` 三条由对变错 | 还要拆成 M4-01 至 M4-03，并收齐别人的案例到至少 10 条 |
+| 交付与答问 | `python scripts/analyze_stage4.py` 是离线重建，会改写 csv | 现场用已提交的 csv 和 png。录屏与终稿 PDF 未做 |
+
+真实运行在 910B 上，run `a9d2295195adde90484d` 与 `2a7f4accf6127178a76b`。`python -m pytest tests/test_stage4_results.py tests/test_stage4_recovery_analysis.py tests/test_final_delivery.py` 不加载模型。CANN 版本未登记，不能补写。
