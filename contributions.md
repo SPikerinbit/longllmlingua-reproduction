@@ -32,7 +32,7 @@ AI 使用：2026-11-21 用 Cursor 里的编码助手整理了上述汇报文档�
 
 不计入成员一的结果：阶段三 CUDA 主比较，阶段四 910B 消融和效率。
 
-2026-11-21 把已完成的 9 页演示稿放进 `docs/presentation/final/`。这是在用户授权下由编码助手整合的，不是四位成员已经各自计时或答问。Cursor 受控对话仍然没有运行。
+2026-11-21 把 v4 的 9 页演示稿和正式报告放进 `docs/presentation/final/` 与 `docs/presentation/report/`。这是在用户授权下由编码助手做的离线汇编，没有新推理，没有 Cursor 受控对话结果，也没有替成员二至四勾选本人确认。课程规范要求贡献说明里有四人信息和实际贡献；原文没有单独要求“法定姓名”。姓名仍以登记表为准，仓库不编造。
 
 2026-11-21 的补充工作只做了两件已经发生的事。一件是离线审计：`scripts/audit_stage1_offline.py` 重读了 `predictions.jsonl` 和五个已校验的 NQ 文件，没有调用 API，没有改 `reports/stage1-acceptance/`。另一件是确认 Cursor 对话不能作为受控问答：本机没有 Cursor CLI，公开文档中的 Ask/print 模式仍有工具。因此没有 cursor_dialogue 回答。三份盲提示和独立 gold 文件在 `reports/cursor_dialogue/trial/`。阶段二压缩、阶段三新的配对比较和阶段四新的消融都没有新跑，因为没有压缩权重，也不能用对话假装压缩。
 

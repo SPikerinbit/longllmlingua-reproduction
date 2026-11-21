@@ -115,11 +115,11 @@ run `2a7f4accf6127178a76b`。`coverage.json`：1200/1200。`efficiency.csv` 每�
 
 ## 当前 9 页演示稿
 
-文件是 `docs/presentation/final/slides.pptx`，不是 `docs/presentation/slides/G14-LongLLMLingua-template.pptx`。页上主比较、阶段一 smoke、阶段二 396/400、阶段四 82.6/45.0/78.0 和效率 1.12/6.45 秒与本登记表一致。
+提交用的文件是 `docs/presentation/final/slides.pptx` 与同目录 `slides.pdf`。`docs/presentation/slides/G14-LongLLMLingua-template.pptx` 是更早的骨架，不是这份 slides。页上主比较、阶段一 smoke、阶段二 396/400、阶段四 82.6/45.0/78.0 和效率 1.12/6.45 秒与本登记表一致。
 
-物理第 8 页（B1）写的命令是 `python -m reproduction.stage3 --config configs/stage3-pilot-as-run.json plan`。仓库里没有 `configs/stage3-pilot-as-run.json`。`reproduction/stage3.py` 的 plan 子命令本身存在，默认配置 `configs/stage3.json` 的 split 是 main。这页没有改。演示时打开 `reports/stage3-main/run.json`，不要执行这条还不存在的配置路径。
+物理第 8 页（B1）现在的命令是 `python -m json.tool reports/stage3-main/run.json`。它只读打印已保存的 pilot 运行快照。仓库里仍然没有 `configs/stage3-pilot-as-run.json`，默认 `configs/stage3.json` 的 split 仍是 main。上一版页上的 plan 配置路径已经从这一版幻灯片正文去掉。本轮没有执行该命令，也没有新推理。
 
-物理第 9 页（B2）的 `python scripts/analyze_stage4.py --out /tmp/g14-stage4-audit` 与脚本参数一致。默认 `--out` 会写回 `reports/stage4-ablation-efficiency/`。现场若要跑，必须把输出放到临时目录。
+物理第 9 页（B2）的 `python scripts/analyze_stage4.py --out /tmp/g14-stage4-audit` 与脚本参数一致。默认 `--out` 会写回 `reports/stage4-ablation-efficiency/`。现场若要跑，必须把输出放到临时目录。本轮没有执行。
 
 ## cursor_dialogue
 

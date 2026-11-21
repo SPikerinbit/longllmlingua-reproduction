@@ -1,4 +1,8 @@
-# G14 LongLLMLingua v3｜素材来源与核验报告
+# v4补正（当前有效）
+
+B1命令纠正为`python -m json.tool reports/stage3-main/run.json`，用于查看已保存pilot运行快照；不是新实验、不是计划生成或推理复现。依据用户本轮仓库侧交叉核验及既有run.json源链，未进行新的远端研究。v3已被替代；以下历史核验中“页面文字完全不变”仅指上一轮v3，v4仅改B1命令、阅读标签及对应资料。B2离线分析命令保持临时out，未执行。
+
+# G14 LongLLMLingua v4｜素材来源与核验报告
 
 本轮仅本地finish，无新增页、无推理、无API、无远端上传。9页已逐页渲染亲看；按已认可前三页证据标准复核密度、层次、证据可读、结论对应和图注，而非只看无重叠。
 
@@ -49,7 +53,7 @@ CUDA主比较/NPU另一批效率仍按 sources/docs/presentation/01-number-regis
 
 成员二P4｜45秒。先看左上canonical原始JSON摘录：accepted_run指a1bd26fe3d82dea3f65d、400槽、hard预算、396满足、passed为true。passed指验收要求通过，不是400条预算都满足。右上是verification里第一个budget_miss的完整原对象，保留完整slot_id；右下把四条记录原值排成可读表，同一题Long4x，位置1/5/10/15，目标742，实测749/751/754/753。我们掌握逐槽异常记录，但没有取得原始results.jsonl和完整attempts，因此不推断四条超标原因、不隐藏、不改分。它不是兼容stage_3的394副本。固定20文档、gold五位置1/5/10/15/20、seed42；smoke20⊂pilot100⊂main500。七方法共用deepseek-flash、temperature0、max_tokens512、首行best_subspan_em与DeepSeek tokenizer；换了原论文GPT及恢复分词器，只能叫方法级复现。CUDA主比较Long4x另有18/500超预算，不和smoke混算。
 
-成员三B1证据30秒，接P5主讲60秒，共90秒。本页都是已提交文件字段，不是本次新终端。左上run_id和pilot、seed42、五位置、DeepSeek配置锁定运行；右上coverage记录100题、3500成功、无失败缺失，3500是100×5×7槽。右下summary把method=longllmlingua_2x和500槽的mean_em0.832放在同一个真实对象字段摘录里，不是3500题平均。左下stats的配对差值与区间来自相同pilot产物，问题级2000次重采样。底部plan仅检查矩阵；若真实重跑改为run且需数据、原权重和API密钥。本轮都未执行。CUDA型号和原始results.jsonl未取得，不用summary代全文，不拿会话墙钟当API延迟。
+成员三B1证据30秒，接P5主讲60秒，共90秒。本页都是已提交文件字段，不是本次新终端。左上run_id和pilot、seed42、五位置、DeepSeek配置锁定运行；右上coverage记录100题、3500成功、无失败缺失，3500是100×5×7槽。右下summary把method=longllmlingua_2x和500槽的mean_em0.832放在同一个真实对象字段摘录里，不是3500题平均。左下stats的配对差值与区间来自相同pilot产物，问题级2000次重采样。底部命令只读查看已保存pilot运行快照，不是推理或计划生成，本轮未执行。CUDA型号和原始results.jsonl未取得，不用summary代全文，不拿会话墙钟当API延迟。
 
 https://github.com/SPikerinbit/longllmlingua-reproduction/blob/a64294fe86584395e87a33867261094ff4cbf596/reproduction/compression.py#L176-L187
 https://github.com/SPikerinbit/longllmlingua-reproduction/blob/a64294fe86584395e87a33867261094ff4cbf596/reports/smoke-stage2-acceptance.json
@@ -193,7 +197,7 @@ f60582980375114a606c87a6f3b2c8f6f484c44e0880b289e295312f4d28a77f  sources/g1/acc
 
 c95e7d5d88144b7549ecf706884cb0d9de792011adfce3532d4dde8bbd8a04c1  sources/g1/compression.py
 
-d815ee916dde25a9e28cc3c458dc79f47ef2fe00a1e8d5ef6fefdb502b4a0fe7  sources/g1/configs/stage3-pilot-as-run.json
+B1只读查看已保存pilot运行快照：`python -m json.tool reports/stage3-main/run.json`。不是推理复现命令；默认configs/stage3.json为main，不能代替pilot。
 
 a95c030e8dd0c2758d2c7d8e1cd7856a1ba853b0bdab622e69b52065a1b1d029  sources/g1/coverage.json
 
@@ -256,9 +260,18 @@ beb0bb256c2b4732077de7d267226187e7182a4b4ae893e8f115821769c05a1b  sources/verifi
 d3739a281dcd782ec9d064844364fdf906d9b82816d1d83664f15a7e44041724  sources/verified-member1-sources.md
 
 ## 最终成品检查结果
-- 9页物理顺序未变；所有页面文本与起始preview-g1-fix逐项相同，未变数据或标题。
+- 9页物理顺序未变；v4除B1只读证据命令、标签与出处说明外，其余8页页面XML与v3逐字节相同，未变数据、排版或短标题。
 - 全9页逐页亲看；修后再看P4/B1与全组最终拼图。
 - check-overlap：no findings；OOXML：72个XML部件校验通过，1个无schema；两种字体均已安装，无影响可见文本的缺失字体。
 - P1/P2/P3/P7页面XML不变；P5/P6/B2只加既有页脚内部跳转；P4/B1仅残留排版修复。备注9/9写入新版讲稿与源链。
 - 同版PDF和逐页图均从最终PPTX一次渲染导出；PDF为静态备览，PPTX保留原生文字、表格、图形和引用论文图，不是整页截图。
 - 机器检查不替代Windows/投影、真人计时、录屏或课程评分验收。
+
+## v4最终交叉核对
+- 物理第8页正确命令：`python -m json.tool reports/stage3-main/run.json`；标签为查看已保存pilot运行快照。仅查看已有JSON，不加载模型、不调用API，不生成计划。
+- 第9页原命令完整保留：`python scripts/analyze_stage4.py --out /tmp/g14-stage4-audit`。临时out避免覆盖已提交结果，本轮未执行。
+- v4已去除不适用的配置路径与相关计划/推理命令；v4包不包含旧历史备注附件。v3成品和旧zip仍保留，仅历史参考，已被v4替代。
+- 已亲看最终全组拼图与第8页渲染：无字符缺失、容器溢出或图注遮挡。其他8页XML字节不变。
+- 全套check-overlap无发现；72个XML部件schema校验通过，1个无schema；两种字体已安装，无影响可见文本的缺失字体。
+- 页数9不变；备注9页仅统一v4版本标识及相应错误修正；B1成员3讲稿、QA、证据导航与本报告同步。
+- 本轮只修证据命令与配套资料，不是新实验，未执行所展示命令、模型推理或API，也未上传。既有事实边界和未验证项不变。
