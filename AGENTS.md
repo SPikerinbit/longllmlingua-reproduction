@@ -56,7 +56,7 @@
 
 - 验证真实数据对齐、输入标签隔离、固定评分、预算、缓存失效/续跑、机制行为、覆盖率和结果独立重建。不用模拟回答替代真实实验。
 - 运行与变更相适应的离线测试和必要小样本真实验证，复用仍有效的证据。统计重建无需下载大模型或新增API请求。
-- 分支沿用stage1-foundation、stage2-compression、stage3-main-experiments、stage4-ablation-efficiency；成员三实际交付还存在历史stage_3分支，保留来源，不虚构合并状态。
+- 继续提交使用 stage1-foundation、stage2-compression、stage3-main-comparison、stage4-ablation-efficiency。历史分支 stage_3 保留且不删除，只作兼容，不再作为推荐推进分支。曾用名 stage3-main-experiments 没有对应远程分支。不虚构合并状态。
 - 阶段通过PR交接，由后续负责人或队友复核；ready标签只在对应复核通过后创建。共同接口变更更新文档。
 - 提交代码、配置示例、样本清单、来源/校验、轻量结果、必要案例和许可证。模型权重、完整原始/处理数据、完整预测缓存、凭证、虚拟环境、大型运行日志和本地压缩包不提交。
 - .env.example仅保留变量名和无敏感示例；环境变量优先，真实密钥不入配置、报告或PR。提交前检查，不能只依赖.gitignore。

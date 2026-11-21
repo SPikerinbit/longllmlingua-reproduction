@@ -1,6 +1,22 @@
 # 成员三：任务、证据和验收
 
-口播 P5 的 60 秒，加运行证据前 30 秒。法定姓名待本人填写。主比较是 CUDA 上的 pilot 100 题，不是 `configs/stage3.json` 里那个 split=main 的 500 题配置。
+继续在 `stage3-main-comparison` 上推进。`stage_3` 保留不删，不再往该分支加新提交。口播 P5 的 60 秒，加运行证据前 30 秒。法定姓名待本人填写。主比较是 CUDA 上的 pilot 100 题，不是 `configs/stage3.json` 里那个 split=main 的 500 题配置。
+
+本分支继承了 `stage_3` 对 `reports/smoke-stage2-acceptance.json` 的历史修改：预算满足 394/400，`accepted_run` 为 `outputs/stage2/875ddf42e70e37db8455`。`main` 上同一文件仍是 396/400、run `a1bd26fe3d82dea3f65d`。对外讲阶段二超标时要说明用的是哪一个文件。主比较数字仍以 `reports/stage3-main/` 为准。
+
+## 课程五项里由成员三讲解的证据
+
+对照 `docs/presentation/02-score-evidence.md`。被点名时按这个顺序打开文件。未勾选项不能说成已经复核。
+
+| 项 | 打开什么 | 8 分目标下还缺的 |
+| --- | --- | --- |
+| 理解与范围 | `docs/experiments.md` 的 100 题范围；`run.json` 的 split=pilot | P 编号 |
+| 数据与实现 | `run.json` 的 run_id、config_hash、`cuda:0`；`manifests/pilot.json` | 本机 GPU 型号和包版本。没有写出之前不能勾 |
+| 对照与消融 | `summary.json` 七行；`stats.json` 的 2000 次、seed 42、100 题 | `configs/stage3-pilot-as-run.json` 尚未从 run.json 抽出 |
+| 错误分析 | 还没有 M3-01 至 M3-03 | 从组内 `results.jsonl` 摘 3 条后再勾 |
+| 交付与答问 | `coverage.json` 的 3500/3500；离线测试 31 项通过只说明代码和轻量结果，不是重新跑了 API | 录屏与终稿 PDF 未做 |
+
+真实运行入口是 `python -m reproduction.stage3 run --config <与 run.json 一致的配置>`。离线检查是 `python -m pytest tests/test_stage3.py tests/test_final_delivery.py`。后者不需要密钥。密钥不要写入配置或日志。
 
 ## 验收标准
 
