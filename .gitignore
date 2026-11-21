@@ -18,7 +18,8 @@ build/
 dist/
 
 # Full datasets, model weights, predictions, caches, and large runtime outputs
-/data/
+/data/*
+!/data/README.md
 /models/
 /checkpoints/
 /cache/
