@@ -1,0 +1,39 @@
+{
+  "contains_gold": true,
+  "do_not_send_to_answerer": true,
+  "slots": [
+    {
+      "slot_id": "ef848352f36bc278ab99b295486d00f8fa68d2a26552caa8c12a67932b85b9fc:1:original",
+      "question_id": "ef848352f36bc278ab99b295486d00f8fa68d2a26552caa8c12a67932b85b9fc",
+      "position": 1,
+      "method": "original",
+      "question": "who was the first coronated king of manipur at kangla",
+      "answers": [
+        "Pakhangba",
+        "Pamheiba"
+      ]
+    },
+    {
+      "slot_id": "ef848352f36bc278ab99b295486d00f8fa68d2a26552caa8c12a67932b85b9fc:1:bm25_2x",
+      "question_id": "ef848352f36bc278ab99b295486d00f8fa68d2a26552caa8c12a67932b85b9fc",
+      "position": 1,
+      "method": "bm25_2x",
+      "question": "who was the first coronated king of manipur at kangla",
+      "answers": [
+        "Pakhangba",
+        "Pamheiba"
+      ]
+    },
+    {
+      "slot_id": "ef848352f36bc278ab99b295486d00f8fa68d2a26552caa8c12a67932b85b9fc:1:bm25_4x",
+      "question_id": "ef848352f36bc278ab99b295486d00f8fa68d2a26552caa8c12a67932b85b9fc",
+      "position": 1,
+      "method": "bm25_4x",
+      "question": "who was the first coronated king of manipur at kangla",
+      "answers": [
+        "Pakhangba",
+        "Pamheiba"
+      ]
+    }
+  ]
+}

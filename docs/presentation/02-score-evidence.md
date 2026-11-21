@@ -73,11 +73,11 @@
 
 8 分目标：至少 10 条真实逐样本案例，能说明失败或边界，结论不超过证据。
 
-已有案例 6 条，不够 10 条：
+DeepSeek 侧已有 13 条可追溯槽，见 `reports/stage1-supplement/cases.md`。Cursor 对话侧是 0 条。
 
 | 编号 | 位置 | 状态 |
 | --- | --- | --- |
-| M1-01、M1-02、M1-03 | `docs/presentation/members/member1/cases.md`，只在 `stage1-foundation` | 已从 `predictions.jsonl` 和锁定 sha256 的上游数据对齐 |
+| S1-01 至 S1-13 | `reports/stage1-supplement/cases.md` | 来自阶段一 `predictions.jsonl`，含正确、BM25 失败和首行边界 |
 | M4-01 至 M4-03 | `reports/stage4-ablation-efficiency/inputs/recovery-cases.json` 的 3 条 | 记录在结果文件里，尚未拆成 `results/cases/` |
 
 未勾选：

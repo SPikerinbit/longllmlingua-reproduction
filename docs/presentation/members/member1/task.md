@@ -103,3 +103,5 @@
 | 交付与答问 | `predictions.jsonl` 300 行；`qa.md` 10 题 | 组内 run 目录 `outputs/stage1/d54b3118c61ea4930624` 的 sha256 未记录。手机实讲未做 |
 
 离线检查是重算 `predictions.jsonl` 的三个 EM，应得到 0.92、0.87、0.64。`python scripts/accept_stage1.py outputs/stage1/d54b3118c61ea4930624` 才是带完整提示的复核，仓库里没有该目录，不能勾成这次已跑。密钥不进入 `data/README.md` 或案例。
+
+2026-11-21 已额外跑通 `scripts/audit_stage1_offline.py`：隔离失败 0、预算违规 0、重评分不一致 0，见 `reports/stage1-supplement/offline-audit.json`。13 条真实槽在 `reports/stage1-supplement/cases.md`。这仍是 DeepSeek 记录，不是 Cursor。cursor_dialogue 关卡未通过，不能勾“已有受控对话基线”。

@@ -32,6 +32,8 @@ AI 使用：2026-11-21 用 Cursor 里的编码助手整理了上述汇报文档�
 
 不计入成员一的结果：阶段三 CUDA 主比较，阶段四 910B 消融和效率。
 
+2026-11-21 的补充工作只做了两件已经发生的事。一件是离线审计：`scripts/audit_stage1_offline.py` 重读了 `predictions.jsonl` 和五个已校验的 NQ 文件，没有调用 API，没有改 `reports/stage1-acceptance/`。另一件是确认 Cursor 对话不能作为受控问答：本机没有 Cursor CLI，公开文档中的 Ask/print 模式仍有工具。因此没有 cursor_dialogue 回答。三份盲提示和独立 gold 文件在 `reports/cursor_dialogue/trial/`。阶段二压缩、阶段三新的配对比较和阶段四新的消融都没有新跑，因为没有压缩权重，也不能用对话假装压缩。
+
 ## 成员二（阶段二；待本人填写）
 
 待替换。应写的路径至少包括 `python -m reproduction.stage2`、`configs/stage2.json`、run `a1bd26fe3d82dea3f65d`、`reports/stage2-smoke/`、`docs/stage2-parameter-map.md`。不要把阶段一的 300 槽或阶段三的 3500 槽算进自己的运行。
