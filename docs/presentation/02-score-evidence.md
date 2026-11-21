@@ -16,7 +16,7 @@
 | 阶段三硬件 | `reports/stage3-main/run.json` 的 `compressor.device` 只有 `cuda:0` | 论文写 V100-32G，见 `docs/stage2-parameter-map.md` | 不能补写 GPU 型号 |
 | CANN | 阶段二 `reports/stage2-smoke/REPORT.md` 写 CANN 8.5.2 | `docs/experiments.md` 写阶段四 CANN 未登记；npu-smi 25.5.1 不等于 CANN | 不能把阶段二的 CANN 当成 910B 消融的版本 |
 | 峰值显存 | 阶段二 REPORT 写峰值 16.67 GB | `efficiency.csv` 的 `longllmlingua_2x` 为 16.428089344 GB | 两次测量，不能写成同一个峰值 |
-| 阶段三结果副本 | `main` 上 `reports/smoke-stage2-acceptance.json` 为 396/400 | `stage_3` 历史提交把同一文件改成 394/400，并换了 `accepted_run` | `stage3-main-comparison` 继承的是 `stage_3` 这份，不是 `main` 上那份。引用超标条数时要说明用的是哪一个文件 |
+| 阶段二验收副本 | `main` 与四条推荐分支上的 `reports/smoke-stage2-acceptance.json` 是 396/400，`accepted_run` 为 `outputs/stage2/a1bd26fe3d82dea3f65d` | 只有兼容分支 `stage_3` 仍保留 394/400，`accepted_run` 为 `outputs/stage2/875ddf42e70e37db8455` | 推荐分支和 `main` 不再写成继承了 394 那一份。引用超标条数时要说明是哪一个分支 |
 | 问答快照 | 配置期望 `DeepSeek-V4.1-Flash-1017` | 返回 fingerprint `bc19ba97cbe016479903222bb1578db6` | fingerprint 不能证明不可变模型快照 |
 
 ## 五项
