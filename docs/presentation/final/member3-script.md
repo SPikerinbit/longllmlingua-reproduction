@@ -8,8 +8,10 @@
 
 ## B1 · 物理页8 · 30秒 · CUDA运行记录
 
-这里展示已有CUDA运行记录，不是现场推理。左上run锁定pilot、seed42、五位置和DeepSeek；右上coverage是3500成功、零失败缺失。右下Long两倍对象绑定五百槽和0.832，与主表一致。plan只检查计划，本轮没有执行；run才需权重与API。缺完整results和CUDA型号，汇总不能代替全文。
+这里展示已有CUDA运行记录，不是现场推理。左上run锁定pilot、seed42、五位置和DeepSeek；右上coverage是3500成功、零失败缺失。右下Long两倍对象绑定五百槽和0.832，与主表一致。底部命令仅查看已保存的pilot运行快照，不生成计划，也不是复现推理命令；本轮未执行该命令。缺完整results和CUDA型号，汇总不能代替全文。
 
 ## 不口播提醒
 
 本轮只编辑和核对已有材料，没有新推理、新API或Cursor受控对话成绩。CUDA主比较与NPU消融/效率为独立批次。stage1 92/87/64不与CUDA pilot100混用；stage2 canonical396/400，四异常原因不推断，旧394不是现值。Long2x区间跨0非等效；Long4x18/500超预算。NPU p50 1.12对6.45秒不构成端到端加速。缺CUDA型号、CANN版本、stage2/3/4完整results或输出缓存及其校验和；stage1 canonical预测已有核验，不能把缺口泛化到stage1。Windows/投影、真人计时和录屏未验证，个人贡献与亲历未经替本人确认。
+
+非口播：只读查看入口为`python -m json.tool reports/stage3-main/run.json`；需在仓库根目录查看已提交文件。不能称复现推理命令，不能替换默认main配置。

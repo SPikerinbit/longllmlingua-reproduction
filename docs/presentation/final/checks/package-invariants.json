@@ -1,0 +1,18 @@
+{
+  "slides": 9,
+  "changed_parts": [
+    "ppt/notesSlides/notesSlide1.xml",
+    "ppt/notesSlides/notesSlide2.xml",
+    "ppt/notesSlides/notesSlide3.xml",
+    "ppt/notesSlides/notesSlide4.xml",
+    "ppt/notesSlides/notesSlide5.xml",
+    "ppt/notesSlides/notesSlide6.xml",
+    "ppt/notesSlides/notesSlide7.xml",
+    "ppt/notesSlides/notesSlide8.xml",
+    "ppt/notesSlides/notesSlide9.xml",
+    "ppt/slides/slide8.xml"
+  ],
+  "B1_command": "python -m json.tool reports/stage3-main/run.json",
+  "B2_command": "python scripts/analyze_stage4.py --out /tmp/g14-stage4-audit",
+  "new_experiment": false
+}

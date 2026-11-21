@@ -10,9 +10,10 @@
 | [01-number-registry.md](01-number-registry.md) | 可以上台的数字和它们的文件 |
 | [02-score-evidence.md](02-score-evidence.md) | 课程五项各 8 分的已有证据、缺口和未勾选阻塞项 |
 | [templates/](templates/) | 幻灯片、报告、QA、贡献、自检的空表 |
-| [slides/pptx-usage.md](slides/pptx-usage.md) | 配色、字体、字号和怎么改模板 |
-| [slides/G14-LongLLMLingua-template.pptx](slides/G14-LongLLMLingua-template.pptx) | 9 页：P1–P7、运行证据、备份 |
-| [slides/previews/](slides/previews/) | LibreOffice 渲染的 PDF 和 PNG |
+| [final/slides.pptx](final/slides.pptx) 与 [final/slides.pdf](final/slides.pdf) | 当前提交用的 9 页演示稿 |
+| [report/report.pdf](report/report.pdf) | 正式报告。可编辑源是同目录 `report.docx`、`report.md`、`SOURCES.md` |
+| [slides/pptx-usage.md](slides/pptx-usage.md) | 早期骨架的配色和字号说明 |
+| [slides/G14-LongLLMLingua-template.pptx](slides/G14-LongLLMLingua-template.pptx) | 早期骨架，不是当前 slides.pptx |
 | [members/member1/](members/member1/) | 成员一的定稿页、讲稿、报告小节、案例、QA、自检 |
 | [members/member2/task.md](members/member2/task.md) | 成员二的证据清单、材料清单和验收 |
 | [members/member3/task.md](members/member3/task.md) | 成员三的证据清单、材料清单和验收 |
