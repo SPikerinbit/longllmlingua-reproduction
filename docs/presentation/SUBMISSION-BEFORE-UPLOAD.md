@@ -1,6 +1,8 @@
 # 提交前待补
 
-占位包名是 `NLP2026_G14_Pxx.zip`。课程规范要求 `NLP2026_G编号_P编号.zip`，P 编号要用教师确认的编号。仓库没有这个编号，也没有登记表上的四人信息，所以这个包不能直接上传。
+本轮没有生成 `NLP2026_G14_Pxx.zip`，也没有导出最终 main bundle。当前 `docs/presentation/final/slides.pptx` 仍是 v4。v5 只替换部分页上方绿色结论横幅的表达；数据、短标题和证据命令保持不动。v5 的 pptx、pdf 和来源图到达后再替换这三处，然后才封占位包。
+
+占位包名仍将是 `NLP2026_G14_Pxx.zip`。课程规范要求 `NLP2026_G编号_P编号.zip`，P 编号要用教师确认的编号。仓库没有这个编号，也没有登记表上的四人信息，所以即使封包也不能直接上传。
 
 课程原文（<https://nlp.hltbit.top/2026/materials/w01/classroom/requirements.html>）写的是包内 `contributions.md` 包含四名成员的实际贡献，选题记录写“四人信息、联系人”。没有单独要求“法定姓名”。姓名仍只来自登记表，这里不编造。
 
