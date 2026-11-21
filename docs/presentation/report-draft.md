@@ -1,6 +1,8 @@
-# LongLLMLingua 复现报告源稿
+# LongLLMLingua 复现报告
 
-正文按 4–6 页组织，参考文献不计入这 4–6 页。本文件是制作 `report.pdf` 的源稿。PDF 还没有生成，课程 zip 也还没有封包。P 编号、成员法定姓名待补。没有把未跑完的 Cursor 对话或不可用的压缩模型写成已完成实验。原有 DeepSeek 结果没有改。
+正式报告是 `docs/presentation/report/report.pdf`，可编辑源是同目录 `report.docx`、`report.md`、`SOURCES.md`。正文 5 页，参考文献 1 页，13 条案例附录 5 页。本文件保留为更早的源稿索引，数字以正式报告和 `docs/presentation/01-number-registry.md` 为准。
+
+P 编号和登记表上的四人信息待补。课程提交规范写的是四人信息与实际贡献，没有单独要求“法定姓名”。没有把未跑完的 Cursor 对话或不可用的压缩模型写成已完成实验。原有 DeepSeek 结果没有改。占位包 `NLP2026_G14_Pxx.zip` 还不能直接提交。
 
 ## 1 范围
 
@@ -54,7 +56,7 @@ LLMLingua 与 LongLLMLingua 共用 LLaMA-2-7B-Chat，revision `351844e75ed0bcbbe
 
 ## 7 尚未完成
 
-`report.pdf`、课程终包 zip、录屏、P 编号和法定姓名都还没有。完整问答缓存、GPU 型号和 CANN 版本仍缺，不能补写。组内 `results.jsonl` 的 sha256 未登记。压缩权重上的新消融没有做。离线测试只复核代码和已提交记录，本轮没有新的模型调用。本文不把本轮写成满分完成。
+正式 `report.pdf` 已入库。延河课堂还没有提交。P 编号、登记表四人信息、录屏和真人计时仍缺。阶段二/三/四的完整问答与压缩缓存不在 git 里，不能编造。阶段四 CANN 未登记；阶段二报告里的 CANN 8.5.2 只属于那次 smoke。CUDA 只记到 `cuda:0`。压缩权重上的新消融没有做。离线测试只复核代码和已提交记录，本轮没有新的模型调用。本文不把本轮写成满分完成。
 
 ## 参考文献
 
@@ -68,8 +70,8 @@ Liu, Nelson，及 lost-in-the-middle 仓库中的 Lost in the Middle 数据与�
 
 | 路径 | 状态 |
 | --- | --- |
-| `report.pdf` | 未生成。源稿是本文件 |
-| `docs/presentation/final/slides.pptx` 与 `slides.pdf` | 当前 9 页演示稿，字节与核验包一致。旧骨架 `docs/presentation/slides/G14-LongLLMLingua-template.pptx` 不是这一版 |
+| `docs/presentation/report/report.pdf` | 正式报告。同目录 `report.docx`、`report.md`、`SOURCES.md` 是可编辑源 |
+| `docs/presentation/final/slides.pptx` 与 `slides.pdf` | 当前 9 页演示稿。旧骨架 `docs/presentation/slides/G14-LongLLMLingua-template.pptx` 不是这份 slides |
 | `README.md` | 已指向 `docs/presentation/final/` |
 | `data/README.md` | 已有来源、sha256 和划分。五个 gz 不进包 |
 | `contributions.md` | 成员一有记录。其他三人的亲历段仍待本人填写 |

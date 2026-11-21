@@ -1,6 +1,6 @@
 # 成员三：任务、证据和验收
 
-继续在 `stage3-main-comparison` 上推进。`stage_3` 保留不删，不再往该分支加新提交。当前演示稿里，成员三讲物理页 5（P5，60 秒）和页 8（B1，30 秒）。讲稿在 `docs/presentation/final/member3-script.md`。法定姓名待本人填写。主比较是 CUDA 上的 pilot 100 题，不是 `configs/stage3.json` 里那个 split=main 的 500 题配置。页 8 上的 `configs/stage3-pilot-as-run.json` 还不在仓库里，现场打开 `reports/stage3-main/run.json`。
+继续在 `stage3-main-comparison` 上推进。`stage_3` 保留不删，不再往该分支加新提交。当前演示稿里，成员三讲物理页 5（P5，60 秒）和页 8（B1，30 秒）。讲稿在 `docs/presentation/final/member3-script.md`。登记表上的姓名待本人填写；课程原文没有单独要求“法定姓名”。主比较是 CUDA 上的 pilot 100 题，不是 `configs/stage3.json` 里那个 split=main 的 500 题配置。页 8 的命令是 `python -m json.tool reports/stage3-main/run.json`，只读查看已保存快照。仓库里仍然没有 `configs/stage3-pilot-as-run.json`。
 
 本推荐分支上的 `reports/smoke-stage2-acceptance.json` 与 `main` 相同：硬预算 396/400，`accepted_run` 为 `outputs/stage2/a1bd26fe3d82dea3f65d`。只有兼容分支 `stage_3` 仍保留历史副本 394/400 和 `outputs/stage2/875ddf42e70e37db8455`。对外讲阶段二超标时，推荐分支用 396/400，不要把 `stage_3` 的旧副本说成当前结果。主比较数字仍以 `reports/stage3-main/` 为准。
 

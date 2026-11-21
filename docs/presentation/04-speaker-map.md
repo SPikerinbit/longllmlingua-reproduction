@@ -1,6 +1,6 @@
 # 发言对照
 
-当前演示稿在 `docs/presentation/final/slides.pptx`。物理顺序是 P1、P2、P3、P4、P5、P6、P7、B1、B2。演讲顺序是 1、2、3、4、5、8、6、9、7。页码仍是功能占位，尚未批准为最终页数。
+当前提交用的演示稿在 `docs/presentation/final/slides.pptx`。物理顺序是 P1、P2、P3、P4、P5、P6、P7、B1、B2。演讲顺序是 1、2、3、4、5、8、6、9、7。这 9 页就是现在的 slides，不是 `docs/presentation/slides/G14-LongLLMLingua-template.pptx`。
 
 四人各 90 秒。PPT 主讲合计 300 秒，B1 与 B2 合计 60 秒。提问 90 秒和换人 30 秒另计。这是安排，不是已经用秒表量过的时间。
 
@@ -11,7 +11,7 @@
 | 3 | 3 P3 | 二 | 45 | `reproduction/compression.py` 第 176–187 行；`docs/stage2-parameter-map.md` |
 | 4 | 4 P4 | 二 | 45 | `reports/smoke-stage2-acceptance.json`；`reports/stage2-smoke/verification.json` |
 | 5 | 5 P5 | 三 | 60 | `reports/stage3-main/summary.json`；`reports/stage3-main/stats.json` |
-| 6 | 8 B1 | 三 | 30 | `reports/stage3-main/run.json`；`coverage.json`。不要把页上那条还不存在的配置路径当成已经可运行 |
+| 6 | 8 B1 | 三 | 30 | `python -m json.tool reports/stage3-main/run.json`。只读查看已保存 pilot 快照，不是现场推理 |
 | 7 | 6 P6 | 四 | 60 | `reports/stage4-ablation-efficiency/ablation.csv`；`figures/ablation.png` |
 | 8 | 9 B2 | 四 | 30 | `environment/environment-current.json`；`inputs/efficiency-run.json` |
 | 9 | 7 P7 | 一 | 30 | `reports/stage1-supplement/cases.md` 的 S1 否定句案例 |

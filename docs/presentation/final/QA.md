@@ -15,3 +15,6 @@ stage1 smoke20的92/87/64来自300槽；CUDA pilot100的84.6/83.2/79是不同批
 
 ## 备查：现场跑了吗？缺什么？
 没有。本次只打开既有记录，Cursor受控对话未执行，无新对话分数、新推理或新API。缺CUDA型号、CANN版本及stage2/3/4完整输出与校验和；已有stage1 canonical预测不在此缺失范围。Windows/投影、真人计时、录屏未完成。不声称课程全满分验收通过。
+
+## B1命令做什么？
+`python -m json.tool reports/stage3-main/run.json`只格式化查看已有pilot运行快照，不加载模型、不调用API，不生成计划。默认configs/stage3.json是main，不能拿来解释pilot。B2命令仍为`python scripts/analyze_stage4.py --out /tmp/g14-stage4-audit`，保留临时out，避免覆盖已提交结果；本轮未执行。
