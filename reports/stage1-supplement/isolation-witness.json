@@ -1,0 +1,422 @@
+[
+  {
+    "question_id": "ef848352f36bc278ab99b295486d00f8fa68d2a26552caa8c12a67932b85b9fc",
+    "document_set_sha256": "ecaceafbbab315a118ffca547cd1019c032d966cf011a01a826892f4c95dccf6",
+    "gold": {
+      "1": [
+        1
+      ],
+      "5": [
+        5
+      ],
+      "10": [
+        10
+      ],
+      "15": [
+        15
+      ],
+      "20": [
+        20
+      ]
+    }
+  },
+  {
+    "question_id": "0b6dde118f5c85bc3f4d120a9bd287bf2fbdda405bda05bf3d8587c10efc9be7",
+    "document_set_sha256": "302f1242a38b2a876e1725cb369d5c42fa0454a65c6a683bfa64d894e38efc2c",
+    "gold": {
+      "1": [
+        1
+      ],
+      "5": [
+        5
+      ],
+      "10": [
+        10
+      ],
+      "15": [
+        15
+      ],
+      "20": [
+        20
+      ]
+    }
+  },
+  {
+    "question_id": "fece0693c3c432f98fcb1673a4ee2229ef0453205c44ecd2e1cda94dc2602ce2",
+    "document_set_sha256": "e66f010b5c7e12658e38c2fec5a757ea51675a437fb7f29974915c3ba0655ab2",
+    "gold": {
+      "1": [
+        1
+      ],
+      "5": [
+        5
+      ],
+      "10": [
+        10
+      ],
+      "15": [
+        15
+      ],
+      "20": [
+        20
+      ]
+    }
+  },
+  {
+    "question_id": "64a3debb5e078f5b6b41d180d4beb9288e39cb6ef737a178b56d56d3fbd644c5",
+    "document_set_sha256": "c952c7d1637abc120c7b3f22c16ee9875a8a6c0ab98a01002bbcf8de0a0e8eb3",
+    "gold": {
+      "1": [
+        1
+      ],
+      "5": [
+        5
+      ],
+      "10": [
+        10
+      ],
+      "15": [
+        15
+      ],
+      "20": [
+        20
+      ]
+    }
+  },
+  {
+    "question_id": "d58fcfa6cab7615ccc77dca5e7e0b5c559c79504e724a66627116291e216b1f0",
+    "document_set_sha256": "6edf2f51184d40f1db41ae0196977c81e218bfabd091427d710e8d243542dda9",
+    "gold": {
+      "1": [
+        1
+      ],
+      "5": [
+        5
+      ],
+      "10": [
+        10
+      ],
+      "15": [
+        15
+      ],
+      "20": [
+        20
+      ]
+    }
+  },
+  {
+    "question_id": "0582fd6d9bba4a7fefc3d4de5437f6cf8ae280e2225036798d5760d5db0d305f",
+    "document_set_sha256": "5a9bd648473b66aa2f15e3dadcda79cdfb4d43370921014babca2ec85220cd2c",
+    "gold": {
+      "1": [
+        1
+      ],
+      "5": [
+        5
+      ],
+      "10": [
+        10
+      ],
+      "15": [
+        15
+      ],
+      "20": [
+        20
+      ]
+    }
+  },
+  {
+    "question_id": "6b5482bc5952801e46a3631762565d4482bbeac19dd3dfb37ed9fbe637be2268",
+    "document_set_sha256": "917e7192f6f469ef3e52881318d19bcef02e8020a347e149cdc4e2ccc4bfd526",
+    "gold": {
+      "1": [
+        1
+      ],
+      "5": [
+        5
+      ],
+      "10": [
+        10
+      ],
+      "15": [
+        15
+      ],
+      "20": [
+        20
+      ]
+    }
+  },
+  {
+    "question_id": "663a8098b27bb75f573cfb25d33120518501fb6ff1b10c04b5eed350785ba3b2",
+    "document_set_sha256": "d9c96bab66452626b8020fe2a6e5a7c96b324c6e037b6233e27cbdf04cc1fb7d",
+    "gold": {
+      "1": [
+        1
+      ],
+      "5": [
+        5
+      ],
+      "10": [
+        10
+      ],
+      "15": [
+        15
+      ],
+      "20": [
+        20
+      ]
+    }
+  },
+  {
+    "question_id": "f5d10809ec2a6acc5b708ac48eaf65f8389eeb69812a7712b542bf40a66e295d",
+    "document_set_sha256": "7c240d0336aacd40e938477846317254b78de1827ab253d818f024c3d133d05d",
+    "gold": {
+      "1": [
+        1
+      ],
+      "5": [
+        5
+      ],
+      "10": [
+        10
+      ],
+      "15": [
+        15
+      ],
+      "20": [
+        20
+      ]
+    }
+  },
+  {
+    "question_id": "23707ea627731d1e8786f6a2d21e325e8c4d0d6c8c741752da1b2d91d0e8048e",
+    "document_set_sha256": "961bf1a99b648888df03904e30c61e1fe5ab0876cb35d7d64cd72af9c9e75d7f",
+    "gold": {
+      "1": [
+        1
+      ],
+      "5": [
+        5
+      ],
+      "10": [
+        10
+      ],
+      "15": [
+        15
+      ],
+      "20": [
+        20
+      ]
+    }
+  },
+  {
+    "question_id": "32b8bbc4c5caf338f118e8727cf94df81529171fa99ecd0ebc162c03ffe157d9",
+    "document_set_sha256": "2228541456192fd2d948c9200f910ae1305cf7fe7f2fb17dc74e803cc2b93515",
+    "gold": {
+      "1": [
+        1
+      ],
+      "5": [
+        5
+      ],
+      "10": [
+        10
+      ],
+      "15": [
+        15
+      ],
+      "20": [
+        20
+      ]
+    }
+  },
+  {
+    "question_id": "7bb119aada2fcdecc60c2e79a366e8d10dbc773f130a87f96f2138627f8be10f",
+    "document_set_sha256": "aac7aa7b707550cb1c82162fbfe1f48967276cbefb80d5cfb33b854f3776c371",
+    "gold": {
+      "1": [
+        1
+      ],
+      "5": [
+        5
+      ],
+      "10": [
+        10
+      ],
+      "15": [
+        15
+      ],
+      "20": [
+        20
+      ]
+    }
+  },
+  {
+    "question_id": "7a98fe270eaddc1b3aa34abf2c186a2cfeb6bea64c91642c9cd6e88e21e79176",
+    "document_set_sha256": "bf43c367e2ab952f51224fbca8c2b346e9c827548a21db16592e261b2c3a5d4f",
+    "gold": {
+      "1": [
+        1
+      ],
+      "5": [
+        5
+      ],
+      "10": [
+        10
+      ],
+      "15": [
+        15
+      ],
+      "20": [
+        20
+      ]
+    }
+  },
+  {
+    "question_id": "25e546b8ffef968d33a8bd12482a6b100a5d3369cdb52d0dfc8f34fe059543f4",
+    "document_set_sha256": "0dcc1c0331d125bc5455d621806601fe8bc7a17c5bff15bf75d5a20290351258",
+    "gold": {
+      "1": [
+        1
+      ],
+      "5": [
+        5
+      ],
+      "10": [
+        10
+      ],
+      "15": [
+        15
+      ],
+      "20": [
+        20
+      ]
+    }
+  },
+  {
+    "question_id": "c21bf6a0b05d84d30299a32d577bf0dfa6a957242d88ee5c3e28bca72d01ae15",
+    "document_set_sha256": "6f76328bdeceff8aa37c6f9c4987b9a73412988ac158e77bb85106dfa40c518c",
+    "gold": {
+      "1": [
+        1
+      ],
+      "5": [
+        5
+      ],
+      "10": [
+        10
+      ],
+      "15": [
+        15
+      ],
+      "20": [
+        20
+      ]
+    }
+  },
+  {
+    "question_id": "dd2f7695aa5d8956a680551d3affa1f2f8b0ac795bfa4a1b60dafa80d60acfaa",
+    "document_set_sha256": "bcac92d245045ee8487234e69d427eb12a3ccfb264412fce5bb1794c047cce48",
+    "gold": {
+      "1": [
+        1
+      ],
+      "5": [
+        5
+      ],
+      "10": [
+        10
+      ],
+      "15": [
+        15
+      ],
+      "20": [
+        20
+      ]
+    }
+  },
+  {
+    "question_id": "eea8ae864c0ece22a4ce2d354c1df5d58e295152b12ccfb69ced409696fd971d",
+    "document_set_sha256": "9b88bc6fbda820989da8f10897193edc16ccb026730174579f59624a89cd42e2",
+    "gold": {
+      "1": [
+        1
+      ],
+      "5": [
+        5
+      ],
+      "10": [
+        10
+      ],
+      "15": [
+        15
+      ],
+      "20": [
+        20
+      ]
+    }
+  },
+  {
+    "question_id": "17088bb5c6115ba020e69961baedab42ffbffb9e6fed52d0207a17b7ed98dafb",
+    "document_set_sha256": "d429c7a882118e7758fb4a3d521ee3c4d7e416a208ad2de789669ee8115ffccb",
+    "gold": {
+      "1": [
+        1
+      ],
+      "5": [
+        5
+      ],
+      "10": [
+        10
+      ],
+      "15": [
+        15
+      ],
+      "20": [
+        20
+      ]
+    }
+  },
+  {
+    "question_id": "9188f9e5acbf4aa37b87519e6bc2f185f6a5fbcbcc152234f04ff126ec323c2b",
+    "document_set_sha256": "3d3e3f09f257b021b293de78dfc25fd710d1fb54094c52d06d4a4d26ca38f84e",
+    "gold": {
+      "1": [
+        1
+      ],
+      "5": [
+        5
+      ],
+      "10": [
+        10
+      ],
+      "15": [
+        15
+      ],
+      "20": [
+        20
+      ]
+    }
+  },
+  {
+    "question_id": "c50e828b993afc6629a55bcc8e514aadf82542b63d40193a21b42a4d0d12405c",
+    "document_set_sha256": "b2c321e68117681b59654bf660834b541e2b351f1dbb712162667749af1b341e",
+    "gold": {
+      "1": [
+        1
+      ],
+      "5": [
+        5
+      ],
+      "10": [
+        10
+      ],
+      "15": [
+        15
+      ],
+      "20": [
+        20
+      ]
+    }
+  }
+]

@@ -98,6 +98,25 @@ run `2a7f4accf6127178a76b`。`coverage.json`：1200/1200。`efficiency.csv` 每�
 
 压缩权重 revision `351844e75ed0bcbbe3f10671b3c808d2b83894ee`，见 `docs/experiments.md`。
 
+## 阶段一离线审计（2026-11-21，无新 API）
+
+来源 `reports/stage1-supplement/offline-audit.json`。`predictions.jsonl` 的 sha256 是 `cac37c9e84678f2f591af8c4f6ccdb7a69d010cf71eae5678b85109bcb27bd62`。五个 NQ gz 的 sha256 与 `manifests/resources.json` 一致。审计耗时 2.055 秒，Python 3.12.3，API 调用数 0。
+
+| 检查 | 结果 |
+| --- | --- |
+| smoke 是 pilot 前 20、pilot 是 main 前 100 | 是 |
+| 20 题 × 五位置文档集合一致、gold 位置正确、可见字段无答案 | 失败 0 |
+| 300 槽预算 | 违规 0。在线 prompt token 全部等于本地压缩 token + 4 |
+| 用同一 `best_subspan_em` 重评分 | 与已存 score 不一致 0 条。均值仍是 0.92 / 0.87 / 0.64 |
+| 诊断：首行为 0、把换行拼成空格后为 1 | 2 槽，都在问题 `64a3debb…` 的 original、位置 5 和 20 |
+| 诊断：首行强否认且官方分数为 1 | 4 槽，同一题的 bm25，位置 1、10、15 中的四条 |
+
+诊断不是新的主指标。13 条槽写在 `reports/stage1-supplement/cases.md`。
+
+## cursor_dialogue
+
+没有回答，没有分数，没有耗时。关卡未通过，见 `reports/cursor_dialogue/PROTOCOL.md`。试跑只准备了 3 条盲提示；重建后的 token 与同一 DeepSeek 槽一致：original 3289/3289/3289，bm25_2x 3289/1644/1644，bm25_4x 3289/822/822。不能把这些数字写成 Cursor 的 EM 或延迟。
+
 ## 本机计时（2026-11-21，无 API）
 
 `python scripts/analyze_stage4.py` 用时 0.337 秒，会重写 `ablation.csv` 和 `efficiency.csv`。`python scripts/plot_results.py` 在安装 matplotlib 3.10.0 后用时 1.413 秒，会重写三张图。两次运行后都已用 git 恢复原文件。现场可以跑分析脚本，不要把覆盖提交进仓库。
