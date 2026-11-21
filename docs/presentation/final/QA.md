@@ -13,22 +13,17 @@
 ## 成员一：92和84.6为何不同？EM能否代表语义正确？
 stage1 smoke20的92/87/64来自300槽；CUDA pilot100的84.6/83.2/79是不同批次。首行best_subspan_em有否认回答仍得1的真实例子，所以不改官方指标但注明语义边界。
 
-## 备查：现场跑了吗？缺什么？
-没有。本次只打开既有记录，Cursor受控对话未执行，无新对话分数、新推理或新API。缺CUDA型号、CANN版本及stage2/3/4完整输出与校验和；已有stage1 canonical预测不在此缺失范围。Windows/投影、真人计时、录屏已完成（用户交接videoReview）。不声称课程全满分验收通过。
+## 现场重新跑了吗？
+不是完整实验实时重跑。新片是60秒中文合成讲解、中文字幕，1×剪辑与短定格；样本独立补拍；CPU BM25结果已完成、已保存回答现场评分。Long未运行；GPU/NPU只展示历史记录。没有新问答API调用。
 
-## B1命令做什么？
-`python -m json.tool reports/stage3-main/run.json`只格式化查看已有pilot运行快照，不加载模型、不调用API，不生成计划。默认configs/stage3.json是main，不能拿来解释pilot。B2命令仍为`bash reports/local-verification/recheck.sh`，保留临时out，避免覆盖已提交结果；本轮未执行。
+## 77/77与视频是什么关系？
+77项来自既有完整stdout和JUnit的零失败/错误/跳过，不由海报或新片推断。新片侧重代码、配置、真实样本、压缩结果、评分与历史比较追溯。
 
+## 怎么播放，是否已验证？
+P9放映模式点击内嵌movie。PPTX包含全部视频字节，无须旁置MP4；PDF仅静态poster、不支持播放。视觉审查通过，未听验音频；结构核验不等于PowerPoint实播。
 
-## v5 本轮补充核验
-仅更改视觉表达与图表指认，原数据变化为0；不新增推理/API。P1/P2/P7保留结论横幅，P3/P4/P5/P6/P8/P9改局部证据表达。
-P5七方法可编辑点图按原方法顺序，EM轴0–100；仅右侧两条真实问题级配对CI，跨0不证明等效，Long4x18/500超预算。
-P6以NPU full82.6为配对参照；ablation.csv与analyze_stage4.py L54–71证明CI来自paired_comparisons，full无CI、original外部参照、no_recovery为已有回答派生。右侧独立效率total_pipeline_seconds_p50/p95是分位点，非CI；没有端到端加速。
-P9保留原效率图，阶段中位数不能相加为E2E。P8只查看已有pilot快照：`python -m json.tool reports/stage3-main/run.json`。P9保留`bash reports/local-verification/recheck.sh`，本轮两命令均未执行。
-作图原值/线性映射见sources/g2/v5-chart-data-and-mapping.json，独立坐标核对见chart-source-audit-v5.json。历史输出缓存、CUDA型号、CANN缺口保留；Windows投影与真人计时未验证。
-
-
-## v6：77/77是否为新模型实验？
-不是。本机CPU离线验收：Python3.13.5/tokenizers0.22.1；77/77依据完整stdout及JUnit77项零失败/错误/跳过，exit0依据记录及实录。历史CUDA/NPU不能与本机环境合并；本轮finish未运行测试、推理或API。
-默认静态P8/P9各30秒，视频50秒仅替代原60秒，不另加；四人各90秒，QA90秒+换人30秒共8分钟均为预算而非真人实测。
-真人计时、本人贡献/本人确认、P号/四人登记仍缺；tokenizer与实录不再列缺口。
+## 时间与缺口
+v7：P1–P7主讲300秒；证据段仅60秒，不追加引入或收尾。推荐（待成员认可）：两人主讲P1–4约150秒/P5–7约150秒，第三人操作60秒证据，第四人控时/QA协助；教师指定成员先答。四人无需每人讲一页。静态备选P8/P9各30秒；视频版先讲完P1–7，再到P9点击内嵌视频，整段60秒替换静态证据。QA90秒、换组30秒，总8分钟，均为预算未真人计时。
+视频含中文讲解和烧录中文字幕；制作说明客观记录合成配音来源。画面已剪辑、1×原速、含短定格；样本独立补拍。CPU BM25结果已跑完，对保存回答现场评分；Long仅代码展示未执行，CUDA/NPU为历史记录，不能称完整实时重跑或新模型推理。77/77仍仅由既有pytest-full.stdout/JUnit证实，不是新视频跑出的成绩。新版视频技术参数与哈希已核实；本次仅检查PPT静态poster布局，不声称音频听验或Windows实际播放通过。
+缺口：P编号/四人登记、成员本人贡献与认可、stage2/3/4完整逐条输出及压缩/问答缓存与校验和、CUDA具体型号、阶段4 CANN、受控Cursor结果。PowerPoint桌面播放/Windows投影、真人计时未实测。
+来源：core-evidence-60s.mp4、poster.png、core-evidence-60s.srt、NARRATION.md、EDIT-MAP.md（/workspace/g14-core-demo/final）；SHA256 e3be31222267724b62bc9b9d1e0c4c8026902acde62edac488f342a6e7dbee8e。

@@ -1,4 +1,12 @@
-# v6 来源与核验
+# 来源与核验
+
+## v7（当前入口，2026-11-21 晚间，Asia/Shanghai）
+
+当前演示稿是本目录 `slides.pptx` / `slides.pdf`（SHA-256 `28d542c996917dde26cffea912a2b2d9bd9af4175a4580b4175766317267957e` / `bf86724c9843b7d744ecb364f5b0da318514e10bd8fe8ddaffd1fcac9f265d74`）。P9 真正内嵌唯一 MP4 `ppt/media/core-evidence-60s.mp4`，抽出字节 SHA-256 `e3be31222267724b62bc9b9d1e0c4c8026902acde62edac488f342a6e7dbee8e`，与仓库根 `evidence/core-evidence-60s.mp4` 一致；video 与 media 两个关系指向同一内部部件，无 `TargetMode="External"`，无 `file:///workspace`。PDF 为静态 poster 版，无 `file://`、无活动视频动作。独立软件解码此前已通过；本仓库测试钉扎哈希与“无外部媒体”。Windows / PowerPoint 实播和音频听验仍未做。
+
+旁置 mp4、SRT、poster、解说文稿与 `EDIT-MAP.md` 在仓库根 `evidence/`。同日 50 秒测试实录仍在该目录，只作历史材料。P8 历史 CUDA、P9 左历史 NPU 图与 77/77 归因、以及下面 v6 当时的来源链保持有效，未改实验表。
+
+# v6 来源与核验（历史）
 本轮本地finish，未上传、未修改repo、未重跑测试/推理/API。九页最终渲染已逐页亲看，无裁切或遮挡；短标题及差异化版式保留。P1–P7正文与关系、全9页build后正文canonical核对一致，P9原NPU图保留。机械检查详见checks。
 
 ## 证据来源

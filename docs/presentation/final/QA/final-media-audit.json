@@ -1,0 +1,184 @@
+{
+  "offline_directory_files": [
+    "slides.pptx"
+  ],
+  "external_media": [],
+  "media_relationships": [
+    {
+      "Id": "rIdEmbeddedMedia",
+      "Type": "http://schemas.microsoft.com/office/2007/relationships/media",
+      "Target": "../media/core-evidence-60s.mp4"
+    },
+    {
+      "Id": "rIdEmbeddedVideo",
+      "Type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/video",
+      "Target": "../media/core-evidence-60s.mp4"
+    }
+  ],
+  "missing_targets": [],
+  "protected_slides_unchanged": {
+    "1": true,
+    "2": true,
+    "3": true,
+    "4": true,
+    "5": true,
+    "6": true,
+    "7": true,
+    "8": true
+  },
+  "embedded_mp4": {
+    "part": "ppt/media/core-evidence-60s.mp4",
+    "sha256": "e3be31222267724b62bc9b9d1e0c4c8026902acde62edac488f342a6e7dbee8e",
+    "matches_source": true
+  },
+  "poster_hash_present": true,
+  "p9_left_and_77_preserved": true,
+  "local_file_uri_parts": [],
+  "ffprobe": {
+    "streams": [
+      {
+        "index": 0,
+        "codec_name": "h264",
+        "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+        "profile": "High",
+        "codec_type": "video",
+        "codec_tag_string": "avc1",
+        "codec_tag": "0x31637661",
+        "width": 1920,
+        "height": 1080,
+        "coded_width": 1920,
+        "coded_height": 1080,
+        "closed_captions": 0,
+        "film_grain": 0,
+        "has_b_frames": 2,
+        "pix_fmt": "yuv420p",
+        "level": 41,
+        "chroma_location": "left",
+        "field_order": "progressive",
+        "refs": 1,
+        "is_avc": "true",
+        "nal_length_size": "4",
+        "id": "0x1",
+        "r_frame_rate": "15/1",
+        "avg_frame_rate": "15/1",
+        "time_base": "1/15360",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 921600,
+        "duration": "60.000000",
+        "bit_rate": "1433343",
+        "bits_per_raw_sample": "8",
+        "nb_frames": "900",
+        "extradata_size": 47,
+        "disposition": {
+          "default": 1,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0,
+          "multilayer": 0
+        },
+        "tags": {
+          "language": "und",
+          "handler_name": "VideoHandler",
+          "vendor_id": "[0][0][0][0]",
+          "encoder": "Lavc61.19.101 libx264"
+        }
+      },
+      {
+        "index": 1,
+        "codec_name": "aac",
+        "codec_long_name": "AAC (Advanced Audio Coding)",
+        "profile": "LC",
+        "codec_type": "audio",
+        "codec_tag_string": "mp4a",
+        "codec_tag": "0x6134706d",
+        "sample_fmt": "fltp",
+        "sample_rate": "48000",
+        "channels": 2,
+        "channel_layout": "stereo",
+        "bits_per_sample": 0,
+        "initial_padding": 0,
+        "id": "0x2",
+        "r_frame_rate": "0/0",
+        "avg_frame_rate": "0/0",
+        "time_base": "1/48000",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 2880000,
+        "duration": "60.000000",
+        "bit_rate": "102484",
+        "nb_frames": "2814",
+        "extradata_size": 5,
+        "disposition": {
+          "default": 1,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0,
+          "multilayer": 0
+        },
+        "tags": {
+          "language": "und",
+          "handler_name": "SoundHandler",
+          "vendor_id": "[0][0][0][0]"
+        }
+      }
+    ],
+    "format": {
+      "filename": "/workspace/slides/g14-embedded-ugA5LJ/finish-extracted/core-evidence-60s.mp4",
+      "nb_streams": 2,
+      "nb_programs": 0,
+      "nb_stream_groups": 0,
+      "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+      "format_long_name": "QuickTime / MOV",
+      "start_time": "0.000000",
+      "duration": "60.000000",
+      "size": "11550287",
+      "bit_rate": "1540038",
+      "probe_score": 100,
+      "tags": {
+        "major_brand": "isom",
+        "minor_version": "512",
+        "compatible_brands": "isomiso2avc1mp41",
+        "encoder": "Lavf61.7.103"
+      }
+    }
+  },
+  "complete_decode_exit_code": 0,
+  "complete_decode_stderr": "",
+  "scope": "Structure, byte hashes and full software decode only; no Windows/PowerPoint playback or audio listening test.",
+  "movie_shape_id": "275",
+  "click_action": "ppaction://media",
+  "timing_shape_targets": [
+    "275"
+  ],
+  "videoFile_link_id": "rIdEmbeddedVideo",
+  "p14_media_embed_id": "rIdEmbeddedMedia"
+}

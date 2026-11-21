@@ -20,9 +20,11 @@
 ## 仍未完成
 CUDA具体型号、阶段四CANN、阶段二/三/四完整逐条输出及压缩/问答缓存和校验和、受控Cursor回答、P号与四人登记信息、本人确认/自检、实际计时等仍缺。公开NQ与tokenizer已不是当前缺口。
 
-课程占位资料包已生成，但登记信息仍待补，不能直接当最终提交包。50秒、1920×1200连续终端离线验收实录已完成并通过videoReview；随附`evidence/local-offline-evidence.mp4`与结果截图`evidence/local-offline-evidence-result.webp`。SHA、5项定向测试通过、77项进度100%、脚本退出0和无secret的复核范围见`qa/recording-verification.json`。不是新推理，也不等同真人讲述计时、成员本人参与或确认；不声称课程全部验收通过。
+课程占位资料包已生成，但登记信息仍待补，不能直接当最终提交包。当前媒体替换为60秒1920×1080核心实录`evidence/core-evidence-60s.mp4`（视频SHA见SOURCES），配中文讲解和中文字幕；音轨采用TTS制作，最终顶栏使用普通标题。随附海报、SRT、解说文稿与EDIT-MAP。
 
-本次只编辑`/workspace/reports/g14-local-final/`，未修改repo工作树、原结果或旧报告，未上传。本次已同步录屏完成状态；真人讲述计时与成员本人确认仍未代勾。
+真实GUI终端素材经剪辑，样本独立补拍；展示入口配置、样本字段隔离、已完成CPU BM25 3289→1644→822及gold丢失、保存回答评分边界、历史CUDA/NPU表。无现场GPU/NPU/Long新推理，非六章连续完整实时演算。真人讲述计时与成员本人确认仍缺。PPT内嵌正在另行制作，本包不收PPT或旧外链版，不宣称Windows已播放。旧50秒测试视频不收入新包。
+
+本次只编辑`/workspace/reports/g14-core-final/`，未修改repo工作树、原结果或旧报告，未上传。本次仅同步新60秒核心实录的真实范围；真人讲述计时与成员本人确认仍未代勾。
 
 ## 只重建本文档
 依赖：Python 3 + python-docx + Pillow；LibreOffice Writer；Noto CJK/DejaVu字体；Poppler。
@@ -34,3 +36,18 @@ python3 qa/check_report.py
 ```
 
 这不是模型/测试重跑命令。字体或Office版本变化可能改变分页，需重新视觉核验。阶段三实际pilot配置入口仍为仓库`reports/stage3-main/run.json`，不以默认main配置冒充。
+
+最终媒体同步：2026-11-21 21:46（Asia/Shanghai），包内五项素材均来自`/workspace/g14-core-demo/final/`；GPU/NPU历史结果、CPU重算/保存回答评分及独立补拍/剪辑事实不变。
+
+## 仓库同步说明（2026-11-21 21:52，Asia/Shanghai）
+
+以上是报告包原文。本目录正式文件已与核验副本对齐，哈希不变：
+
+- `report.pdf` `c22fdba0788021c922433eec6bdad154f52e564c7ee0dabd0a2d2fd36bde4c3e`
+- `report.docx` `d6ba258e81b9ad032b5ec4b662ddd8b48834a6c1bf2b83eccaa49765279ac8e3`
+- `report.md` `fca54af48b1394b860be7f9b4f102c4a11bbbe49e3daaffbf146a36891b84bd4`
+- `SOURCES.md` `59a8a858ce4f92d64bdf782b9b3c47b0d64968638aaf34f431f5f1d4a3acef36`
+
+`evidence/` 仍是指向仓库根 `evidence/` 的符号链接。SOURCES 引用的 `core-evidence-60s.mp4`、`core-evidence-60s.srt`、`poster.png`、`EDIT-MAP.md`、`voice/NARRATION.md` 已按原哈希放入该目录。`sources/local-verification/` 仍指向 `reports/local-verification/`；报告包内 50 个文件与该目录对应文件哈希一致，目录中另外多出的 `VIDEO.md`、`POST-INTEGRATION.md` 是仓库侧说明，不是另一份运行。未纳入报告包 zip，以免与课程最终包混淆。
+
+当前 `docs/presentation/final/slides.pptx` 已替换为 v7，P9 内嵌上述 60 秒成片。本说明只记录报告文件同步关系，不把课程包或本人确认标成已经完成。

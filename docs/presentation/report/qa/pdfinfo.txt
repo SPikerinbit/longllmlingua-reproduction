@@ -3,7 +3,7 @@ Subject:         BIT NLP课程；既有真实实验与离线审计
 Author:          G14
 Creator:         Writer
 Producer:        LibreOffice 25.2.3.2 (X86_64) / LibreOffice Community
-CreationDate:    Sat Nov 21 18:03:41 2026 CST
+CreationDate:    Sat Nov 21 21:46:49 2026 CST
 Custom Metadata: no
 Metadata Stream: yes
 Tagged:          yes
@@ -15,6 +15,6 @@ Pages:           11
 Encrypted:       no
 Page size:       595.304 x 841.89 pts (A4)
 Page rot:        0
-File size:       825908 bytes
+File size:       834658 bytes
 Optimized:       no
 PDF version:     1.7

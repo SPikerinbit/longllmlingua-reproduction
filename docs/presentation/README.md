@@ -10,8 +10,10 @@
 | [01-number-registry.md](01-number-registry.md) | 可以上台的数字和它们的文件 |
 | [02-score-evidence.md](02-score-evidence.md) | 课程五项各 8 分的已有证据、缺口和未勾选阻塞项 |
 | [templates/](templates/) | 幻灯片、报告、QA、贡献、自检的空表 |
-| [final/slides.pptx](final/slides.pptx) 与 [final/slides.pdf](final/slides.pdf) | 当前提交用的 9 页演示稿（v6：P8 历史 CUDA，P9 历史 NPU + 本机实录） |
-| [report/report.pdf](report/report.pdf) | 正式报告。可编辑源是同目录 `report.docx`、`report.md`、`SOURCES.md` |
+| [final/slides.pptx](final/slides.pptx) 与 [final/slides.pdf](final/slides.pdf) | 当前 v7（9 页，16:9）：P8 历史 CUDA，P9 历史 NPU + 内嵌 60 秒核心实录。PDF 为静态 poster 版 |
+| [report/report.pdf](report/report.pdf) | 已更新的正式报告（SHA-256 `c22fdba0788021c922433eec6bdad154f52e564c7ee0dabd0a2d2fd36bde4c3e`）。可编辑源是同目录 `report.docx`、`report.md`、`SOURCES.md` |
+| [../../evidence/core-evidence-60s.mp4](../../evidence/core-evidence-60s.mp4) | 当前 60 秒核心实录、海报、SRT、解说文稿与剪辑说明 |
+| [../../scripts/core-demo/README.md](../../scripts/core-demo/README.md) | 终端核心演示入口；轻量汇报 zip 不收这些演示代码 |
 | [slides/pptx-usage.md](slides/pptx-usage.md) | 早期骨架的配色和字号说明 |
 | [slides/G14-LongLLMLingua-template.pptx](slides/G14-LongLLMLingua-template.pptx) | 早期骨架，不是当前 slides.pptx |
 | [members/member1/](members/member1/) | 成员一的定稿页、讲稿、报告小节、案例、QA、自检 |

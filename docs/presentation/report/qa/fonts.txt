@@ -1,12 +1,12 @@
 name                                 type              encoding         emb sub uni object ID
 ------------------------------------ ----------------- ---------------- --- --- --- ---------
-BAAAAA+NotoSerifCJKsc-Regular        Type 1            Builtin          yes yes yes   1398  0
-CAAAAA+Carlito-Regular               TrueType          WinAnsi          yes yes yes   1433  0
-DAAAAA+NotoSansCJKhk-Regular         Type 1            Builtin          yes yes yes   1418  0
-EAAAAA+Carlito-Bold                  TrueType          WinAnsi          yes yes yes   1438  0
-FAAAAA+NotoSans-Regular              Type 3            Custom           yes yes yes   1441  0
-GAAAAA+NotoSansCJKhk-Bold            Type 1            Builtin          yes yes yes   1423  0
-HAAAAA+NotoSerifCJKsc-Regular        Type 1            Builtin          yes yes yes   1403  0
-IAAAAA+NotoSerifCJKsc-Bold           Type 1            Builtin          yes yes yes   1413  0
-JAAAAA+DejaVuSans                    TrueType          WinAnsi          yes yes yes   1428  0
-KAAAAA+NotoSerifCJKsc-Regular        Type 1            Builtin          yes yes yes   1408  0
+BAAAAA+NotoSerifCJKsc-Regular        Type 1            Builtin          yes yes yes   1403  0
+CAAAAA+Carlito-Regular               TrueType          WinAnsi          yes yes yes   1438  0
+DAAAAA+NotoSansCJKhk-Regular         Type 1            Builtin          yes yes yes   1423  0
+EAAAAA+Carlito-Bold                  TrueType          WinAnsi          yes yes yes   1443  0
+FAAAAA+NotoSans-Regular              Type 3            Custom           yes yes yes   1446  0
+GAAAAA+NotoSansCJKhk-Bold            Type 1            Builtin          yes yes yes   1428  0
+HAAAAA+NotoSerifCJKsc-Regular        Type 1            Builtin          yes yes yes   1408  0
+IAAAAA+NotoSerifCJKsc-Bold           Type 1            Builtin          yes yes yes   1418  0
+JAAAAA+DejaVuSans                    TrueType          WinAnsi          yes yes yes   1433  0
+KAAAAA+NotoSerifCJKsc-Regular        Type 1            Builtin          yes yes yes   1413  0

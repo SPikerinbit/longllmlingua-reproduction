@@ -1,0 +1,553 @@
+{
+  "input": "preview-g1-fix.pptx",
+  "slide_count": 9,
+  "size": {
+    "cx": "12191999",
+    "cy": "6858000",
+    "type": "screen4x3"
+  },
+  "slides": [
+    {
+      "slide": 1,
+      "explicit_run_sizes": [
+        9.0,
+        10.0,
+        18.0,
+        20.0,
+        22.0,
+        30.0
+      ],
+      "runs_below_20pt": [
+        {
+          "text": "1",
+          "pt": 18.0
+        },
+        {
+          "text": "NLP 2026 · G14 · LongLLMLingua 复现",
+          "pt": 10.0
+        },
+        {
+          "text": "P1",
+          "pt": 10.0
+        },
+        {
+          "text": "PAPER：Jiang et al., ACL 2024；arXiv:2310.06839v2，第3页 Fig.2；本组设置见备注",
+          "pt": 9.0
+        },
+        {
+          "text": "LongLLMLingua: Accelerating and Enhancing LLMs in Long Context Scenarios via Prompt Compression · Jiang et al. · ACL 2024 · Fig. 2",
+          "pt": 9.0
+        }
+      ]
+    },
+    {
+      "slide": 2,
+      "explicit_run_sizes": [
+        9.0,
+        10.0,
+        12.0,
+        13.0,
+        18.0,
+        20.0,
+        22.0,
+        30.0
+      ],
+      "runs_below_20pt": [
+        {
+          "text": "2",
+          "pt": 18.0
+        },
+        {
+          "text": "NLP 2026 · G14 · LongLLMLingua 复现",
+          "pt": 10.0
+        },
+        {
+          "text": "P2",
+          "pt": 10.0
+        },
+        {
+          "text": "来源：canonical predictions / acceptance @183cf488；offline-audit @5788cc2d；run d54b3118…（只读核验，无新推理）",
+          "pt": 9.0
+        },
+        {
+          "text": "ID  ef848352f36bc278…",
+          "pt": 13.0
+        },
+        {
+          "text": "Question",
+          "pt": 13.0
+        },
+        {
+          "text": "who was the first coronated king",
+          "pt": 13.0
+        },
+        {
+          "text": "of manipur at kangla",
+          "pt": 13.0
+        },
+        {
+          "text": "Gold / reference answers",
+          "pt": 13.0
+        },
+        {
+          "text": "Pakhangba ; Pamheiba",
+          "pt": 13.0
+        },
+        {
+          "text": "position = 1  |  documents = 20",
+          "pt": 13.0
+        },
+        {
+          "text": "original : score 1.0 ; 3289 tokens",
+          "pt": 13.0
+        },
+        {
+          "text": "BM25 2x  : score 1.0 ; 1644 tokens",
+          "pt": 13.0
+        },
+        {
+          "text": "BM25 4x  : score 0.0 ;  822 tokens",
+          "pt": 13.0
+        },
+        {
+          "text": "4x output: \"the specific name ...",
+          "pt": 13.0
+        },
+        {
+          "text": "is not explicitly stated.\"",
+          "pt": 13.0
+        },
+        {
+          "text": "方法",
+          "pt": 18.0
+        },
+        {
+          "text": "EM",
+          "pt": 18.0
+        },
+        {
+          "text": "实测压缩比",
+          "pt": 18.0
+        },
+        {
+          "text": "original",
+          "pt": 18.0
+        },
+        {
+          "text": "92.0%",
+          "pt": 18.0
+        },
+        {
+          "text": "1.000x",
+          "pt": 18.0
+        },
+        {
+          "text": "BM25 2x",
+          "pt": 18.0
+        },
+        {
+          "text": "87.0%",
+          "pt": 18.0
+        },
+        {
+          "text": "2.001x",
+          "pt": 18.0
+        },
+        {
+          "text": "BM25 4x",
+          "pt": 18.0
+        },
+        {
+          "text": "64.0%",
+          "pt": 18.0
+        },
+        {
+          "text": "4.007x",
+          "pt": 18.0
+        },
+        {
+          "text": "run d54b3118c61ea4930624  |  success 300 / 300",
+          "pt": 12.0
+        },
+        {
+          "text": "rescore mismatches: []   budget violations: []",
+          "pt": 12.0
+        },
+        {
+          "text": "prediction_rows: 300     api_calls: 0",
+          "pt": 12.0
+        },
+        {
+          "text": "metric: first-line best_subspan_em",
+          "pt": 12.0
+        }
+      ]
+    },
+    {
+      "slide": 3,
+      "explicit_run_sizes": [
+        9.0,
+        10.0,
+        18.0,
+        20.0,
+        30.0
+      ],
+      "runs_below_20pt": [
+        {
+          "text": "3",
+          "pt": 18.0
+        },
+        {
+          "text": "NLP 2026 · G14 · LongLLMLingua 复现",
+          "pt": 10.0
+        },
+        {
+          "text": "P3",
+          "pt": 10.0
+        },
+        {
+          "text": "SOURCE · Jiang et al., ACL 2024, Fig.2局部；a64294f: reproduction/compression.py L176–187；e07ac77: stage3-main/run.json。",
+          "pt": 9.0
+        }
+      ]
+    },
+    {
+      "slide": 4,
+      "explicit_run_sizes": [
+        9.0,
+        10.0,
+        18.0,
+        20.0,
+        28.0,
+        30.0,
+        34.0
+      ],
+      "runs_below_20pt": [
+        {
+          "text": "4",
+          "pt": 18.0
+        },
+        {
+          "text": "NLP 2026 · G14 · LongLLMLingua 复现",
+          "pt": 10.0
+        },
+        {
+          "text": "P4",
+          "pt": 10.0
+        },
+        {
+          "text": "SOURCE · a64294f: reports/smoke-stage2-acceptance.json；reports/stage2-smoke/verification.json budget_misses[0:4]。",
+          "pt": 9.0
+        }
+      ]
+    },
+    {
+      "slide": 5,
+      "explicit_run_sizes": [
+        9.0,
+        10.0,
+        18.0,
+        20.0,
+        30.0
+      ],
+      "runs_below_20pt": [
+        {
+          "text": "5",
+          "pt": 18.0
+        },
+        {
+          "text": "NLP 2026 · G14 · LongLLMLingua 复现",
+          "pt": 10.0
+        },
+        {
+          "text": "P5",
+          "pt": 10.0
+        },
+        {
+          "text": "SOURCE · e07ac77: reports/stage3-main/{summary,stats,coverage,run}.json；EM按首行best_subspan_em。",
+          "pt": 9.0
+        },
+        {
+          "text": "实测比",
+          "pt": 18.0
+        },
+        {
+          "text": "1.00x",
+          "pt": 18.0
+        },
+        {
+          "text": "2.00x",
+          "pt": 18.0
+        },
+        {
+          "text": "4.01x",
+          "pt": 18.0
+        },
+        {
+          "text": "2.04x",
+          "pt": 18.0
+        },
+        {
+          "text": "4.17x",
+          "pt": 18.0
+        },
+        {
+          "text": "2.08x",
+          "pt": 18.0
+        },
+        {
+          "text": "4.09x",
+          "pt": 18.0
+        },
+        {
+          "text": "0",
+          "pt": 18.0
+        },
+        {
+          "text": "50",
+          "pt": 18.0
+        },
+        {
+          "text": "100",
+          "pt": 18.0
+        },
+        {
+          "text": "-10",
+          "pt": 18.0
+        },
+        {
+          "text": "0",
+          "pt": 18.0
+        },
+        {
+          "text": "+4",
+          "pt": 18.0
+        },
+        {
+          "text": "位置1 / 5 / 10 / 15 / 20 · EM%",
+          "pt": 18.0
+        },
+        {
+          "text": "original",
+          "pt": 18.0
+        },
+        {
+          "text": "84 / 84 / 84 / 85 / 86",
+          "pt": 18.0
+        },
+        {
+          "text": "Long 2x",
+          "pt": 18.0
+        },
+        {
+          "text": "83 / 83 / 82 / 84 / 84",
+          "pt": 18.0
+        }
+      ]
+    },
+    {
+      "slide": 6,
+      "explicit_run_sizes": [
+        9.0,
+        10.0,
+        18.0,
+        20.0,
+        30.0
+      ],
+      "runs_below_20pt": [
+        {
+          "text": "6",
+          "pt": 18.0
+        },
+        {
+          "text": "NLP 2026 · G14 · LongLLMLingua 复现",
+          "pt": 10.0
+        },
+        {
+          "text": "P6",
+          "pt": 10.0
+        },
+        {
+          "text": "SOURCE · f08b229: reports/stage4-ablation-efficiency/{RESULTS.md,ablation.csv,efficiency.csv,figures/ablation.png}。",
+          "pt": 9.0
+        },
+        {
+          "text": "-50",
+          "pt": 18.0
+        },
+        {
+          "text": "-25",
+          "pt": 18.0
+        },
+        {
+          "text": "0",
+          "pt": 18.0
+        },
+        {
+          "text": "0",
+          "pt": 18.0
+        },
+        {
+          "text": "4",
+          "pt": 18.0
+        },
+        {
+          "text": "8",
+          "pt": 18.0
+        }
+      ]
+    },
+    {
+      "slide": 7,
+      "explicit_run_sizes": [
+        9.0,
+        10.0,
+        13.0,
+        18.0,
+        20.0,
+        22.0,
+        30.0
+      ],
+      "runs_below_20pt": [
+        {
+          "text": "7",
+          "pt": 18.0
+        },
+        {
+          "text": "NLP 2026 · G14 · LongLLMLingua 复现",
+          "pt": 10.0
+        },
+        {
+          "text": "P7",
+          "pt": 10.0
+        },
+        {
+          "text": "来源：CUDA主比较 e8f151b9c286648caf98；NPU效率 2a7f4accf6127178a76b；评分案例 d54b3118…（完整路径见备注）",
+          "pt": 9.0
+        },
+        {
+          "text": "方法",
+          "pt": 18.0
+        },
+        {
+          "text": "EM",
+          "pt": 18.0
+        },
+        {
+          "text": "差值",
+          "pt": 18.0
+        },
+        {
+          "text": "original",
+          "pt": 18.0
+        },
+        {
+          "text": "84.6%",
+          "pt": 18.0
+        },
+        {
+          "text": "—",
+          "pt": 18.0
+        },
+        {
+          "text": "Long 2x",
+          "pt": 18.0
+        },
+        {
+          "text": "83.2%",
+          "pt": 18.0
+        },
+        {
+          "text": "−1.4 pp",
+          "pt": 18.0
+        },
+        {
+          "text": "Long 4x",
+          "pt": 18.0
+        },
+        {
+          "text": "79.0%",
+          "pt": 18.0
+        },
+        {
+          "text": "−5.6 pp",
+          "pt": 18.0
+        },
+        {
+          "text": "-6",
+          "pt": 18.0
+        },
+        {
+          "text": "0",
+          "pt": 18.0
+        },
+        {
+          "text": "3",
+          "pt": 18.0
+        },
+        {
+          "text": "“none of the documents contain information about a song titled \"How Far Is Heaven.\"”  …  “\"Heaven\" by Los Lonely Boys”",
+          "pt": 13.0
+        }
+      ]
+    },
+    {
+      "slide": 8,
+      "explicit_run_sizes": [
+        9.0,
+        10.0,
+        16.0,
+        20.0,
+        30.0
+      ],
+      "runs_below_20pt": [
+        {
+          "text": "B1",
+          "pt": 16.0
+        },
+        {
+          "text": "NLP 2026 · G14 · LongLLMLingua 复现",
+          "pt": 10.0
+        },
+        {
+          "text": "B1",
+          "pt": 10.0
+        },
+        {
+          "text": "SOURCE · e07ac77: reports/stage3-main/{run,coverage,summary,stats}.json；只读查看已保存pilot快照；本轮未运行模型/API。",
+          "pt": 9.0
+        }
+      ]
+    },
+    {
+      "slide": 9,
+      "explicit_run_sizes": [
+        10.0,
+        11.0,
+        16.0,
+        20.0,
+        24.0,
+        30.0,
+        38.0
+      ],
+      "runs_below_20pt": [
+        {
+          "text": "B2",
+          "pt": 16.0
+        },
+        {
+          "text": "NLP 2026 · G14 · LongLLMLingua 复现",
+          "pt": 10.0
+        },
+        {
+          "text": "B2",
+          "pt": 10.0
+        },
+        {
+          "text": "全套通过依据：pytest-full.stdout / junit-full.xml",
+          "pt": 11.0
+        }
+      ]
+    }
+  ]
+}

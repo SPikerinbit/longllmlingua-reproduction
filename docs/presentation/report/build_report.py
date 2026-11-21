@@ -185,7 +185,7 @@ h('7　局限、代码与AI辅助披露')
 para('结论受单一数据集、100题、五位置及问答模型替代限制。硬预算、恢复分词器与无效k映射偏离论文；API版本非不可变快照。未预注册等效界值，消融区间未作多重比较校正，小差异不作稳健优劣结论。')
 para('CUDA型号、阶段四CANN及阶段二/三/四完整输出、压缩/问答缓存和校验和仍缺，不能独立重放全部推理；阶段一canonical预测已核验。历史tokenizers 0.21.0/0.21.4与本机离线0.22.1分开，阶段二16.67 GB与效率16.428 GB不合并。')
 para('代码依赖锁定版本的LLMLingua与Lost in the Middle；本文档更新未改源码或原结果。AI辅助仅用于汇编、写作、图表与排版，不生成模型回答、压缩文本或案例。2026-11-21初版所载43项为历史回传，当时未在报告环境亲跑。同日17:46:58–17:47:02（北京时间），本机完整pytest为77/77、退出0，问答API调用0；配齐公开NQ与固定分词器后，原72过/5因缺资源失败已解决[12]。这是离线代码/记录核验，不是重新推理3500槽，原分数未改。')
-para('受控Cursor回答仍缺、无新分数，不把对话当DeepSeek API。代推进不冒充成员亲历，也未代勾自检。占位资料包已生成，P编号、四人登记信息与本人确认仍缺。50秒离线验收实录已完成，但不等同真人讲述计时、成员本人参与或新模型实验，不宣称课程满分。')
+para('受控Cursor回答仍缺、无新分数，不把对话当DeepSeek API。代推进不冒充成员亲历，未代勾自检。占位包已生成，P号及四人登记信息仍缺。60秒核心演示视频已完成，CPU重算/评分与历史GPU/NPU结果分开展示；真人讲述计时及本人确认仍缺，不承诺满分。')
 h('8　结论')
 para('本次方法级证据支持LongLLMLingua较传统压缩基线保留更多问答性能，问题感知排序贡献突出；但2×未证成等效，4×有预算超标，且本批次无端到端加速。结论受批次、计数口径和缺失原始输出限制。')
 # REFERENCES
@@ -227,10 +227,10 @@ table(['项目','本报告处理'],[
  ['PPT中的pilot配置入口','仓库不存在独立pilot-as-run配置文件；只引用真实run.json快照'],
  ['当前77/77','2026-11-21本机全套pytest全过；31/36/43/44是历史不同子集/回传，非同一全套口径。43为当日报告初版回传，当时未亲跑；详见[12]'],
  ['环境与显存差异','阶段二CANN 8.5.2不外推至阶段四；tokenizers与峰值GB并列差异不暗改'],
- ['公开资源与资料包','缺tokenizer/NQ导致的5项失败已解决；占位包与50秒离线实录已完成，登记及本人确认仍缺']
+ ['公开资源与资料包','缺tokenizer/NQ导致的5项失败已解决；占位包与60秒核心实录已完成，登记及本人确认仍缺']
 ],[4.4,12.05])
 h('A.3　实际剩余缺口',2)
-para('仍缺CUDA型号、阶段四CANN、阶段二/三/四完整逐条输出及压缩/问答缓存与校验和、受控Cursor回答、P号与四人登记信息、本人确认及真人讲述计时。公开资源已配齐，课程占位包已生成但登记未齐。50秒1920×1200连续终端离线验收实录已完成并通过videoReview；5项定向测试通过、77项进度100%、脚本退出0。课程包路径为evidence/local-offline-evidence.mp4及同前缀-result.webp；SHA见SOURCES。不等同本人参与或新模型实验，未代勾自检。',9.5)
+para('仍缺CUDA型号、阶段四CANN、阶段二/三/四完整逐条输出及压缩/问答缓存与校验和、受控Cursor回答、P号与四人登记信息、本人确认及真人讲述计时。公开资源已齐，课程占位包已生成但登记未齐。60秒1920×1080核心视频配中文讲解及字幕；真实GUI终端素材经剪辑，样本独立补拍。展示入口配置、字段隔离、已完成CPU BM25的3289→1644→822及gold丢失、保存回答评分边界和历史CUDA/NPU表。无现场GPU/NPU/Long新推理，非六章连续实时演算。视频为evidence/core-evidence-60s.mp4；文稿、字幕、剪辑对照及SHA见SOURCES。内嵌PPT制作中，未验证Windows播放；未代勾本人确认。',9.5)
 # APPENDIX B: full 13 source first-lines over four pages
 qidmap={c['question_id']:None for c in cases}
 for i,q in enumerate(qidmap):qidmap[q]=f'Q{i+1}'
@@ -252,7 +252,7 @@ doc.core_properties.title='G14 LongLLMLingua 方法级复现报告';doc.core_pro
 doc.save(R/'report.docx');(R/'report.md').write_text('\n'.join(md))
 # Source provenance: historical immutable material and current local read-only evidence.
 registry=['# G14报告来源清单（本机核验更新版）\n',
-'更新日期：2026-11-21（Asia/Shanghai）。仅编辑`/workspace/reports/g14-local-final/`报告产物；未修改repo工作树、原始结果或测试，未上传。\n',
+'更新日期：2026-11-21（Asia/Shanghai）。仅编辑`/workspace/reports/g14-core-final/`报告产物；未修改repo工作树、原始结果或测试，未上传。\n',
 '## 当前代码与证据基线\n',
 '- 本机被测main：`bdb11d3b3e39523594c0ffcd6c058f6fb7bca1b4`；环境、时间线、命令和JUnit均指向此代码。',
 '- 用户17:56（Asia/Shanghai）回传当前四头：stage1-foundation `a485190`；stage2-compression `93f74bc`；stage3-main-comparison `32f7b6e`；stage4-ablation-efficiency `6fe6274`。这些是当前分支简写，不拿它们冒充初版文件的取样提交。',
@@ -269,7 +269,10 @@ registry=['# G14报告来源清单（本机核验更新版）\n',
 '- 四阶段本机审计均api_calls=0；CUDA主比较、396/400、NPU消融与效率原数不变。阶段四重建写独立目录；JSON/RESULTS.md一致，CSV仅CRLF/LF换行差异。',
 '- `plan/smoke-plan.rerun.json`与published版slots/token合计一致，仅config_hash不同（实现文件换行LF/CRLF）；DeepSeek LICENSE亦有1064/1084字节LF/CRLF等价差异，原清单未覆盖。',
 '- 43项为2026-11-21初版报告制作时历史回传，当时未在该报告环境亲跑。31/36/43/44属历史子集或回传口径，当前不再作为完整验收入口，不据数量差异认定造假。',
-'- 50秒1920×1200连续终端实际执行的离线验收实录已完成：`evidence/local-offline-evidence.mp4`；结果截图`evidence/local-offline-evidence-result.webp`。2026-11-21 18:02（Asia/Shanghai）上游任务回传videoReview通过：SHA匹配、5项定向测试通过、77项进度100%、脚本退出0、无secret、非新推理。本轮报告编辑另以ffprobe核对时长/尺寸、比对源文件与包内副本SHA并亲看结果截图；不冒称本轮独立执行videoReview。',
+'- 2026-11-21 21:46（Asia/Shanghai）同步最终60秒核心视频：`evidence/core-evidence-60s.mp4`，60.000秒、1920×1080、H.264视频及AAC音轨；SHA-256为`e3be31222267724b62bc9b9d1e0c4c8026902acde62edac488f342a6e7dbee8e`，与用户给定值和实际源文件一致。旧50秒测试视频不收入本包，也不把旧片videoReview结果套用到新片。',
+'- 讲解音轨采用TTS制作，配中文字幕；最终画面顶栏为普通标题，历史GPU/NPU结果标签保留，不声称真人现场口播。随附`evidence/core-evidence-60s.srt`、`evidence/voice/NARRATION.md`、`evidence/EDIT-MAP.md`与`evidence/poster.png`；语音软件/音色、语速、剪辑和补拍时间轴均有披露。',
+'- 真实GUI终端素材经剪辑并含已披露定格，样本章独立补拍且有镜头调序。展示入口配置、样本可见字段隔离、已完成CPU BM25结果3289→1644→822与gold丢失、对已保存回答评分及首行指标边界、历史CUDA/NPU表。不是六章连续完整实时演算，无现场GPU/NPU/Long新推理，视频不新增问答模型分数。',
+'- 本轮报告编辑读取解说/字幕/剪辑对照，并核对ffprobe元数据、给定视频SHA和所有包内副本；不冒称重新执行整套实验或新片videoReview。PPT内嵌工作另行制作，本报告包不含任何PPT或旧外链版，不宣称Windows已播放。',
 '- 录屏完成不等同真人讲述计时、成员本人参与/确认或新模型实验，这些缺口仍保留；视频不提供新的方法分数。',
 '- 占位资料包已生成，尚缺P号、四人登记信息与本人确认等；不再写zip未打，也不宣称可直接最终提交。',
 '\n## 初版历史资料锁定头（2026-11-21 16:25–16:34，Asia/Shanghai）\n']
@@ -288,10 +291,10 @@ for label,url in refs:registry.append(f'- [{label}]({url})')
 registry+=['\n## 随附来源副本SHA-256\n','这些是资料副本校验和，不冒充缺失的阶段二/三/四完整输出缓存校验和。\n']
 for p in sorted(S.rglob('*')):
  if p.is_file():registry.append(f'- `{p.relative_to(R)}`  `{hashlib.sha256(p.read_bytes()).hexdigest()}`')
-registry+=['\n## 录屏与结果截图SHA-256（课程包相对路径）\n']
-for p in sorted((R/'evidence').iterdir()):
+registry+=['\n## 核心视频及配套素材SHA-256（课程包相对路径）\n']
+for p in sorted((R/'evidence').rglob('*')):
  if p.is_file():registry.append(f'- `{p.relative_to(R)}`  `{hashlib.sha256(p.read_bytes()).hexdigest()}`  {p.stat().st_size} bytes')
 registry.append('- 录屏元数据、复核来源和范围：`qa/recording-verification.json`。未声称真人口播计时/成员确认已完成。')
 (R/'SOURCES.md').write_text('\n'.join(registry)+'\n')
-(R/'qa/source-checks.json').write_text(json.dumps({'new_model_calls':0,'current_local_tests':{'collected':77,'passed':77,'failed':0,'skipped':0,'exit':0,'start':'2026-11-21 17:46:58+08:00','end':'2026-11-21 17:47:02+08:00','code_commit':'bdb11d3b3e39523594c0ffcd6c058f6fb7bca1b4','python':'3.13.5','tokenizers':'0.22.1','evidence':'sources/local-verification/','test_execution_by_report_editor':False},'previous_baseline':{'passed':72,'failed_missing_resources':5,'resolved':True},'historical_43':'2026-11-21 initial-report relay; not executed in that report environment','case_count':13,'distinct_case_questions':len(qidmap),'case_first_lines_scores_tokens_match_canonical':True,'stage3_stats_equal_local_snapshot':True,'stage4_remote_csv_equal_local_snapshot':True,'stage2_canonical_budget':'396/400','stage3_slots':3500,'body_target_pages':5,'video':{'status':'completed offline acceptance recording','seconds':50,'width':1920,'height':1200,'videoReview':'passed, per parent confirmation','metadata_and_copy_sha_checked':True,'personal_confirmation_and_oral_timing':'still missing'}},ensure_ascii=False,indent=2)+'\n')
+(R/'qa/source-checks.json').write_text(json.dumps({'new_model_calls':0,'current_local_tests':{'collected':77,'passed':77,'failed':0,'skipped':0,'exit':0,'start':'2026-11-21 17:46:58+08:00','end':'2026-11-21 17:47:02+08:00','code_commit':'bdb11d3b3e39523594c0ffcd6c058f6fb7bca1b4','python':'3.13.5','tokenizers':'0.22.1','evidence':'sources/local-verification/','test_execution_by_report_editor':False},'previous_baseline':{'passed':72,'failed_missing_resources':5,'resolved':True},'historical_43':'2026-11-21 initial-report relay; not executed in that report environment','case_count':13,'distinct_case_questions':len(qidmap),'case_first_lines_scores_tokens_match_canonical':True,'stage3_stats_equal_local_snapshot':True,'stage4_remote_csv_equal_local_snapshot':True,'stage2_canonical_budget':'396/400','stage3_slots':3500,'body_target_pages':5,'video':{'status':'edited core evidence with synthetic Chinese narration/subtitles','seconds':60,'width':1920,'height':1080,'narration':'TTS production; Chinese narration and subtitles','edited_real_GUI_footage':True,'independent_sample_pickup':True,'new_GPU_NPU_Long_inference':False,'six_chapter_continuous_recalculation':False,'embedded_PPT':'in production separately; not included or playback-verified','metadata_and_copy_sha_checked':True,'personal_confirmation_and_oral_timing':'still missing'}},ensure_ascii=False,indent=2)+'\n')
 print('Updated local-verification DOCX, Markdown and source registry written')

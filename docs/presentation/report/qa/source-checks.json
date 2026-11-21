@@ -29,11 +29,16 @@
   "stage3_slots": 3500,
   "body_target_pages": 5,
   "video": {
-    "status": "completed offline acceptance recording",
-    "seconds": 50,
+    "status": "edited core evidence with synthetic Chinese narration/subtitles",
+    "seconds": 60,
     "width": 1920,
-    "height": 1200,
-    "videoReview": "passed, per parent confirmation",
+    "height": 1080,
+    "narration": "TTS production; Chinese narration and subtitles",
+    "edited_real_GUI_footage": true,
+    "independent_sample_pickup": true,
+    "new_GPU_NPU_Long_inference": false,
+    "six_chapter_continuous_recalculation": false,
+    "embedded_PPT": "in production separately; not included or playback-verified",
     "metadata_and_copy_sha_checked": true,
     "personal_confirmation_and_oral_timing": "still missing"
   }

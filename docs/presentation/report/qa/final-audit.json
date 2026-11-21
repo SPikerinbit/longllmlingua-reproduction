@@ -46,7 +46,7 @@
     },
     {
       "page": 5,
-      "word_count": 180,
+      "word_count": 182,
       "body_bottom_pt": 761.903764
     },
     {
@@ -56,8 +56,8 @@
     },
     {
       "page": 7,
-      "word_count": 172,
-      "body_bottom_pt": 763.467764
+      "word_count": 184,
+      "body_bottom_pt": 779.267764
     },
     {
       "page": 8,
@@ -104,16 +104,21 @@
   "copied_evidence_manifest_matches": 49,
   "published_result_snapshots_unchanged": true,
   "video_status": {
-    "status": "completed offline acceptance recording",
-    "seconds": 50,
-    "resolution": "1920x1200",
-    "videoReview": "passed per parent confirmation",
-    "metadata_copy_sha_and_screenshot_checked": true,
+    "status": "edited core evidence with synthetic Chinese narration/subtitles",
+    "seconds": 60,
+    "resolution": "1920x1080",
+    "given_sha_and_source_copy_match": true,
+    "narration": "TTS production; no human live narration claimed",
+    "real_GUI_footage": "edited; independent sample pickup",
+    "new_GPU_NPU_Long_inference": false,
+    "continuous_six_chapter_recalculation": false,
+    "embedded_PPT": "in production separately; no PPT in package",
+    "Windows_playback": "not verified",
     "human_oral_timing_and_member_confirmation": "not completed"
   },
   "distinct_case_questions": 4,
   "stage1_predictions_sha256": "cac37c9e84678f2f591af8c4f6ccdb7a69d010cf71eae5678b85109bcb27bd62",
-  "pdf_sha256": "d244da9646229ed98eca1455970c551c9ae5b9b74e3e75844a524e51e8df8cd6",
+  "pdf_sha256": "c22fdba0788021c922433eec6bdad154f52e564c7ee0dabd0a2d2fd36bde4c3e",
   "final_recording_sync_visual_check": {
     "changed_pages": [
       5,

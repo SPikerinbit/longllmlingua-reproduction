@@ -6,13 +6,14 @@
 
 | 提交项 | 证据 | 阶段 | 命令或结果 | 状态 |
 | --- | --- | --- | --- | --- |
-| 报告 | `docs/presentation/report/report.pdf` | 全部 | 正文 5 页 + 参考文献 1 页 + 附录 5 页。可编辑源 `report.docx`、`report.md`、`SOURCES.md` | 通过（文件）；P 编号、姓名、录屏未完成 |
-| slides.pptx / slides.pdf | `docs/presentation/final/slides.pptx` 与同目录 `slides.pdf`（v6） | 全部 | 9 页。P1–P7 未改正文；P8 历史 CUDA，P9 历史 NPU + 本机实录。旧骨架不是这份 slides | 通过（文件）；投影和真人讲述计时未完成 |
+| 报告 | `docs/presentation/report/report.pdf` | 全部 | 正文 5 页 + 参考文献 1 页 + 附录 5 页。SHA-256 `c22fdba0788021c922433eec6bdad154f52e564c7ee0dabd0a2d2fd36bde4c3e`。可编辑源 `report.docx`、`report.md`、`SOURCES.md` | 通过（文件）；P 编号、姓名仍缺 |
+| slides.pptx / slides.pdf | `docs/presentation/final/slides.pptx` 与同目录 `slides.pdf`（v7） | 全部 | 9 页，16:9。P1–P7 未改正文；P8 历史 CUDA，P9 历史 NPU + 内嵌 60 秒核心实录（SHA-256 `28d542c996917dde26cffea912a2b2d9bd9af4175a4580b4175766317267957e` / `bf86724c9843b7d744ecb364f5b0da318514e10bd8fe8ddaffd1fcac9f265d74`）。PDF 无 `file:///workspace`、无活动视频动作。Windows 实播与听验未做 | 通过（文件）；投影、Windows 实播和真人讲述计时仍缺 |
 | README 结果入口 | `README.md` | 全部 | 指向已有 DeepSeek 结果和阶段一离线审计 | 通过（入口）；终稿包装未完成 |
 | code/ 与 configs/ | `reproduction/`、`scripts/`、`configs/` | 全部 | 离线测试可导入这些模块 | 通过（代码在库内）；占位包将另打，尚缺登记信息，不能直接提交 |
 | data/README.md | `data/README.md`、`manifests/resources.json` | 一 | 五个 gz 的 sha256 已在清单中 | 通过（说明）；gz 本身不进包 |
 | 本机全套离线测试 | `reports/local-verification/` | 全部 | 2026-11-21 17:46:58–17:47:02（Asia/Shanghai），Python 3.13.5、`tokenizers==0.22.1`，提交 `bdb11d3`，完整 `python -m pytest` 收集 77、通过 77，退出码 0。此前缺数据时 72 通过 / 5 失败。API 0，不是新推理 | 通过（离线测试） |
-| 本机离线验收实录 | `evidence/local-offline-evidence.mp4` 与同目录截图 | 全部 | 50 秒，1920×1200，1,915,107 字节，sha256 `663ac1b50c588424dd401698dc046de9813986b39779d7edc662906941648b33`。脚本约 7 秒，成片停留供阅读。videoReview：连续运行、退出码 0、未见密钥。不是新推理，也不等于真人讲述计时 | 通过（实录文件）；真人讲述计时仍缺 |
+| 本机核心演示实录 | `evidence/core-evidence-60s.mp4`、同目录海报 / SRT / 解说文稿 / `EDIT-MAP.md` | 全部 | 60.000 秒，1920×1080，11,550,287 字节，SHA-256 `e3be31222267724b62bc9b9d1e0c4c8026902acde62edac488f342a6e7dbee8e`。CPU 现场压缩与评分，历史 GPU / NPU 表标为历史实验结果。不是新的 GPU / NPU / Long 推理，也不等于真人讲述计时 | 通过（成片文件）；真人讲述计时仍缺 |
+| 同日 50 秒离线测试实录（历史） | `evidence/local-offline-evidence.mp4` 与同目录截图 | 全部 | 50 秒，1920×1200，1,915,107 字节，sha256 `663ac1b50c588424dd401698dc046de9813986b39779d7edc662906941648b33`。脚本约 7 秒，成片停留供阅读。已不再作为提交演示 | 通过（历史文件）；不替代 60 秒核心实录 |
 | 阶段一轻量结果 | `reports/stage1-acceptance/` | 一 | 300/300，EM 0.92/0.87/0.64 | 通过 |
 | 阶段一离线复核 | `reports/stage1-supplement/offline-audit.json` | 一 | `scripts/audit_stage1_offline.py`，2.055 秒，API 0 | 通过 |
 | 阶段二记录一致性 | `reports/stage2-supplement/offline-audit.json` | 二 | 400 行、预算 396+4，没有重新压缩 | 通过（核对）；新压缩运行资源阻塞 |

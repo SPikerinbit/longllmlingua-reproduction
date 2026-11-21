@@ -1,6 +1,6 @@
 # G14报告来源清单（本机核验更新版）
 
-更新日期：2026-11-21（Asia/Shanghai）。仅编辑`/workspace/reports/g14-local-final/`报告产物；未修改repo工作树、原始结果或测试，未上传。
+更新日期：2026-11-21（Asia/Shanghai）。仅编辑`/workspace/reports/g14-core-final/`报告产物；未修改repo工作树、原始结果或测试，未上传。
 
 ## 当前代码与证据基线
 
@@ -21,7 +21,10 @@
 - 四阶段本机审计均api_calls=0；CUDA主比较、396/400、NPU消融与效率原数不变。阶段四重建写独立目录；JSON/RESULTS.md一致，CSV仅CRLF/LF换行差异。
 - `plan/smoke-plan.rerun.json`与published版slots/token合计一致，仅config_hash不同（实现文件换行LF/CRLF）；DeepSeek LICENSE亦有1064/1084字节LF/CRLF等价差异，原清单未覆盖。
 - 43项为2026-11-21初版报告制作时历史回传，当时未在该报告环境亲跑。31/36/43/44属历史子集或回传口径，当前不再作为完整验收入口，不据数量差异认定造假。
-- 50秒1920×1200连续终端实际执行的离线验收实录已完成：`evidence/local-offline-evidence.mp4`；结果截图`evidence/local-offline-evidence-result.webp`。2026-11-21 18:02（Asia/Shanghai）上游任务回传videoReview通过：SHA匹配、5项定向测试通过、77项进度100%、脚本退出0、无secret、非新推理。本轮报告编辑另以ffprobe核对时长/尺寸、比对源文件与包内副本SHA并亲看结果截图；不冒称本轮独立执行videoReview。
+- 2026-11-21 21:46（Asia/Shanghai）同步最终60秒核心视频：`evidence/core-evidence-60s.mp4`，60.000秒、1920×1080、H.264视频及AAC音轨；SHA-256为`e3be31222267724b62bc9b9d1e0c4c8026902acde62edac488f342a6e7dbee8e`，与用户给定值和实际源文件一致。旧50秒测试视频不收入本包，也不把旧片videoReview结果套用到新片。
+- 讲解音轨采用TTS制作，配中文字幕；最终画面顶栏为普通标题，历史GPU/NPU结果标签保留，不声称真人现场口播。随附`evidence/core-evidence-60s.srt`、`evidence/voice/NARRATION.md`、`evidence/EDIT-MAP.md`与`evidence/poster.png`；语音软件/音色、语速、剪辑和补拍时间轴均有披露。
+- 真实GUI终端素材经剪辑并含已披露定格，样本章独立补拍且有镜头调序。展示入口配置、样本可见字段隔离、已完成CPU BM25结果3289→1644→822与gold丢失、对已保存回答评分及首行指标边界、历史CUDA/NPU表。不是六章连续完整实时演算，无现场GPU/NPU/Long新推理，视频不新增问答模型分数。
+- 本轮报告编辑读取解说/字幕/剪辑对照，并核对ffprobe元数据、给定视频SHA和所有包内副本；不冒称重新执行整套实验或新片videoReview。PPT内嵌工作另行制作，本报告包不含任何PPT或旧外链版，不宣称Windows已播放。
 - 录屏完成不等同真人讲述计时、成员本人参与/确认或新模型实验，这些缺口仍保留；视频不提供新的方法分数。
 - 占位资料包已生成，尚缺P号、四人登记信息与本人确认等；不再写zip未打，也不宣称可直接最终提交。
 
@@ -151,8 +154,11 @@
 - `sources/stage3-stats-remote.json`  `d8e110232901480083806003e648d7b8fa278cdce3d24ade7d77c167e2275aae`
 - `sources/stage4-ablation-remote.csv`  `d23b63dc6450bf6eecf4e00caa504f3a50ca19ce9516dee98dfc82fa9d6612d0`
 
-## 录屏与结果截图SHA-256（课程包相对路径）
+## 核心视频及配套素材SHA-256（课程包相对路径）
 
-- `evidence/local-offline-evidence-result.webp`  `7ce691de1ef81f247b5f6d9327bafddaffe9e5309b26a11abe22a487e69ad118`  209442 bytes
-- `evidence/local-offline-evidence.mp4`  `663ac1b50c588424dd401698dc046de9813986b39779d7edc662906941648b33`  1915107 bytes
+- `evidence/EDIT-MAP.md`  `b686af47c6b966a96dbab80dd48521b12a6a104d0746771db3e15f8bab910192`  4416 bytes
+- `evidence/core-evidence-60s.mp4`  `e3be31222267724b62bc9b9d1e0c4c8026902acde62edac488f342a6e7dbee8e`  11550287 bytes
+- `evidence/core-evidence-60s.srt`  `c5032092117b79f7e90428af2b7e5f5e10a89923410042f8004e22be770a51b7`  1246 bytes
+- `evidence/poster.png`  `f0dcb9d32a98ee4822c44712450664f993b59d8a1553ddea65b8f5c86447b5a8`  419251 bytes
+- `evidence/voice/NARRATION.md`  `4776b7f27b57316e7aaf8a83d88e7fd7a6d4cc9d01cc49e7f8a5ea500788e085`  1076 bytes
 - 录屏元数据、复核来源和范围：`qa/recording-verification.json`。未声称真人口播计时/成员确认已完成。

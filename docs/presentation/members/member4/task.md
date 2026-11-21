@@ -76,6 +76,6 @@ Q6 旧的 402 运行进表了吗？15 秒：没有。run `6fa24e170b73981099fd` 
 | 数据与实现 | `environment/environment-current.json`；权重 revision 在 `docs/experiments.md` | `package-versions.json` 的 tokenizers 0.21.0 与 0.21.4 不一致，原因未写清前不能勾成单一环境 |
 | 对照与消融 | `ablation.csv` 与 `configs/stage4-ablation.json`；一次只改一个开关 | 重排序是额外打开，不是再做一次“关闭重排序” |
 | 错误分析 | `inputs/recovery-cases.json` 三条由对变错 | 还要拆成 M4-01 至 M4-03，并收齐别人的案例到至少 10 条 |
-| 交付与答问 | `python scripts/analyze_stage4.py` 是离线重建，会改写 csv | 现场用已提交的 csv 和 png。正式报告 PDF 与 50 秒组内离线实录已有；真人讲述计时与本人确认未做 |
+| 交付与答问 | `python scripts/analyze_stage4.py` 是离线重建，会改写 csv | 现场用已提交的 csv 和 png。正式报告 PDF 与 60 秒核心实录已有；50 秒测试实录仅作历史材料；真人讲述计时与本人确认未做 |
 
 真实运行在 910B 上，run `a9d2295195adde90484d` 与 `2a7f4accf6127178a76b`。`python -m pytest tests/test_stage4_results.py tests/test_stage4_recovery_analysis.py tests/test_final_delivery.py` 不加载模型。CANN 版本未登记，不能补写。

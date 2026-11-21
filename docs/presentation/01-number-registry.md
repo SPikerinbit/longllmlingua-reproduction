@@ -115,7 +115,7 @@ run `2a7f4accf6127178a76b`。`coverage.json`：1200/1200。`efficiency.csv` 每�
 
 ## 当前 9 页演示稿
 
-提交用的文件是 `docs/presentation/final/slides.pptx` 与同目录 `slides.pdf`。`docs/presentation/slides/G14-LongLLMLingua-template.pptx` 是更早的骨架，不是这份 slides。P1、P2、P7 保留结论横幅，其余 6 页改为就地表达。页上主比较、阶段一 smoke、阶段二 396/400、阶段四 82.6/45.0/78.0 和效率 1.12/6.45 秒与本登记表一致。
+提交用的演示稿是 `docs/presentation/final/slides.pptx` 与同目录 `slides.pdf`（v7，P9 内嵌 60 秒核心实录）。`docs/presentation/slides/G14-LongLLMLingua-template.pptx` 是更早的骨架，不是这份 slides。P1、P2、P7 保留结论横幅，其余 6 页改为就地表达。页上主比较、阶段一 smoke、阶段二 396/400、阶段四 82.6/45.0/78.0 和效率 1.12/6.45 秒与本登记表一致。
 
 作图映射 `docs/presentation/final/v5-chart-data-and-mapping.json` 已与仓库原件逐字段核对：`summary.json` 的 7 个方法、`stats.json` 的 Long 2x/4x 两条区间、`ablation.csv` 的 8 行、`efficiency.csv` 里 original 与 Long 2x 的 p50/p95。不一致 0 条。21 个点是 7 个 EM、2 个区间中心、8 个消融差值、4 个效率端点；9 条区间是主比较 2 条加消融 7 条，full 行没有区间。位置 EM original 84/84/84/85/86、Long 2x 83/83/82/84/84 来自 `summary.json` 的 groups。这次核对的是数值，没有重测幻灯片上的英寸坐标。
 
@@ -147,6 +147,10 @@ run `2a7f4accf6127178a76b`。`coverage.json`：1200/1200。`efficiency.csv` 每�
 
 历史口径不要删：上述 5 个文件共 31 项是子集；报告旧稿曾写 36 项 / 31 项，后又按仓库侧回传写 43 项（见 `docs/presentation/report/report.md` 附录 A.2，制作时未在该环境亲跑）。更早过程回传里还出现过 44 项，当前仓库正文未见该口径。当前入口统一为 77。
 
-## 本机离线验收实录（2026-11-21，无 API）
+## 本机核心演示实录（2026-11-21，无新推理）
 
-`evidence/local-offline-evidence.mp4`：50.000 秒，1920×1200，H.264，1,915,107 字节，sha256 `663ac1b50c588424dd401698dc046de9813986b39779d7edc662906941648b33`。脚本实际运行约 7 秒，成片停留供阅读。这是对已记录 77/77 结果的演示，不是把旧实验再跑一遍。videoReview 报连续运行、退出码 0、未见密钥。真人讲述计时与本人确认仍缺。
+`evidence/core-evidence-60s.mp4`：60.000 秒，1920×1080，H.264 + AAC，11,550,287 字节，SHA-256 `e3be31222267724b62bc9b9d1e0c4c8026902acde62edac488f342a6e7dbee8e`。配中文解说和字幕，顶栏为普通标题；GPU / NPU 结果标为历史实验结果。CPU 现场做 BM25 压缩与已保存回答评分，不加载压缩权重，不调用问答 API，也不产生新的方法分数。海报、SRT、文稿与剪辑说明见同目录。真人讲述计时与本人确认仍缺。
+
+## 同日较早的 50 秒离线测试实录（历史材料，无 API）
+
+`evidence/local-offline-evidence.mp4`：50.000 秒，1920×1200，H.264，1,915,107 字节，sha256 `663ac1b50c588424dd401698dc046de9813986b39779d7edc662906941648b33`。脚本实际运行约 7 秒，成片停留供阅读。这是对已记录 77/77 结果的演示，不是把旧实验再跑一遍。现已不再作为提交演示。真人讲述计时与本人确认仍缺。

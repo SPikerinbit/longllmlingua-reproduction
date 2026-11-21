@@ -1,0 +1,6 @@
+OK: 72 XML parts schema-checked, 1 without a schema
+deliverables-v7/slides.pptx: 3 font(s), 0 missing that change visible text
+  Noto Sans CJK SC (theme): 211 text run(s), 81 other [installed]
+  Inconsolata: 16 text run(s), 42 other [installed]
+  Noto Sans Mono: 1 text run(s), 0 other [installed]
+deliverables-v7/slides.pptx: no findings

@@ -1,44 +1,67 @@
 {
-  "status": "completed offline acceptance recording",
-  "duration_seconds": 50,
+  "status": "final 60-second core evidence edit with Chinese narration and subtitles",
+  "duration_seconds": 60,
   "width": 1920,
-  "height": 1200,
-  "codec": "h264",
+  "height": 1080,
+  "video_codec": "h264",
+  "audio_codec": "aac",
   "files": [
     {
-      "package_path": "evidence/local-offline-evidence.mp4",
-      "sha256": "663ac1b50c588424dd401698dc046de9813986b39779d7edc662906941648b33",
-      "bytes": 1915107,
+      "package_path": "evidence/core-evidence-60s.mp4",
+      "bytes": 11550287,
+      "sha256": "e3be31222267724b62bc9b9d1e0c4c8026902acde62edac488f342a6e7dbee8e",
       "source_copy_hash_match": true
     },
     {
-      "package_path": "evidence/local-offline-evidence-result.webp",
-      "sha256": "7ce691de1ef81f247b5f6d9327bafddaffe9e5309b26a11abe22a487e69ad118",
-      "bytes": 209442,
+      "package_path": "evidence/poster.png",
+      "bytes": 419251,
+      "sha256": "f0dcb9d32a98ee4822c44712450664f993b59d8a1553ddea65b8f5c86447b5a8",
+      "source_copy_hash_match": true
+    },
+    {
+      "package_path": "evidence/core-evidence-60s.srt",
+      "bytes": 1246,
+      "sha256": "c5032092117b79f7e90428af2b7e5f5e10a89923410042f8004e22be770a51b7",
+      "source_copy_hash_match": true
+    },
+    {
+      "package_path": "evidence/voice/NARRATION.md",
+      "bytes": 1076,
+      "sha256": "4776b7f27b57316e7aaf8a83d88e7fd7a6d4cc9d01cc49e7f8a5ea500788e085",
+      "source_copy_hash_match": true
+    },
+    {
+      "package_path": "evidence/EDIT-MAP.md",
+      "bytes": 4416,
+      "sha256": "b686af47c6b966a96dbab80dd48521b12a6a104d0746771db3e15f8bab910192",
       "source_copy_hash_match": true
     }
   ],
-  "videoReview": {
-    "passed": true,
-    "source": "2026-11-21 18:02 Asia/Shanghai parent/user confirmation",
-    "reported_observations": [
-      "continuous real terminal execution",
-      "SHA matches",
-      "5 targeted tests passed",
-      "77-item suite progress 100%",
-      "script exit 0",
-      "no secret",
-      "not new inference"
-    ]
-  },
-  "report_editor_checks": [
-    "ffprobe duration and resolution",
-    "source and packaged files SHA-256 equality",
-    "result screenshot inspected"
+  "narration": "TTS production; no human live narration claimed",
+  "editing": "real GUI terminal footage edited from separate captures; sample chapter independently re-captured; freezes disclosed in EDIT-MAP",
+  "shows": [
+    "entry and fixed configuration",
+    "sample visible-field isolation",
+    "already completed CPU BM25 3289 -> 1644 -> 822 and gold loss",
+    "rescoring of saved DeepSeek answers and first-line score boundary",
+    "historical CUDA and NPU result tables"
   ],
-  "not_proven": [
-    "human oral presentation timing",
-    "member personal participation or confirmation",
-    "new model inference"
-  ]
+  "not_claimed": [
+    "new GPU/NPU/Long inference",
+    "six chapters continuously and completely recomputed in real time",
+    "human oral timing or personal member confirmation",
+    "completed embedded-PPT integration",
+    "Windows playback verified"
+  ],
+  "report_editor_checks": [
+    "ffprobe duration/dimensions/codecs",
+    "supplied final video and poster SHA match",
+    "all packaged copies match final source bytes",
+    "final narration, SRT and EDIT-MAP read",
+    "poster plain title and historical-result disclosure checked"
+  ],
+  "full_videoReview": "not newly claimed by report editor; the previous 50s video review does not apply to this new edit",
+  "ppt_status": "embedded-PPT production in parallel; no PPT included in this report-only package",
+  "style_update": "2026-11-21 21:46 Asia/Shanghai: plain title; historical GPU/NPU result labels retained; edit/sample provenance retained in technical documentation",
+  "authorized_request": "pt41u"
 }

@@ -1,3 +1,5 @@
+说明：本文是 v6 当时的本机验收记录，只作历史材料。当前入口是本目录 v7 的 `slides.pptx` / `slides.pdf`，P9 内嵌 `evidence/core-evidence-60s.mp4`；见 [README.md](README.md)。
+
 # G14 v6 本机验收与交付
 平台PowerPoint本地；严格9页。PPTX/PDF在本目录，pages/含9页图，contact.jpg为最终拼图；scripts/四人讲稿及导航，QA-v6.md，sources-verification-v6.md，sources/作图映射与轻量源，checks/机械核验。
 

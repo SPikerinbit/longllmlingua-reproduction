@@ -47,3 +47,6 @@ Thumbs.db
 .python-version
 pyproject.toml
 uv.lock
+
+# Core-demo session logs (not archival evidence)
+/scripts/core-demo/logs/
