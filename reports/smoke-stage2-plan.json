@@ -6,7 +6,7 @@
   "budget_mode": "hard",
   "compressor_model": "NousResearch/Llama-2-7b-chat-hf",
   "compressor_model_path": "/cache/models/llama-2-7b-chat",
-  "compressor_present": false,
+  "compressor_present": true,
   "budget": [
     {
       "method": "llmlingua_2x",
