@@ -7,7 +7,7 @@
 | 提交项 | 证据 | 阶段 | 命令或结果 | 状态 |
 | --- | --- | --- | --- | --- |
 | 报告正文 | `docs/presentation/report-draft.md` | 全部 | 源稿，尚未导出 report.pdf | 未完成 |
-| slides.pptx / slides.pdf | 仓库里的模板字节未在本轮改动 | 全部 | 视觉仍在另做，不能写成已完成 | 未完成 |
+| slides.pptx / slides.pdf | `docs/presentation/final/slides.pptx` 与同目录 `slides.pdf` | 全部 | 9 页演示稿已入库。课程终包 zip 未打，投影和真人计时未做 | 未完成（终包） |
 | README 结果入口 | `README.md` | 全部 | 指向已有 DeepSeek 结果和阶段一离线审计 | 通过（入口）；终稿包装未完成 |
 | code/ 与 configs/ | `reproduction/`、`scripts/`、`configs/` | 全部 | 离线测试可导入这些模块 | 通过（代码在库内）；zip 未打 |
 | data/README.md | `data/README.md`、`manifests/resources.json` | 一 | 五个 gz 的 sha256 已在清单中 | 通过（说明）；gz 本身不进包 |
