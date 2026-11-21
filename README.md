@@ -67,7 +67,7 @@ CUDA 主比较与 NPU 消融分开保留来源，不拼接不同硬件的耗时�
 
 `reports/stage1-supplement/offline-audit.json` 用已提交的 300 条 DeepSeek 预测和校验过的公开 NQ 文件做了离线复核：五位置隔离失败 0，预算违规 0，首行 `best_subspan_em` 重评分不一致 0。官方 EM 仍是 92.0 / 87.0 / 64.0。诊断计数不替换这个指标。
 
-`reports/cursor_dialogue/` 是单独的问答设置。本环境不能提供无工具、无仓库、固定采样的受控会话，所以没有 Cursor 回答，也不能把它和 DeepSeek 的延迟或 EM 放在一起比。压缩模型仍不可用，对话不能代替 LLMLingua。说明见 `docs/presentation/report-draft.md`。这不是终稿。
+`reports/cursor_dialogue/` 是单独的问答设置。本环境不能提供无工具、无仓库、固定采样的受控会话，所以没有 Cursor 回答，也不能把它和 DeepSeek 的延迟或 EM 放在一起比。压缩模型仍不可用，对话不能代替 LLMLingua。说明见 `docs/presentation/report-draft.md`。验收矩阵和发言对照是 `docs/presentation/03-acceptance-matrix.md`、`04-speaker-map.md`。这不是终稿，PPT 和 zip 也还没有完成。
 
 ## 本地重建结果
 
