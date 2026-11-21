@@ -4,7 +4,7 @@
 
 已交在本分支的成品：
 
-- `slides-P1-P2-P7.pptx` 与 `previews/`
+- 当前全组演示稿是 `docs/presentation/final/slides.pptx`。`slides-P1-P2-P7.pptx` 与 `previews/` 是更早的三页草稿，不是现在的入口
 - `script.md`
 - `report-draft.md`
 - `cases.md`
